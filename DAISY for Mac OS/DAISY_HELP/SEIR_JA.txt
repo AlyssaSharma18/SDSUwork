@@ -1,0 +1,38 @@
+WRITE "SEIR_JA"$
+
+% B_ IS THE VARIABLE VECTOR 
+B_:={y1,x11,x12,x13,x14,x21,x22,x23,x24}$
+
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={b1,b1,b3,b4,e1,e2,e3,e4}$ 
+%p1-mu, p2-f, p3-epc,p4-epa,p5-gamc,p6-gama
+%b1-bcc,b2-bac,b3-bca,b4-baa,
+%e1-ecc,e2-eac,e3-eca,e4-eaa
+
+LET p1=0.0003,p2=0.00003,p3=0.2,p4=0.1,p5=0.2,p6=0.1$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF STATES 
+NX_:=8$
+%NUMBER OF OUTPUTS 
+NY_:=1$
+
+%MODEL EQUATIONS
+C_:={df(x11,t)=-p1*(x21+x22+x23+x24)-p2*x11-(b1*x13+e1*x12)*x11/(x11+x12+x13+x14)-(b2*x23+e2*x22)*x11/(x21+x22+x23+x24),
+df(x12,t) = (b1*x13+e1*x12)*x11/(x11+x12+x13+x14)+(b2*x23+e2*x22)*x11/(x21+x22+x23+x24)-(p3+p2)*x12,
+df(x13,t) = p3*x12-(p2+p5)*x13,
+df(x14,t) = p5*x13-p2*x14,
+df(x21,t) = p2*x11-p1*x21-(b4*x23+e4*x22)*x21-(b3*x13+e3*x12)*x21,
+df(x22,t) = (b4*x23+e4*x22)*x21+(b3*x13+e3*x12)*x21+p2*x12-(p4+p1)*x22,
+df(x23,t) = p2*x13+p4*x22-(p6+p1)*x23,
+df(x24,t) = p6*x23+p2*x14-p1*x24,
+y1=x13
+}$
+
+
+ 
+SEED_:=105$
+DAISY()$
+END$

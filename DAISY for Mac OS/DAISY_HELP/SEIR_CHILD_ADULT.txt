@@ -1,0 +1,36 @@
+WRITE "SEIR_CHILD_ADULT"$
+
+
+% B_ IS THE VARIABLE VECTOR 
+B_:={y, SC, SA, EC, EA, IC, IA, RC, RA}$
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={betacc, betaca, betaac, betaaa,xicc, xiaa, xica, xiac}$
+
+
+%NUMBER OF STATES 
+NX_:=8$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF OUTPUTS 
+NY_:=1$
+
+%MODEL EQUATIONS
+C_:={df(SC,t)=0.00003*750-0.00003*SC-(betacc*(IC/250)+betaac*(IA/750)+xicc*(EC/250)+xiac*(EA/750))*SC,
+df(SA, t)=0.00003*SC-(betaaa*IA + betaca*IC+xiaa*EA+xica*EC)*SA-0.00003*SA,
+df(EC,t)=(betacc*(IC/250)+betaac*(IA/750)+xicc*(EC/250)+xiac*(EA/750))*SC -0.205*EC - 0.00003*EC,
+df(EA,t)=(betaaa*IA + betaca*IC+xiaa*EA+xica*EC)*SA +0.00003*EC-0.2381*EA -0.00003*EA,
+df(IC,t)=0.205*EC -0.00003*IC - (betacc*(IC/250)+betaac*(IA/750)+xicc*(EC/250)+xiac*(EA/750))*IC,
+df(IA,t)=0.00003*IC + (0.2381)*EA - (betaaa*IA + betaca*IC+xiaa*EA+xica*EC)*IA -0.00003*IA,
+df(RC,t)=0.1*IC -0.00003*RC,
+df(RA,t)=0.11*IA +0.00003*RC -0.00003*RA,
+y=I
+}$
+
+
+SEED_:=55$
+DAISY()$
+
+END$
+

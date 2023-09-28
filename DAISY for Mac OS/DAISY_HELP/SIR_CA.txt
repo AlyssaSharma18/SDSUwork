@@ -1,0 +1,36 @@
+WRITE "SIR"$
+
+
+% B_ IS THE VARIABLE VECTOR 
+B_:={y, SC, SA, IC, IA, RC, RA}$
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={betacc, betaaa, betaca, betaac}$
+LET gammaa=0.11$
+LET gammac=0.11$
+%LET betaac=betaca/2$
+
+%NUMBER OF STATES 
+NX_:=6$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF OUTPUTS 
+NY_:=1$
+
+%MODEL EQUATIONS
+C_:={df(SC,t)=0.00003*750 - (betacc*(IC/250))+ betaca*(IA/750),
+df(SA,t)=(-((betaac*(IC/250))+betaaa*(IA/750))*SA)-0.00003*SA + 0.00003*SC,
+df(IC,t)=((betacc*(IC/250)+betaca*(IA/750)))*SC - gammac*IC - (0.00003/6000)*IC,
+df(IA,t)=((betaac*(IC/250))+betaca*(IA/750))*SA - (gammaa+ 0.00003)*IA + (0.00003/6000)*IC,
+df(RC,t)=(gammac*IC)-(0.00003/6000)*RC,
+df(RA,t)=gammaa*IA - 0.00003*RA + (0.00003/6000)*RC,
+y=I
+}$
+
+
+SEED_:=55$
+DAISY()$
+
+END$
+
