@@ -1,0 +1,10 @@
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+&\textbf{$\beta_h$}&\textbf{$\beta_v$}&\textbf{$\gamma$}&\textbf{$\mu_h$}&\textbf{$\mu_v$}\\\hline
+\textbf{0\%}&39.18&18.77&41.63&100.00&14.90\\\hline
+\textbf{1\%}&33.40&29.64&36.04&99.12&28.78\\\hline
+\textbf{5\%}&30.33&26.34&33.41&97.94&25.70\\\hline
+\textbf{10\%}&29.92&26.77&32.84&109.24&26.61\\\hline
+\textbf{20\%}&30.82&29.24&33.55&98.99&29.42\\\hline
+\textbf{30\%}&31.24&28.94&34.01&98.78&29.26\\\hline
+\end{tabular}

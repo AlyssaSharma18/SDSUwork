@@ -1,0 +1,10 @@
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+&\textbf{\beta_h}&\textbf{\beta_v}&\textbf{\gamma}&\textbf{\mu_h}&\textbf{\mu_v}&\textbf{\Pi_h}&\textbf{Pi_v}\\\hline
+\textbf{   0}&0.00&0.00&0.00&0.00&0.00&0.00&0.00\\\hline
+\textbf{0.01}&0.08&0.05&0.09&2.99&0.08&3.22&0.14\\\hline
+\textbf{0.05}&0.83&0.65&0.90&19.42&0.78&18.57&1.23\\\hline
+\textbf{ 0.1}&2.30&1.98&2.41&30.10&1.96&29.95&2.90\\\hline
+\textbf{ 0.2}&5.14&4.55&5.54&42.11&4.02&48.59&6.05\\\hline
+\textbf{ 0.3}&8.30&8.38&9.24&68.22&6.70&62.09&9.68\\\hline
+\end{tabular}
