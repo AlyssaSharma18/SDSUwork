@@ -1,0 +1,28 @@
+WRITE "TREATMENT"$
+
+% B_ IS THE VARIABLE VECTOR
+B_:={y, S, I, TR, N}$
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+% B1_ IS THE UNKNOWN PARAMETER VECTOR 
+B1_:={beta, delta, alpha, gamma, eta, f, fT}$
+
+% NUMBER OF STATES
+NX_:=4$
+% NUMBER OF INPUTS
+NU_:=0$
+% NUMBER OF OUTPUTS
+NY_:=1$
+
+% MODEL EQUATIONS 
+C_:={df(S,t)=-beta*N*S*(I+delta*TR),
+df(I,t)=beta*N*S*(I+delta*TR)-(alpha+gamma)*I,
+df(TR,t)=gammma*I-eta*TR,
+df(N,t)=-(1-f)*alpha*I-(1-fT)*eta*TR,
+y=I
+}$
+
+SEED_ := 1000$
+DAISY()$
+
+END$

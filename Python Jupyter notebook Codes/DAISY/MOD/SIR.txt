@@ -1,0 +1,31 @@
+WRITE "SIR"$
+
+
+% B_ IS THE VARIABLE VECTOR 
+B_:={y, S, I, R}$
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={beta,alpha}$
+
+
+%NUMBER OF STATES 
+NX_:=3$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF OUTPUTS 
+NY_:=1$
+
+%MODEL EQUATIONS
+C_:={df(S,t)=-beta*S*I,
+df(I,t)= beta*S*I-alpha*I,
+df(R,t)= alpha*I,
+y=I
+}$
+
+
+SEED_:=55$
+DAISY()$
+
+END$
+

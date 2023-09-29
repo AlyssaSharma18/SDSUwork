@@ -1,0 +1,92 @@
+
+A MICHAELIS-MENTEN MODEL OF 2 COMPARTMENTS WITH KNOWN INITIAL CONDITION$
+
+seed_ := 19$
+
+NUMBER OF EQUATIONS$
+
+n_ := 4$
+
+VARIABLES VECTOR$
+
+b_ := {u1,
+y1,
+y2,
+x1,
+x2}$
+
+UNKNOWN PARAMETER(S) VECTOR$
+
+b1_ := {km,p12,p21,vmax}$
+
+RANKING AMONG THE VARIABLES$
+
+bb_ := {u1,
+y1,
+y2,
+df(u1,t),
+df(y1,t),
+df(y2,t),
+df(u1,t,2),
+df(y1,t,2),
+df(y2,t,2),
+x1,
+x2,
+df(x1,t),
+df(x2,t)}$
+
+NUMBER OF INPUT(S)$
+
+nu_ := 1$
+
+NUMBER OF OUTPUT(S)$
+
+ny_ := 2$
+
+NUMBER OF STATE(S) $
+
+nx_ := 2$
+
+MODEL EQUATION(S)$
+
+c_ := {df(x1,t)=((u1 - vmax - p21*x1 + p12*x2)*x1 - (p21*x1 - u1 - p12*x2)*km)/(km + x1),
+df(x2,t)= - p12*x2 + p21*x1,
+y1=x1,
+y2=x2}$
+
+CHARACTERISTIC SET$
+
+aa_(1) := df(y1,t)*y1 + df(y1,t)*km - u1*y1 - u1*km + y1**2*p21 - y1*y2*p12 + y1*(km*p21 + vmax) - y2*km*p12$
+
+aa_(2) :=  - df(y2,t) + y1*p21 - y2*p12$
+
+aa_(3) :=  - x1 + y1$
+
+aa_(4) :=  - x2 + y2$
+
+MODEL ALGEBRAICALLY OBSERVABLE$
+
+RANDOMLY CHOSEN NUMERICAL PARAMETER(S) VECTOR$
+
+b2_ := {km=1,p12=2,p21=14,vmax=5}$
+
+EXHAUSTIVE SUMMARY $
+
+flist_ := {km - 1,
+ - km + 1,
+p21 - 14,
+ - p12 + 2,
+ - km*p12 + 2,
+p21 - 14,
+ - p12 + 2,
+km*p21 + vmax - 19}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+ G_:=GROESOLVE(FLIST_,B1_) $
+
+g_ := {{vmax=5,p12=2,p21=14,km=1}}$
+
+MODEL GLOBALLY IDENTIFIABLE$
+
+INITIAL CONDITION(S)  NOT NECESSARY$

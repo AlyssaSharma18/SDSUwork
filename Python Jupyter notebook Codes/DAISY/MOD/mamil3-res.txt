@@ -1,0 +1,103 @@
+
+A MAMILLARY MODEL OF THREE COMPARTMENTS$
+
+seed_ := 27$
+
+NUMBER OF EQUATIONS$
+
+n_ := 4$
+
+VARIABLES VECTOR$
+
+b_ := {u1,
+y1,
+x1,
+x2,
+x3}$
+
+UNKNOWN PARAMETER(S) VECTOR$
+
+b1_ := {a12,
+a13,
+a21,
+a31,
+a01}$
+
+RANKING AMONG THE VARIABLES$
+
+bb_ := {u1,
+y1,
+df(u1,t),
+df(y1,t),
+df(u1,t,2),
+df(y1,t,2),
+df(u1,t,3),
+df(y1,t,3),
+x1,
+x2,
+x3,
+df(x1,t),
+df(x2,t),
+df(x3,t)}$
+
+NUMBER OF INPUT(S)$
+
+nu_ := 1$
+
+NUMBER OF OUTPUT(S)$
+
+ny_ := 1$
+
+NUMBER OF STATE(S) $
+
+nx_ := 3$
+
+MODEL EQUATION(S)$
+
+c_ := {df(x1,t)= - (a31*x1 - u1 + a21*x1 - a13*x3 - a12*x2) - a01*x1,
+df(x2,t)= - a12*x2 + a21*x1,
+df(x3,t)= - a13*x3 + a31*x1,
+y1=x1}$
+
+CHARACTERISTIC SET$
+
+aa_(1) := df(u1,t,2)*a12*a13**2*( - a12 + a13) + df(u1,t)*a12*a13**2*( - a12**2 + a13**2) + df(y1,t,3)*a12*a13**2*(a12 -
+ a13) + df(y1,t,2)*a12*a13**2*(a01*a12 - a01*a13 + a12**2 + a12*a21 + a12*a31 - a13**2 - a13*a21 - a13*a31) + df(y1,t)*
+a12*a13**2*(a01*a12**2 - a01*a13**2 + a12**2*a13 + a12**2*a31 - a12*a13**2 + a12*a13*a21 - a12*a13*a31 - a13**2*a21) + 
+u1*a12**2*a13**3*( - a12 + a13) + y1*a01*a12**2*a13**3*(a12 - a13)$
+
+aa_(2) :=  - x1 + y1$
+
+aa_(3) :=  - df(u1,t)*a13 + df(y1,t,2)*a13 + df(y1,t)*a13*(a01 + a13 + a21 + a31) - u1*a13**2 + x2*a12*a13*(a12 - a13) +
+ y1*a13*(a01*a13 - a12*a21 + a13*a21)$
+
+aa_(4) :=  - df(u1,t)*a12*a13 + df(y1,t,2)*a12*a13 + df(y1,t)*a12*a13*(a01 + a12 + a21 + a31) - u1*a12**2*a13 + x3*a12*
+a13**2*( - a12 + a13) + y1*a12*a13*(a01*a12 + a12*a31 - a13*a31)$
+
+MODEL ALGEBRAICALLY OBSERVABLE$
+
+NORMALIZED  INPUT /OUTPUT RELATION(S) $
+
+aan_(1) := df(u1,t,2) + df(u1,t)*(a12 + a13) - df(y1,t,3) - df(y1,t,2)*(a01 + a12 + a13 + a21 + a31) - df(y1,t)*(a01*a12
+ + a01*a13 + a12*a13 + a12*a31 + a13*a21) + u1*a12*a13 - y1*a01*a12*a13$
+
+RANDOMLY CHOSEN NUMERICAL PARAMETER(S) VECTOR$
+
+b2_ := {a12=9,a13=11,a21=3,a31=26,a01=1}$
+
+EXHAUSTIVE SUMMARY $
+
+flist_ := {a12*a13 - 99,
+ - a01*a12*a13 + 99,
+a12 + a13 - 20,
+ - a01*a12 - a01*a13 - a12*a13 - a12*a31 - a13*a21 + 386,
+ - a01 - a12 - a13 - a21 - a31 + 50}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+ G_:=GROESOLVE(FLIST_,B1_) $
+
+g_ := {{a21=26,a31=3,a01=1,a12=11,a13=9},
+{a21=3,a31=26,a01=1,a12=9,a13=11}}$
+
+MODEL LOCALLY IDENTIFIABLE$

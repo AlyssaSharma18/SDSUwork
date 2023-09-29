@@ -1,0 +1,172 @@
+
+A THREE STATE MODEL WITH INITIAL CONDITIONS$
+
+seed_ := 25$
+
+NUMBER OF EQUATIONS$
+
+n_ := 4$
+
+VARIABLES VECTOR$
+
+b_ := {u1,
+y1,
+x1,
+x2,
+x3}$
+
+UNKNOWN PARAMETER(S) VECTOR$
+
+b1_ := {p1,
+p2,
+p3,
+p4,
+p5,
+p6,
+p7}$
+
+RANKING AMONG THE VARIABLES$
+
+bb_ := {u1,
+y1,
+df(u1,t),
+df(y1,t),
+df(u1,t,2),
+df(y1,t,2),
+df(u1,t,3),
+df(y1,t,3),
+x1,
+x2,
+x3,
+df(x1,t),
+df(x2,t),
+df(x3,t)}$
+
+NUMBER OF INPUT(S)$
+
+nu_ := 1$
+
+NUMBER OF OUTPUT(S)$
+
+ny_ := 1$
+
+NUMBER OF STATE(S) $
+
+nx_ := 3$
+
+MODEL EQUATION(S)$
+
+c_ := {df(x1,t)=p2*x2 + u1 - p1*x1,
+df(x2,t)= - (p4*x2 - p5*x3) + p3*x1,
+df(x3,t)=p6*x1 - p7*x3,
+x1=y1}$
+
+CHARACTERISTIC SET$
+
+aa_(1) :=  - df(u1,t,2)*p2**3*p5 - df(u1,t)*p2**3*p5*(p4 + p7) + df(y1,t,3)*p2**3*p5 + df(y1,t,2)*p2**3*p5*(p1 + p4 + p7
+) + df(y1,t)*p2**3*p5*(p1*p4 + p1*p7 - p2*p3 + p4*p7) - u1*p2**3*p4*p5*p7 + y1*p2**3*p5*(p1*p4*p7 - p2*p3*p7 - p2*p5*p6)
+$
+
+aa_(2) := x1 - y1$
+
+aa_(3) := df(y1,t) - u1 - x2*p2 + y1*p1$
+
+aa_(4) :=  - df(u1,t)*p2 + df(y1,t,2)*p2 + df(y1,t)*p2*(p1 + p4) - u1*p2*p4 - x3*p2**2*p5 + y1*p2*(p1*p4 - p2*p3)$
+
+MODEL ALGEBRAICALLY OBSERVABLE$
+
+NORMALIZED  INPUT /OUTPUT RELATION(S) $
+
+aan_(1) := df(u1,t,2) + df(u1,t)*(p4 + p7) - df(y1,t,3) - df(y1,t,2)*(p1 + p4 + p7) + df(y1,t)*( - p1*p4 - p1*p7 + p2*p3
+ - p4*p7) + u1*p4*p7 + y1*( - p1*p4*p7 + p2*p3*p7 + p2*p5*p6)$
+
+RANDOMLY CHOSEN NUMERICAL PARAMETER(S) VECTOR$
+
+b2_ := {p1=2,p2=13,p3=22,p4=15,p5=12,p6=18,p7=11}$
+
+EXHAUSTIVE SUMMARY $
+
+flist_ := {p4*p7 - 165,
+p4 + p7 - 26,
+ - p1 - p4 - p7 + 28,
+ - p1*p4*p7 + p2*p3*p7 + p2*p5*p6 - 5624,
+ - p1*p4 - p1*p7 + p2*p3 - p4*p7 - 69}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+ G_:=GROESOLVE(FLIST_,B1_) $
+
+g_ := {{p5=2808/(p2*p6),p3=286/p2,p1=2,p4=15,p7=11},
+{p5=1664/(p2*p6),p3=286/p2,p1=2,p4=11,p7=15}}$
+
+MODEL NON IDENTIFIABLE$
+
+IDENTIFIABILITY WITH THE KNOWN INITIAL CONDITION(S)$
+
+BBBI_ INCLUDES THE BB_ ENTRIES CALCULATED AT T=0$
+
+bbbi_ := {df(y1,t,3)=y1d30,
+df(u1,t,3)=u1d30,
+df(y1,t,2)=y1d20,
+df(u1,t,2)=u1d20,
+df(y1,t)=y1d10,
+df(u1,t)=u1d10,
+y1=y10,
+u1=u10,
+x1=x10,
+x2=x20,
+x3=x30}$
+
+UNKNOWN PARAMETER(S) VECTOR$
+
+b1i_ := {p1,
+p2,
+p3,
+p4,
+p5,
+p6,
+p7}$
+
+EXHAUSTIVE SUMMARY EVALUATED AT TIME T=0 $
+
+bbi_ := {y1d30,y1d20,y1d10,y10}$
+
+flisty_ := {26364*( - 165*u10 - 26*u1d10 - u1d20 - 5624*y10 - 69*y1d10 + 28*y1d20 + y1d30),
+x10 - y10,
+ - u10 - 13*x20 + 2*y10 + y1d10,
+13*( - 15*u10 - u1d10 - 156*x30 - 256*y10 + 17*y1d10 + y1d20)}$
+
+ GY_:=GROESOLVE(FLISTY_,BBI_)$
+
+gy_ := {{y10=x10,
+y1d10=u10 - 2*x10 + 13*x20,
+y1d20= - 2*u10 + u1d10 + 290*x10 - 221*x20 + 156*x30,
+y1d30=290*u10 - 2*u1d10 + u1d20 - 2634*x10 + 7085*x20 - 4368*x30}}$
+
+RANDOMLY CHOSEN NUMERICAL PARAMETER(S ) VECTOR$
+
+b2i_ := {p1=2,p2=13,p3=22,p4=15,p5=12,p6=18,p7=11}$
+
+EXHAUSTIVE SUMMARY$
+
+flist1i_ := {p4*p7 - 165,
+p4 + p7 - 26,
+ - p1 - p4 - p7 + 28,
+ - p1*p4*p7 + p2*p3*p7 + p2*p5*p6 - 5624,
+ - p1*p4 - p1*p7 + p2*p3 - p4*p7 - 69,
+p1*x10 - p2*x20 - 2*x10 + 13*x20,
+p2*(p1*p4*x10 + p1*u10 - 2*p1*x10 + 13*p1*x20 - p2*p3*x10 - p2*p5*x30 - 2*p4*x10 + 13*p4*x20 - 2*u10 + 290*x10 - 221*x20
+ + 156*x30)}$
+
+GI_=GROESOLVE(FLIST1I_,B1I_)  $
+
+gi_ := {{p6=( - 32*x30)/(x20 - 3*x30),
+p5=( - 4*x20 + 12*x30)/x30,
+p3=22,
+p1=2,
+p7=15,
+p4=11,
+p2=13},
+{p6=18,p5=12,p3=22,p1=2,p7=11,p4=15,p2=13}}$
+
+MODEL LOCALLY IDENTIFIABLE$

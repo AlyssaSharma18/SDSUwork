@@ -1,0 +1,234 @@
+
+Avian Model Results$
+
+seed_ := 25$
+
+NUMBER OF EQUATIONS$
+
+n_ := 8$
+
+VARIABLES VECTOR$
+
+b_ := {y1,
+y2,
+y3,
+x1,
+x2,
+x3,
+x4,
+x5}$
+
+UNKNOWN PARAMETER(S) VECTOR$
+
+b1_ := {l,
+lb,
+u,
+ub,
+v,
+vb,
+b,
+bh,
+bb,
+g}$
+
+RANKING AMONG THE VARIABLES$
+
+bb_ := {y1,
+y2,
+y3,
+df(y1,t),
+df(y2,t),
+df(y3,t),
+df(y1,t,2),
+df(y2,t,2),
+df(y3,t,2),
+df(y1,t,3),
+df(y2,t,3),
+df(y3,t,3),
+df(y1,t,4),
+df(y2,t,4),
+df(y3,t,4),
+df(y1,t,5),
+df(y2,t,5),
+df(y3,t,5),
+x1,
+x2,
+x3,
+x4,
+x5,
+df(x1,t),
+df(x2,t),
+df(x3,t),
+df(x4,t),
+df(x5,t)}$
+
+NUMBER OF INPUT(S)$
+
+nu_ := 0$
+
+NUMBER OF OUTPUT(S)$
+
+ny_ := 3$
+
+NUMBER OF STATE(S) $
+
+nx_ := 5$
+
+MODEL EQUATION(S)$
+
+c_ := {df(x1,t)=l - u*x1 - bh*x1*x2 - b*x1*x5,
+df(x2,t)= - (u + v + g - bh*x1)*x2 + b*x1*x5,
+df(x3,t)=g*x2 - u*x3,
+df(x4,t)=lb - ub*x4 - bb*x4*x5,
+df(x5,t)= - (ub + vb)*x5 + bb*x4*x5,
+df(y1,t)=b*x1*x5 + bh*x1*x2,
+df(y2,t)=bh*x1*x2,
+df(y3,t)=g*x2}$
+
+CHARACTERISTIC SET$
+
+aa_(1) :=  - df(y1,t)*df(y2,t)**8*df(y3,t)*b**2*bh**7*g**8 + df(y1,t)*df(y2,t)**7*df(y3,t)**3*b**2*bh**8*g**6 + df(y2,t,
+2)*df(y2,t)**7*df(y3,t)**2*b**2*bh**7*g**7 + df(y2,t)**8*df(y3,t)**2*b**2*bh**7*g**7*(g + 2*u + v) - df(y2,t)**7*df(y3,t
+)**3*b**2*bh**8*g**6*l$
+
+aa_(2) := df(y1,t)*df(y2,t)**11*df(y3,t)**2*b**3*bh**10*g**12 - df(y2,t)**11*df(y3,t,2)*df(y3,t)**2*b**3*bh**10*g**11 - 
+df(y2,t)**11*df(y3,t)**3*b**3*bh**10*g**11*(g + u + v)$
+
+aa_(3) :=  - df(y1,t,3)*df(y1,t)*df(y2,t)**48*df(y3,t)**10*b**14*bb*bh**44*g**48 + df(y1,t,3)*df(y2,t)**49*df(y3,t)**10*
+b**14*bb*bh**44*g**48 + df(y1,t,2)**2*df(y2,t)**48*df(y3,t)**10*b**14*bb*bh**44*g**48 - df(y1,t,2)*df(y1,t)**2*df(y2,t)
+**47*df(y3,t)**11*b**13*bb*bh**45*g**47*(b + bb) - df(y1,t,2)*df(y1,t)*df(y2,t)**49*df(y3,t)**9*b**14*bb*bh**44*g**49 + 
+df(y1,t,2)*df(y1,t)*df(y2,t)**48*df(y3,t)**11*b**13*bb*bh**45*g**47*(3*b + 2*bb) - df(y1,t,2)*df(y1,t)*df(y2,t)**48*df(
+y3,t)**10*b**14*bb*bh**44*g**48*ub - df(y1,t,2)*df(y2,t)**50*df(y3,t)**9*b**14*bb*bh**44*g**49 - df(y1,t,2)*df(y2,t)**49
+*df(y3,t)**11*b**13*bb**2*bh**45*g**47 + df(y1,t,2)*df(y2,t)**49*df(y3,t)**10*b**14*bb*bh**44*g**48*(2*g + 4*u + ub + 2*
+v) - 2*df(y1,t,2)*df(y2,t)**48*df(y3,t)**11*b**14*bb*bh**45*g**47*l - df(y1,t)**4*df(y2,t)**46*df(y3,t)**12*b**13*bb*bh
+**46*g**46*(b + bb) + df(y1,t)**3*df(y2,t)**48*df(y3,t)**10*b**13*bb*bh**45*g**48*( - 2*b + bb) + 2*df(y1,t)**3*df(y2,t)
+**47*df(y3,t)**12*b**13*bb*bh**46*g**46*(b + bb) - df(y1,t)**3*df(y2,t)**47*df(y3,t)**11*b**13*bb*bh**45*g**47*(b*u + b*
+ub + bb*u + bb*ub + bb*vb) + df(y1,t)**3*df(y2,t)**46*df(y3,t)**12*b**13*bb*bh**46*g**46*l*(2*b + bb) + df(y1,t)**2*df(
+y2,t)**50*df(y3,t)**8*b**14*bb*bh**44*g**50 - 2*df(y1,t)**2*df(y2,t)**49*df(y3,t)**10*b**13*bb**2*bh**45*g**48 + df(y1,t
+)**2*df(y2,t)**49*df(y3,t)**9*b**14*bb*bh**44*g**49*( - g - 3*u + ub - v) - df(y1,t)**2*df(y2,t)**48*df(y3,t)**12*b**13*
+bb**2*bh**46*g**46 + df(y1,t)**2*df(y2,t)**48*df(y3,t)**11*b**13*bb*bh**45*g**47*(2*b*g + 5*b*u + b*ub + 2*b*v - bb*g + 
+bb*u + 3*bb*ub - bb*v + 3*bb*vb) + df(y1,t)**2*df(y2,t)**48*df(y3,t)**10*b**14*bb*bh**44*g**48*(bb*lb + 2*bh*l - u*ub - 
+ub**2 - ub*vb) + 2*df(y1,t)**2*df(y2,t)**47*df(y3,t)**12*b**13*bb*bh**46*g**46*l*( - 2*b - bb) + df(y1,t)**2*df(y2,t)**
+47*df(y3,t)**11*b**14*bb*bh**45*g**47*l*(u + ub) - df(y1,t)**2*df(y2,t)**46*df(y3,t)**12*b**14*bb*bh**46*g**46*l**2 + df
+(y1,t)*df(y2,t)**50*df(y3,t)**10*b**13*bb**2*bh**45*g**48 - df(y1,t)*df(y2,t)**50*df(y3,t)**9*b**14*bb*bh**44*g**49*(g +
+ u + ub + v) + df(y1,t)*df(y2,t)**49*df(y3,t)**11*b**13*bb**2*bh**45*g**47*(2*g + u - 3*ub + 2*v - 3*vb) + df(y1,t)*df(
+y2,t)**49*df(y3,t)**10*b**14*bb*bh**44*g**48*( - 2*bb*lb + g**2 + 4*g*u - g*ub + 2*g*v + 4*u**2 + 4*u*v + 2*ub**2 - ub*v
+ + 2*ub*vb + v**2) + df(y1,t)*df(y2,t)**48*df(y3,t)**12*b**13*bb**2*bh**46*g**46*l + df(y1,t)*df(y2,t)**48*df(y3,t)**11*
+b**14*bb*bh**45*g**47*l*( - 2*g - 5*u - ub - 2*v) + 2*df(y1,t)*df(y2,t)**47*df(y3,t)**12*b**14*bb*bh**46*g**46*l**2 + df
+(y2,t)**50*df(y3,t)**11*b**13*bb**2*bh**45*g**47*( - g - u + ub - v + vb) + df(y2,t)**50*df(y3,t)**10*b**14*bb*bh**44*g
+**48*(bb*lb + g*ub + u*ub - ub**2 + ub*v - ub*vb)$
+
+aa_(4) := df(y2,t)*g - df(y3,t)*x1*bh$
+
+aa_(5) :=  - df(y2,t)*df(y3,t)*bh + df(y2,t)*x2*bh*g$
+
+aa_(6) :=  - df(y1,t,2)*df(y2,t)**14*df(y3,t)**3*b**4*bh**13*g**14 - df(y1,t)**2*df(y2,t)**13*df(y3,t)**4*b**4*bh**14*g
+**13 + df(y1,t)*df(y2,t)**15*df(y3,t)**2*b**4*bh**13*g**15 + df(y1,t)*df(y2,t)**14*df(y3,t)**3*x4*b**4*bb*bh**13*g**14 -
+ df(y1,t)*df(y2,t)**14*df(y3,t)**3*b**4*bh**13*g**14*(u + ub + vb) + df(y1,t)*df(y2,t)**13*df(y3,t)**4*b**4*bh**14*g**13
+*l - df(y2,t)**15*df(y3,t)**3*x4*b**4*bb*bh**13*g**14 + df(y2,t)**15*df(y3,t)**3*b**4*bh**13*g**14*( - g - u + ub - v + 
+vb)$
+
+aa_(7) :=  - df(y1,t)*df(y2,t)*df(y3,t)*bh**2*g + df(y2,t)**2*df(y3,t)*bh**2*g + df(y2,t)**2*x5*b*bh*g**2$
+
+aa_(8) := df(x3,t)*df(y2,t)*bh*g - df(y2,t)*df(y3,t)*bh*g + df(y2,t)*x3*bh*g*u$
+
+MODEL NOT ALGEBRAICALLY OBSERVABLE$
+
+NORMALIZED  INPUT /OUTPUT RELATION(S) $
+
+aan_(1) := (df(y1,t)*df(y2,t)**8*df(y3,t)*g**2 - df(y1,t)*df(y2,t)**7*df(y3,t)**3*bh - df(y2,t,2)*df(y2,t)**7*df(y3,t)**
+2*g + df(y2,t)**8*df(y3,t)**2*g*( - g - 2*u - v) + df(y2,t)**7*df(y3,t)**3*bh*l)/g**2$
+
+aan_(2) := (df(y1,t)*df(y2,t)**11*df(y3,t)**2*g - df(y2,t)**11*df(y3,t,2)*df(y3,t)**2 - df(y2,t)**11*df(y3,t)**3*(g + u 
++ v))/g$
+
+aan_(3) := (df(y1,t,3)*df(y1,t)*df(y2,t)**48*df(y3,t)**10*b*g**2 - df(y1,t,3)*df(y2,t)**49*df(y3,t)**10*b*g**2 - df(y1,t
+,2)**2*df(y2,t)**48*df(y3,t)**10*b*g**2 + df(y1,t,2)*df(y1,t)**2*df(y2,t)**47*df(y3,t)**11*bh*g*(b + bb) + df(y1,t,2)*df
+(y1,t)*df(y2,t)**49*df(y3,t)**9*b*g**3 + df(y1,t,2)*df(y1,t)*df(y2,t)**48*df(y3,t)**11*bh*g*( - 3*b - 2*bb) + df(y1,t,2)
+*df(y1,t)*df(y2,t)**48*df(y3,t)**10*b*g**2*ub + df(y1,t,2)*df(y2,t)**50*df(y3,t)**9*b*g**3 + df(y1,t,2)*df(y2,t)**49*df(
+y3,t)**11*bb*bh*g + df(y1,t,2)*df(y2,t)**49*df(y3,t)**10*b*g**2*( - 2*g - 4*u - ub - 2*v) + 2*df(y1,t,2)*df(y2,t)**48*df
+(y3,t)**11*b*bh*g*l + df(y1,t)**4*df(y2,t)**46*df(y3,t)**12*bh**2*(b + bb) + df(y1,t)**3*df(y2,t)**48*df(y3,t)**10*bh*g
+**2*(2*b - bb) - 2*df(y1,t)**3*df(y2,t)**47*df(y3,t)**12*bh**2*(b + bb) + df(y1,t)**3*df(y2,t)**47*df(y3,t)**11*bh*g*(b*
+u + b*ub + bb*u + bb*ub + bb*vb) + df(y1,t)**3*df(y2,t)**46*df(y3,t)**12*bh**2*l*( - 2*b - bb) - df(y1,t)**2*df(y2,t)**
+50*df(y3,t)**8*b*g**4 + 2*df(y1,t)**2*df(y2,t)**49*df(y3,t)**10*bb*bh*g**2 + df(y1,t)**2*df(y2,t)**49*df(y3,t)**9*b*g**3
+*(g + 3*u - ub + v) + df(y1,t)**2*df(y2,t)**48*df(y3,t)**12*bb*bh**2 + df(y1,t)**2*df(y2,t)**48*df(y3,t)**11*bh*g*( - 2*
+b*g - 5*b*u - b*ub - 2*b*v + bb*g - bb*u - 3*bb*ub + bb*v - 3*bb*vb) + df(y1,t)**2*df(y2,t)**48*df(y3,t)**10*b*g**2*( - 
+bb*lb - 2*bh*l + u*ub + ub**2 + ub*vb) + 2*df(y1,t)**2*df(y2,t)**47*df(y3,t)**12*bh**2*l*(2*b + bb) - df(y1,t)**2*df(y2,
+t)**47*df(y3,t)**11*b*bh*g*l*(u + ub) + df(y1,t)**2*df(y2,t)**46*df(y3,t)**12*b*bh**2*l**2 - df(y1,t)*df(y2,t)**50*df(y3
+,t)**10*bb*bh*g**2 + df(y1,t)*df(y2,t)**50*df(y3,t)**9*b*g**3*(g + u + ub + v) + df(y1,t)*df(y2,t)**49*df(y3,t)**11*bb*
+bh*g*( - 2*g - u + 3*ub - 2*v + 3*vb) + df(y1,t)*df(y2,t)**49*df(y3,t)**10*b*g**2*(2*bb*lb - g**2 - 4*g*u + g*ub - 2*g*v
+ - 4*u**2 - 4*u*v - 2*ub**2 + ub*v - 2*ub*vb - v**2) - df(y1,t)*df(y2,t)**48*df(y3,t)**12*bb*bh**2*l + df(y1,t)*df(y2,t)
+**48*df(y3,t)**11*b*bh*g*l*(2*g + 5*u + ub + 2*v) - 2*df(y1,t)*df(y2,t)**47*df(y3,t)**12*b*bh**2*l**2 + df(y2,t)**50*df(
+y3,t)**11*bb*bh*g*(g + u - ub + v - vb) + df(y2,t)**50*df(y3,t)**10*b*g**2*( - bb*lb - g*ub - u*ub + ub**2 - ub*v + ub*
+vb))/(b*g**2)$
+
+RANDOMLY CHOSEN NUMERICAL PARAMETER(S) VECTOR$
+
+b2_ := {l=2,
+lb=13,
+u=22,
+ub=15,
+v=12,
+vb=18,
+b=11,
+bh=16,
+bb=24,
+g=8}$
+
+EXHAUSTIVE SUMMARY $
+
+flist_ := {g - 8,
+ub - 15,
+g - 8,
+ - g**2 + 64,
+(g - 8)/(8*g),
+( - 4*bh + g**2)/(4*g**2),
+(g - 8)/(8*g),
+( - 48*b*g + 11*bb*bh)/(11*b*g),
+(2*(bh*l - 4*g))/g,
+(2*bh*l - g**2)/(2*g**2),
+(2*( - 384*b + 11*bb*bh))/(11*b),
+( - 96*b*g**2 + 11*bb*bh**2)/(11*b*g**2),
+(bh**2*l**2 - 16*g**2)/g**2,
+(384*b - 11*bb*bh)/(11*b),
+(192*b*g**2 - 11*bb*bh**2*l)/(11*b*g**2),
+(2*( - bh**2*l**2 + 16*g**2))/g**2,
+(2*( - 11*b*bh**2 + 140*b*g**2 - 11*bb*bh**2))/(11*b*g**2),
+( - 22*b*bh**2*l + 368*b*g**2 - 11*bb*bh**2*l)/(11*b*g**2),
+(11*b*bh - 70*b*g + 11*bb*bh)/(11*b*g),
+(7*g - 2*u - v)/g,
+(17*g - 4*u - 4*v)/(4*g),
+(2*(22*b*bh**2*l - 368*b*g**2 + 11*bb*bh**2*l))/(11*b*g**2),
+( - bh*l*u - bh*l*ub + 148*g)/g,
+( - 33*b*bh + 162*b*g - 22*bb*bh)/(11*b*g),
+(11*b*bh**2 - 140*b*g**2 + 11*bb*bh**2)/(11*b*g**2),
+(22*b*bh + 32*b - 11*bb*bh)/(11*b),
+ - 2*g - 4*u - ub - 2*v + 143,
+g**2 + g*u + g*ub + g*v - 456,
+g**2 + 3*g*u - g*ub + g*v - 568,
+ - bb*lb - 2*bh*l + u*ub + ub**2 + ub*vb - 449,
+(2*bh*g*l + 5*bh*l*u + bh*l*ub + 2*bh*l*v - 660*g)/g,
+(b*bh*u + b*bh*ub - 314*b*g + bb*bh*u + bb*bh*ub + bb*bh*vb)/(b*g),
+( - 1776*b*g - 22*bb*bh*g - 11*bb*bh*u + 33*bb*bh*ub - 22*bb*bh*v + 33*bb*bh*vb)/(11*b*g),
+( - 432*b*g + 11*bb*bh*g + 11*bb*bh*u - 11*bb*bh*ub + 11*bb*bh*v - 11*bb*bh*vb)/(11*b*g),
+ - bb*lb - g*ub - u*ub + ub**2 - ub*v + ub*vb + 447,
+( - 22*b*bh*g - 55*b*bh*u - 11*b*bh*ub - 22*b*bh*v + 8478*b*g + 11*bb*bh*g - 11*bb*bh*u - 33*bb*bh*ub + 11*bb*bh*v - 33*
+bb*bh*vb)/(11*b*g),
+2*bb*lb - g**2 - 4*g*u + g*ub - 2*g*v - 4*u**2 - 4*u*v - 2*ub**2 + ub*v - 2*ub*vb - v**2 + 4162}$
+
+MODEL PARAMETER SOLUTION(S)$
+
+ G_:=GROESOLVE(FLIST_,B1_) $
+
+g_ := {{lb=312/bb,
+vb=18,
+b=(11*bb)/24,
+v=12,
+u=22,
+l=2,
+ub=15,
+g=8,
+bh=16}}$
+
+MODEL NON IDENTIFIABLE$
+

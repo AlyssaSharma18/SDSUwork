@@ -1,0 +1,32 @@
+WRITE "SI-VH Pi is mu 1 output"$
+
+
+% B_ IS THE VARIABLE VECTOR 
+% S1 is susceptible host S2 is sus vector I1 is sus host and I2 is sus vector
+B_:={y1, S1, S2, I1, I2}$
+FOR EACH EL_ IN B_ DO DEPEND EL_,T$
+
+%B1_ IS THE UNKNOWN PARAMETER VECTOR
+B1_:={b1,m1,g,b2,m2}$
+
+
+%NUMBER OF STATES 
+NX_:=4$
+%NUMBER OF INPUTS 
+NU_:=0$
+%NUMBER OF OUTPUTS 
+NY_:=1$
+
+%MODEL EQUATIONS
+C_:={df(S1,t)=m1 - m1*S1 - b1*S1*I2 + g*I1,
+df(S2,t)= m2 - m2*S2 - b2*S2*I1,
+df(I1,t)= b1*S1*I2 - (m1 + g)*I1,
+df(I2,t)= b2*S2*I1 - m2*I2,
+y1=I1
+}$
+
+
+SEED_:=55$
+DAISY()$
+
+END$
