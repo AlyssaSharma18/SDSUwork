@@ -1,0 +1,721 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     20572,        711]
+NotebookOptionsPosition[     16420,        575]
+NotebookOutlinePosition[     18170,        623]
+CellTagsIndexPosition[     18085,        618]
+WindowTitle->InfinitesimalGenerator - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AffineSymmetryCoefficients\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"], \
+"\<\"ScalingSymmetryCoefficients\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"], "\<\
+\"TranslationSymmetryCoefficients\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"], \
+"\<\"SymmetryTransformation\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/SymmetryTransformation"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Identifiability Analysis Package\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/InfinitesimalGenerator\"\>\
+":>None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/InfinitesimalGenerator"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/InfinitesimalGenerator.html"], StandardForm]], 
+              "Input", TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/InfinitesimalGenerator", ".html"]], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell["InfinitesimalGenerator", "ObjectName",
+ CellID->1224892054],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["InfinitesimalGenerator",
+        BaseStyle->"Link",
+        ButtonData->
+         "paclet:IdentifiabilityAnalysis/ref/InfinitesinalGenerator"], "[", 
+       RowBox[{"delta", ",", "states", ",", "params", ",", "t"}], "]"}]], 
+      "InlineFormula"],
+     " \[LineSeparator]calculates the derivations wrt ",
+     Cell[BoxData[
+      StyleBox["t", "TI"]], "InlineFormula"],
+     ", ",
+     Cell[BoxData[
+      StyleBox["states", "TI"]], "InlineFormula"],
+     " and ",
+     Cell[BoxData[
+      StyleBox["params", "TI"]], "InlineFormula"],
+     " that correspond to the lists of coefficients ",
+     Cell[BoxData[
+      StyleBox["delta", "TI"]], "InlineFormula"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->171792752],
+
+Cell[TextData[{
+ Cell[BoxData["InfinitesimalGenerator"], "InlineFormula"],
+ " gives results in terms of derivations which can be applied to functions of \
+the state variables ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ " and parameters ",
+ Cell[BoxData[
+  StyleBox["params", "TI"]], "InlineFormula"],
+ " with independent variable ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ ". "
+}], "Notes",
+ CellID->439975276],
+
+Cell[TextData[{
+ "The list of coefficients ",
+ Cell[BoxData[
+  StyleBox["delta", "TI"]], "InlineFormula"],
+ " can be the result from a call to ",
+ Cell[BoxData[
+  ButtonBox["TranslationSymmetryCoefficients",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"]], 
+  "InlineFormula"],
+ ", ",
+ Cell[BoxData[
+  ButtonBox["ScalingSymmetryCoefficients",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"]], 
+  "InlineFormula"],
+ " or ",
+ Cell[BoxData[
+  ButtonBox["AffineSymmetryCoefficients",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"]], 
+  "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->208509761]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->596431009],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->225756116],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->638877357],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->157384893],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "l"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->126427711],
+
+Cell["\<\
+Define the coefficients of an infinitesimal generator in the basis of \
+elementary derivations:\
+\>", "ExampleText",
+ CellID->204938017],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta1", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{"x", "[", "t", "]"}], ",", 
+     RowBox[{"b", "-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "[", "t", "]"}], "-", "a"}], ",", "0"}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->415433727],
+
+Cell[TextData[{
+ "Calculate the corresponding derivation and apply to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "(", "t", ")"}], TraditionalForm]], "InlineMath"],
+ ":"
+}], "ExampleText",
+ CellID->134963189],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InfinitesimalGenerator", "[", 
+   RowBox[{"delta1", ",", "states", ",", "params", ",", "t"}], "]"}], "[", 
+  RowBox[{"x", "[", "t", "]"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->110432813],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"-", 
+   RowBox[{"y", "[", "t", "]"}]}], "}"}]], "Output",
+ ImageSize->{54, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->93341070]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta2", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"2", "a"}], "-", 
+      RowBox[{"x", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", "0"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->188395109],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta3", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], "a"}], "+", 
+      RowBox[{"5", 
+       RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"4", "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "a"}], "+", 
+      RowBox[{"2", 
+       RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+     RowBox[{"3", "b"}], ",", 
+     RowBox[{"3", "l"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->27843450],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta4", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      RowBox[{"x", "[", "t", "]"}]}], ",", 
+     RowBox[{"-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "l"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->677187768],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta", "=", 
+   RowBox[{"{", 
+    RowBox[{"delta1", ",", "delta2", ",", "delta3", ",", "delta4"}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->2535200],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InfinitesimalGenerator", "[", 
+   RowBox[{"delta", ",", "states", ",", "params", ",", "t"}], "]"}], "[", 
+  RowBox[{"x", "[", "t", "]"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->478138732],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"y", "[", "t", "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"2", " ", "a"}], "-", 
+    RowBox[{"x", "[", "t", "]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "4"}], " ", "a"}], "+", 
+    RowBox[{"5", " ", 
+     RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+   RowBox[{"-", 
+    RowBox[{"x", "[", "t", "]"}]}]}], "}"}]], "Output",
+ ImageSize->{257, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->318086916]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->182851261],
+
+Cell[TextData[{
+ StyleBox["The lists of coefficients can be the result of one of the \
+functions ", "ExampleText"],
+ Cell[BoxData[
+  ButtonBox["TranslationSymmetryCoefficients",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"]], 
+  "InlineFormula"],
+ ", ",
+ Cell[BoxData[
+  ButtonBox["ScalingSymmetryCoefficients",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"]], 
+  "InlineFormula"],
+ " ",
+ StyleBox["or", "ExampleText"],
+ " ",
+ Cell[BoxData[
+  ButtonBox["AffineSymmetryCoefficients",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"]], 
+  "InlineFormula"],
+ ":"
+}], "TR",
+ CellID->362177829],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"T", "=", 
+  RowBox[{"TranslationSymmetryCoefficients", "[", 
+   RowBox[{"sys", ",", "states", ",", "params", ",", "t"}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->831521717],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}], 
+  "}"}]], "Output",
+ ImageSize->{215, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->594078799]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InfinitesimalGenerator", "[", 
+   RowBox[{"T", ",", "states", ",", "params", ",", "t"}], "]"}], "[", 
+  RowBox[{"a", " ", "-", "c"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->152376307],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "0"}], "}"}]], "Output",
+ ImageSize->{43, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->508807869]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["AffineSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ScalingSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["TranslationSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["SymmetryTransformation",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/SymmetryTransformation"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Identifiability Analysis Package",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]], \
+"MoreAbout",
+ CellID->520774469]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"InfinitesimalGenerator - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 2, 35.2850267}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "InfinitesimalGenerator[delta, states, params, t] calculates the \
+derivations wrt t, states and params that correspond to the lists of \
+coefficients delta.", "synonyms" -> {}, "title" -> "InfinitesimalGenerator", 
+    "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/InfinitesimalGenerator"}, "LinkTrails" -> "",
+   "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[7085, 210, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->596431009]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 17942, 611}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[615, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[694, 24, 233, 5, 70, "LinkTrail"],
+Cell[930, 31, 3231, 71, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[4164, 104, 65, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[CellGroupData[{
+Cell[4254, 109, 949, 29, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[5228, 142, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->171792752],
+Cell[5811, 161, 450, 14, 70, "Notes",
+ CellID->439975276],
+Cell[6264, 177, 772, 27, 70, "Notes",
+ CellID->208509761]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7085, 210, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->596431009],
+Cell[CellGroupData[{
+Cell[7571, 227, 148, 5, 70, "ExampleSection",
+ CellID->225756116],
+Cell[7722, 234, 153, 5, 70, "Input",
+ CellID->638877357],
+Cell[7878, 241, 164, 6, 70, "Input",
+ CellID->157384893],
+Cell[8045, 249, 174, 6, 70, "Input",
+ CellID->126427711],
+Cell[8222, 257, 146, 4, 70, "ExampleText",
+ CellID->204938017],
+Cell[8371, 263, 407, 14, 70, "Input",
+ CellID->415433727],
+Cell[8781, 279, 209, 7, 70, "ExampleText",
+ CellID->134963189],
+Cell[CellGroupData[{
+Cell[9015, 290, 233, 6, 70, "Input",
+ CellID->110432813],
+Cell[9251, 298, 226, 8, 36, "Output",
+ CellID->93341070]
+}, Open  ]],
+Cell[9492, 309, 490, 17, 70, "Input",
+ CellID->188395109],
+Cell[9985, 328, 554, 20, 70, "Input",
+ CellID->27843450],
+Cell[10542, 350, 373, 13, 70, "Input",
+ CellID->677187768],
+Cell[10918, 365, 204, 7, 70, "Input",
+ CellID->2535200],
+Cell[CellGroupData[{
+Cell[11147, 376, 232, 6, 70, "Input",
+ CellID->478138732],
+Cell[11382, 384, 527, 19, 36, "Output",
+ CellID->318086916]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11946, 408, 125, 3, 70, "ExampleDelimiter",
+ CellID->182851261],
+Cell[12074, 413, 774, 27, 70, "TR",
+ CellID->362177829],
+Cell[CellGroupData[{
+Cell[12873, 444, 206, 5, 70, "Input",
+ CellID->831521717],
+Cell[13082, 451, 365, 12, 36, "Output",
+ CellID->594078799]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13484, 468, 228, 6, 70, "Input",
+ CellID->152376307],
+Cell[13715, 476, 203, 7, 36, "Output",
+ CellID->508807869]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13991, 491, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[14411, 505, 1312, 41, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15760, 551, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[16182, 565, 196, 5, 70, "MoreAbout",
+ CellID->520774469]
+}, Open  ]],
+Cell[16393, 573, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

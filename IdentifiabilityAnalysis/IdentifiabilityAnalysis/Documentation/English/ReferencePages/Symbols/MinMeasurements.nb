@@ -1,0 +1,167 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5583,        157]
+NotebookOptionsPosition[      3860,        110]
+NotebookOutlinePosition[      5419,        151]
+CellTagsIndexPosition[      5376,        148]
+WindowTitle->MinMeasurements - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox["\<\"URL \[RightGuillemet]\"\>",
+       StripOnInput->
+        False], {"\<\"IdentifiabilityAnalysis/ref/MinMeasurements\"\>":>
+      None, "\<\"Copy Mathematica url\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["IdentifiabilityAnalysis/ref/MinMeasurements"]}, Visible -> 
+           False]]; SelectionMove[
+        DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web url\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/MinMeasurements.html"], StandardForm]], "Input", 
+             TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+           "http://reference.wolfram.com/mathematica/", 
+            "IdentifiabilityAnalysis/ref/MinMeasurements", ".html"]], 
+          None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["MinMeasurements", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData["MinMeasurements"], "InlineFormula"],
+     "\[LineSeparator]is an option to ",
+     Cell[BoxData[
+      ButtonBox["IdentifiabilityAnalysis",
+       BaseStyle->"Link",
+       ButtonData->
+        "paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysis"]], 
+      "InlineFormula"],
+     " and ",
+     Cell[BoxData[
+      ButtonBox["ObservabilityAnalysis",
+       BaseStyle->"Link",
+       ButtonData->
+        "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"]], 
+      "InlineFormula"],
+     ". If set to True, the minimum numbers of measurements needed are \
+calculated. False by default."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"MinMeasurements - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 3, 2.5455859}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "MinMeasurements is an option to IdentifiabilityAnalysis and \
+ObservabilityAnalysis. If set to True, the minimum numbers of measurements \
+needed are calculated. False by default.", "synonyms" -> {}, "title" -> 
+    "MinMeasurements", "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/MinMeasurements"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[608, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[687, 24, 233, 5, 70, "LinkTrail"],
+Cell[923, 31, 1994, 45, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[2920, 78, 58, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[2981, 81, 849, 25, 70, "Usage",
+ CellID->982511436],
+Cell[3833, 108, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

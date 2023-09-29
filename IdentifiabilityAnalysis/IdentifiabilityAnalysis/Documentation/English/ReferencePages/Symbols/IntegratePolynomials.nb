@@ -1,0 +1,669 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     22963,        659]
+NotebookOptionsPosition[     20514,        585]
+NotebookOutlinePosition[     22215,        632]
+CellTagsIndexPosition[     22130,        627]
+WindowTitle->IntegratePolynomials - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[Cell[BoxData[
+     ActionMenuBox[
+      FrameBox["\<\"URL \[RightGuillemet]\"\>",
+       StripOnInput->
+        False], {"\<\"IdentifiabilityAnalysis/ref/IntegratePolynomials\"\>":>
+      None, "\<\"Copy Mathematica url\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell["IdentifiabilityAnalysis/ref/IntegratePolynomials"]}, 
+           Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+      Delimiter, "\<\"Copy web url\"\>":>
+      Module[{DocumentationSearch`Private`nb$}, 
+       DocumentationSearch`Private`nb$ = NotebookPut[
+          Notebook[{
+            Cell[
+             BoxData[
+              MakeBoxes[
+               Hyperlink[
+               "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/IntegratePolynomials.html"], StandardForm]], 
+             "Input", TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+       SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+       FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+       NotebookClose[DocumentationSearch`Private`nb$]; 
+       Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+        NotebookLocate[{
+          URL[
+           StringJoin[
+           "http://reference.wolfram.com/mathematica/", 
+            "IdentifiabilityAnalysis/ref/IntegratePolynomials", ".html"]], 
+          None}]}]},
+      Appearance->None,
+      MenuAppearance->Automatic]],
+     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["IntegratePolynomials", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"IntegratePolynomials", "[", 
+       RowBox[{
+        StyleBox["polynomials", "TI"], ",", 
+        StyleBox["variable", "TI"]}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]performs fast integration of ",
+     Cell[BoxData[
+      StyleBox["polynomials", "TI"]], "InlineFormula"],
+     " in the specified ",
+     Cell[BoxData[
+      StyleBox["variable", "TI"]], "InlineFormula"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->176152305],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->104173428],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->833327250],
+
+Cell["\<\
+To show that the result is the same but the execution time is smaller, \
+generate a number of random polynomials and time the integration:\
+\>", "ExampleText",
+ CellID->120693715],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"n", "=", "100"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"p", "=", 
+     RowBox[{
+      RowBox[{"RandomInteger", "[", 
+       RowBox[{"10000", ",", 
+        RowBox[{"{", 
+         RowBox[{"100", ",", "n"}], "}"}]}], "]"}], ".", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        SuperscriptBox["t", "k"], ",", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", "0", ",", 
+          RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Timing", "[", 
+    RowBox[{"Integrate", "[", 
+     RowBox[{"p", ",", "t"}], "]"}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"Timing", "[", 
+    RowBox[{"IntegratePolynomials", "[", 
+     RowBox[{"p", ",", "t"}], "]"}], "]"}]}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->39943815],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   PanelBox[GridBox[{
+      {
+       StyleBox[
+        StyleBox[
+         DynamicBox[ToBoxes[
+           FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+           StandardForm],
+          ImageSizeCache->{299., {3., 9.}}],
+         StripOnInput->False,
+         DynamicUpdating->True], "Panel",
+        StripOnInput->False,
+        Background->None]},
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{"4.453`", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"6348", " ", "t"}], "+", 
+              RowBox[{"4215", " ", 
+               SuperscriptBox["t", "2"]}], "+", 
+              FractionBox[
+               RowBox[{"8513", " ", 
+                SuperscriptBox["t", "3"]}], "3"], "+", 
+              FractionBox[
+               RowBox[{"391", " ", 
+                SuperscriptBox["t", "4"]}], "4"], "+", 
+              FractionBox[
+               RowBox[{"2073", " ", 
+                SuperscriptBox["t", "5"]}], "5"], "+", 
+              FractionBox[
+               RowBox[{"1915", " ", 
+                SuperscriptBox["t", "6"]}], "6"], "+", 
+              FractionBox[
+               RowBox[{"391", " ", 
+                SuperscriptBox["t", "7"]}], "7"], "+", 
+              FractionBox[
+               RowBox[{"4915", " ", 
+                SuperscriptBox["t", "8"]}], "4"], "+", 
+              RowBox[{"783", " ", 
+               SuperscriptBox["t", "9"]}], "+", 
+              FractionBox[
+               RowBox[{"3433", " ", 
+                SuperscriptBox["t", "10"]}], "5"], "+", 
+              FractionBox[
+               RowBox[{"3330", " ", 
+                SuperscriptBox["t", "11"]}], "11"], "+", 
+              FractionBox[
+               RowBox[{"7829", " ", 
+                SuperscriptBox["t", "12"]}], "12"], "+", 
+              RowBox[{"\[LeftSkeleton]", "77", "\[RightSkeleton]"}], "+", 
+              FractionBox[
+               RowBox[{"2993", " ", 
+                SuperscriptBox["t", "90"]}], "30"], "+", 
+              FractionBox[
+               RowBox[{"6892", " ", 
+                SuperscriptBox["t", "91"]}], "91"], "+", 
+              FractionBox[
+               RowBox[{"3233", " ", 
+                SuperscriptBox["t", "92"]}], "92"], "+", 
+              FractionBox[
+               RowBox[{"5837", " ", 
+                SuperscriptBox["t", "93"]}], "93"], "+", 
+              FractionBox[
+               RowBox[{"5975", " ", 
+                SuperscriptBox["t", "94"]}], "94"], "+", 
+              FractionBox[
+               RowBox[{"1641", " ", 
+                SuperscriptBox["t", "95"]}], "95"], "+", 
+              FractionBox[
+               RowBox[{"3259", " ", 
+                SuperscriptBox["t", "96"]}], "96"], "+", 
+              FractionBox[
+               RowBox[{"4022", " ", 
+                SuperscriptBox["t", "97"]}], "97"], "+", 
+              FractionBox[
+               RowBox[{"1360", " ", 
+                SuperscriptBox["t", "98"]}], "49"], "+", 
+              FractionBox[
+               RowBox[{"1471", " ", 
+                SuperscriptBox["t", "99"]}], "33"], "+", 
+              FractionBox[
+               RowBox[{"9483", " ", 
+                SuperscriptBox["t", "100"]}], "100"]}], ",", 
+             RowBox[{"\[LeftSkeleton]", "98", "\[RightSkeleton]"}], ",", 
+             RowBox[{
+              RowBox[{"1746", " ", "t"}], "+", 
+              FractionBox[
+               RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "2"], 
+              "+", 
+              RowBox[{"\[LeftSkeleton]", "97", "\[RightSkeleton]"}], "+", 
+              FractionBox[
+               RowBox[{"333", " ", 
+                RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+               "25"]}]}], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        Background->GrayLevel[1],
+        BaseStyle->{Deployed -> False},
+        Frame->True,
+        FrameStyle->GrayLevel[0, 0.2],
+        StripOnInput->False]},
+      {
+       RowBox[{
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+             StandardForm],
+            ImageSizeCache->{54., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 42, 22993723721675656633, 5/2],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+             StandardForm],
+            ImageSizeCache->{60., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 42, 22993723721675656633, 5 2],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+             StandardForm],
+            ImageSizeCache->{92., {3., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 42, 22993723721675656633, Infinity],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+             StandardForm],
+            ImageSizeCache->{78., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>FrontEndExecute[{
+            FrontEnd`SetOptions[
+            FrontEnd`$FrontEnd, 
+             FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+            FrontEnd`FrontEndToken["PreferencesDialog"]}],
+         Evaluator->None,
+         Method->"Preemptive"]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[1.2]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    DefaultBaseStyle->{},
+    FrameMargins->5],
+   Deploy,
+   DefaultBaseStyle->{Deployed -> True}],
+  Out[42]]], "Output",
+ ImageSize->{493, 187},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->78697596],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   PanelBox[GridBox[{
+      {
+       StyleBox[
+        StyleBox[
+         DynamicBox[ToBoxes[
+           FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+           StandardForm],
+          ImageSizeCache->{299., {3., 9.}}],
+         StripOnInput->False,
+         DynamicUpdating->True], "Panel",
+        StripOnInput->False,
+        Background->None]},
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{"0.061999999999999666`", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"6348", " ", "t"}], "+", 
+              RowBox[{"4215", " ", 
+               SuperscriptBox["t", "2"]}], "+", 
+              FractionBox[
+               RowBox[{"8513", " ", 
+                SuperscriptBox["t", "3"]}], "3"], "+", 
+              FractionBox[
+               RowBox[{"391", " ", 
+                SuperscriptBox["t", "4"]}], "4"], "+", 
+              FractionBox[
+               RowBox[{"2073", " ", 
+                SuperscriptBox["t", "5"]}], "5"], "+", 
+              FractionBox[
+               RowBox[{"1915", " ", 
+                SuperscriptBox["t", "6"]}], "6"], "+", 
+              FractionBox[
+               RowBox[{"391", " ", 
+                SuperscriptBox["t", "7"]}], "7"], "+", 
+              FractionBox[
+               RowBox[{"4915", " ", 
+                SuperscriptBox["t", "8"]}], "4"], "+", 
+              RowBox[{"783", " ", 
+               SuperscriptBox["t", "9"]}], "+", 
+              FractionBox[
+               RowBox[{"3433", " ", 
+                SuperscriptBox["t", "10"]}], "5"], "+", 
+              FractionBox[
+               RowBox[{"3330", " ", 
+                SuperscriptBox["t", "11"]}], "11"], "+", 
+              RowBox[{"\[LeftSkeleton]", "78", "\[RightSkeleton]"}], "+", 
+              FractionBox[
+               RowBox[{"2993", " ", 
+                SuperscriptBox["t", "90"]}], "30"], "+", 
+              FractionBox[
+               RowBox[{"6892", " ", 
+                SuperscriptBox["t", "91"]}], "91"], "+", 
+              FractionBox[
+               RowBox[{"3233", " ", 
+                SuperscriptBox["t", "92"]}], "92"], "+", 
+              FractionBox[
+               RowBox[{"5837", " ", 
+                SuperscriptBox["t", "93"]}], "93"], "+", 
+              FractionBox[
+               RowBox[{"5975", " ", 
+                SuperscriptBox["t", "94"]}], "94"], "+", 
+              FractionBox[
+               RowBox[{"1641", " ", 
+                SuperscriptBox["t", "95"]}], "95"], "+", 
+              FractionBox[
+               RowBox[{"3259", " ", 
+                SuperscriptBox["t", "96"]}], "96"], "+", 
+              FractionBox[
+               RowBox[{"4022", " ", 
+                SuperscriptBox["t", "97"]}], "97"], "+", 
+              FractionBox[
+               RowBox[{"1360", " ", 
+                SuperscriptBox["t", "98"]}], "49"], "+", 
+              FractionBox[
+               RowBox[{"1471", " ", 
+                SuperscriptBox["t", "99"]}], "33"], "+", 
+              FractionBox[
+               RowBox[{"9483", " ", 
+                SuperscriptBox["t", "100"]}], "100"]}], ",", 
+             RowBox[{"\[LeftSkeleton]", "98", "\[RightSkeleton]"}], ",", 
+             RowBox[{
+              RowBox[{"1746", " ", "t"}], "+", 
+              FractionBox[
+               RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "2"], 
+              "+", 
+              RowBox[{"\[LeftSkeleton]", "97", "\[RightSkeleton]"}], "+", 
+              FractionBox[
+               RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+               "25"]}]}], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        Background->GrayLevel[1],
+        BaseStyle->{Deployed -> False},
+        Frame->True,
+        FrameStyle->GrayLevel[0, 0.2],
+        StripOnInput->False]},
+      {
+       RowBox[{
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+             StandardForm],
+            ImageSizeCache->{54., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 43, 22993723721675656633, 5/2],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+             StandardForm],
+            ImageSizeCache->{60., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 43, 22993723721675656633, 5 2],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+             StandardForm],
+            ImageSizeCache->{92., {3., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>OutputSizeLimit`ButtonFunction[
+          Identity, 43, 22993723721675656633, Infinity],
+         Enabled->True,
+         Evaluator->Automatic,
+         Method->"Queued"], "\[ThinSpace]", 
+        ButtonBox[
+         StyleBox[
+          StyleBox[
+           DynamicBox[ToBoxes[
+             FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+             StandardForm],
+            ImageSizeCache->{78., {1., 9.}}],
+           StripOnInput->False,
+           DynamicUpdating->True], "Panel",
+          StripOnInput->False,
+          Background->None],
+         Appearance->Automatic,
+         ButtonFunction:>FrontEndExecute[{
+            FrontEnd`SetOptions[
+            FrontEnd`$FrontEnd, 
+             FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+            FrontEnd`FrontEndToken["PreferencesDialog"]}],
+         Evaluator->None,
+         Method->"Preemptive"]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[1.2]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    DefaultBaseStyle->{},
+    FrameMargins->5],
+   Deploy,
+   DefaultBaseStyle->{Deployed -> True}],
+  Out[43]]], "Output",
+ ImageSize->{546, 185},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->325483140]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"IntegratePolynomials - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 2, 42.3684318}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "IntegratePolynomials[polynomials, variable] performs fast integration of \
+polynomials in the specified variable.", "synonyms" -> {}, "title" -> 
+    "IntegratePolynomials", "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/IntegratePolynomials"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[3689, 105, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->176152305]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 21987, 620}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[613, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[692, 24, 233, 5, 70, "LinkTrail"],
+Cell[928, 31, 2013, 45, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[2944, 78, 63, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[3010, 81, 654, 20, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[3689, 105, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->176152305],
+Cell[CellGroupData[{
+Cell[4175, 122, 148, 5, 70, "ExampleSection",
+ CellID->104173428],
+Cell[4326, 129, 153, 5, 70, "Input",
+ CellID->833327250],
+Cell[4482, 136, 189, 4, 70, "ExampleText",
+ CellID->120693715],
+Cell[CellGroupData[{
+Cell[4696, 144, 859, 26, 70, "Input",
+ CellID->39943815],
+Cell[5558, 172, 7516, 204, 70, "Output",
+ CellID->78697596],
+Cell[13077, 378, 7371, 200, 70, "Output",
+ CellID->325483140]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[20487, 583, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

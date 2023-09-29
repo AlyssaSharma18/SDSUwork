@@ -1,0 +1,752 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     23243,        742]
+NotebookOptionsPosition[     19279,        620]
+NotebookOutlinePosition[     21239,        670]
+CellTagsIndexPosition[     21154,        665]
+WindowTitle->ObservableSystemQ - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"ObservabilityAnalysis\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"], \
+"\<\"IdentifiabilityAnalysis\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysis"], \
+"\<\"IdentifiableModelQ\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/IdentifiableModelQ"], \
+"\<\"IdentifiabilityAnalysisData\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysisData"], "\<\
+\"ObservabilityAnalysisData\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysisData"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Identifiability Analysis Package\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/ObservableSystemQ\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/ObservableSystemQ"]}, Visible -> 
+            False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/ObservableSystemQ.html"], StandardForm]], "Input",
+               TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/ObservableSystemQ", ".html"]], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell["ObservableSystemQ", "ObjectName",
+ CellID->1224892054],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["ObservableSystemQ",
+        BaseStyle->"Link",
+        ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservableSystemQ"], 
+       "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          StyleBox["eqns", "TI"], ",", 
+          StyleBox["expr", "TI"]}], 
+         StyleBox["}", "TI"]}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["x", "TI"], 
+           StyleBox["1", "TR"]], ",", 
+          SubscriptBox[
+           StyleBox["x", "TI"], 
+           StyleBox["2", "TR"]], ",", "..."}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["\[Theta]", "TR"], 
+           StyleBox["1", "TR"]], ",", 
+          SubscriptBox[
+           StyleBox["\[Theta]", "TR"], 
+           StyleBox["2", "TR"]], ",", "..."}], "}"}], ",", 
+        StyleBox["t", "TI"], ",", 
+        StyleBox["u", "TI"]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]tests observability of a system defined by the system \
+of ordinary differential equations ",
+     Cell[BoxData[
+      StyleBox["eqns", "TI"]], "InlineFormula"],
+     " with output given by ",
+     Cell[BoxData[
+      StyleBox["expr", "TI"]], "InlineFormula"],
+     " in the variables ",
+     Cell[BoxData[
+      SubscriptBox[
+       StyleBox["x", "TI"], 
+       StyleBox["i", "TI"]]]],
+     ", parameters ",
+     Cell[BoxData[
+      SubscriptBox[
+       StyleBox["\[Theta]", "TR"], 
+       StyleBox["j", "TI"]]]],
+     ", independent variable ",
+     Cell[BoxData[
+      StyleBox["t", "TI"]], "InlineFormula"],
+     ", and input ",
+     Cell[BoxData[
+      StyleBox["u", "TI"]], "InlineFormula"],
+     "."
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["ObservableSystemQ",
+        BaseStyle->"Link",
+        ButtonData->"paclet:IdentifiabilityAnalysis/ref/IdentifiableModelQ"], 
+       "[", 
+       StyleBox[
+        RowBox[{"o", 
+         StyleBox["ad", "TI"]}]], "]"}]], "InlineFormula"],
+     "\[LineSeparator]Can also take an ",
+     Cell[BoxData[
+      ButtonBox["ObservabilityAnalysisData",
+       BaseStyle->"Link",
+       ButtonData->
+        "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysisData"]], 
+      "InlineFormula"],
+     "-object ",
+     Cell[BoxData[
+      StyleBox["oad", "TI"]], "InlineFormula"],
+     " as input"
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->324888246],
+
+Cell[TextData[{
+ "To use ",
+ Cell[BoxData[
+  ButtonBox["ObservableSystemQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservableSystemQ"]], 
+  "InlineFormula"],
+ ", you first need to load the ",
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->"Link",
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ " using ",
+ Cell[BoxData[
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}]], 
+  "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->506488610],
+
+Cell["\<\
+The system must be written as a system of first order differential equations.\
+\>", "Notes",
+ CellID->169015007],
+
+Cell["\<\
+The system needs to be rational, i.e. the differential equations and outputs \
+should only consist of rational expressions in the variables, parameters and \
+inputs.\
+\>", "Notes",
+ CellID->57362073],
+
+Cell[TextData[{
+ "For multi-output systems ",
+ Cell[BoxData[
+  StyleBox["expr", "TI"]], "InlineFormula"],
+ " is replaced by a list of expressions ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    SubscriptBox[
+     StyleBox["expr", "TI"], 
+     StyleBox["1", "TR"]], ",", 
+    SubscriptBox[
+     StyleBox["expr", "TI"], 
+     StyleBox["2", "TR"]], ",", 
+    StyleBox["\[Ellipsis]", "TR"]}], "}"}]], "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->792398644],
+
+Cell[TextData[{
+ "For autonomous systems the last argument denoting the input can be dropped. \
+For multi-input systems ",
+ Cell[BoxData[
+  StyleBox["u", "TI"]], "InlineFormula"],
+ " is replaced by a list of input symbols ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    SubscriptBox[
+     StyleBox["u", "TI"], 
+     StyleBox["1", "TR"]], ",", 
+    SubscriptBox[
+     StyleBox["u", "TI"], 
+     StyleBox["2", "TR"]], ",", 
+    StyleBox["\[Ellipsis]", "TR"]}], "}"}]], "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->226674743],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ObservableSystemQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservableSystemQ"]], 
+  "InlineFormula"],
+ " applies ",
+ ButtonBox["Rationalize",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Rationalize"],
+ " to its arguments converting any numbers to approximate rational numbers."
+}], "Notes",
+ CellID->39874790],
+
+Cell["The following options can be given:", "Notes",
+ CellID->84158427],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["MaxOrder",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/MaxOrder"], 
+    ButtonBox["Automatic",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Automatic"], Cell[
+    TextData[{
+     Cell["A", "TableText"],
+     " list of the maximum order of derivatives of the outputs."
+    }], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["Modulus",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Modulus"], 
+    ButtonBox["Automatic",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Automatic"], Cell["\<\
+Selects what number to use for modulus and for specialisation.\
+\>", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["OptimizationLevel",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/OptimizationLevel"], "0",
+     Cell[TextData[{
+     Cell["Takes", "TableText"],
+     " value 0, 1 or 2."
+    }], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["Verbose",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Verbose"], "0", Cell["\<\
+Regulates the level of printing while running. The larger the value, the more \
+printing.\
+\>", "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True, True}}}},
+ CellID->287686842],
+
+Cell[TextData[{
+ "The option ",
+ Cell[BoxData[
+  ButtonBox["OptimizationLevel",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/OptimizationLevel"]], 
+  "InlineFormula"],
+ " takes ",
+ Cell["", "TableText"],
+ "value 0, 1 or 2. Program runs fastest with this set to 2 but also demands \
+the most memory. Setting this to 0 is slowest but demands the least memory. \
+This is because with 1 and 2 different levels of parallelization is utilized."
+}], "Notes",
+ CellID->370674033],
+
+Cell[TextData[{
+ "The option ",
+ Cell[BoxData["Verbose"], "InlineFormula"],
+ " regulates the level of printing while running. Value should be an integer \
+no less than 0 and no greater than 7. The larger the value, the more \
+printing. At the default 0, nothing is printed."
+}], "Notes",
+ CellID->43174760],
+
+Cell[TextData[{
+ "The internal algorithms of ",
+ Cell[BoxData[
+  ButtonBox["ObservableSystemQ",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservableSystemQ"]], 
+  "InlineFormula"],
+ " certifies that a parameter or variable is observable while the answer for \
+a nonobservable parameter or variable is probabilistic with high probability \
+of success."
+}], "Notes",
+ CellID->280793298],
+
+Cell[TextData[{
+ "The implementation of the ",
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->"Link",
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ " is based on [",
+ ButtonBox["S02",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:IdentifiabilityAnalysis/ReferencePages/Symbols/\
+IdentifiabilityAnalysis#166984532"],
+ "] but extended to handle parametrized initial conditions."
+}], "Notes",
+ CellID->299642469]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->445914854],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->442792191],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->833327250],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"MySystem", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"x1", "[", "t", "]"}]}], "*", "k1"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"OutputSystem", "=", 
+     RowBox[{"{", 
+      RowBox[{"x1", "[", "t", "]"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MyParameters", "=", 
+     RowBox[{"{", "k1", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MyVariables", "=", 
+     RowBox[{"{", "x1", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"ObservableSystemQ", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"MySystem", ",", "OutputSystem"}], "}"}], ",", " ", 
+     "MyVariables", ",", " ", "MyParameters", ",", " ", "t"}], 
+    "]"}]}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->260881676],
+
+Cell[BoxData["True"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->398390266]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"MySystem", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"x1", "[", "t", "]"}]}], "*", "k1"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"OutputSystem", "=", 
+     RowBox[{"{", 
+      RowBox[{"x1", "[", "t", "]"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MyParameters", "=", 
+     RowBox[{"{", "k1", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MyVariables", "=", 
+     RowBox[{"{", "x1", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"resultobject", "=", 
+     RowBox[{"ObservabilityAnalysis", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"MySystem", ",", "OutputSystem"}], "}"}], ",", " ", 
+       "MyVariables", ",", " ", "MyParameters", ",", " ", "t"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"ObservableSystemQ", "[", "resultobject", "]"}]}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->878138232],
+
+Cell[BoxData["True"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->573624283]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ObservabilityAnalysis",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["IdentifiabilityAnalysis",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysis"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["IdentifiableModelQ",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/IdentifiableModelQ"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["IdentifiabilityAnalysisData",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysisData"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ObservabilityAnalysisData",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysisData"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->80956580]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Identifiability Analysis Package",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]], \
+"MoreAbout",
+ CellID->224670017]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"ObservableSystemQ - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 3, 26.6299635}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "ObservableSystemQ[{eqns, expr}, {x_1, x_2, ...}, {\\[Theta]_1, \
+\\[Theta]_2, ...}, t, u] tests observability of a system defined by the \
+system of ordinary differential equations eqns with output given by expr in \
+the variables x_i, parameters \\[Theta]_j, independent variable t, and input \
+u.ObservableSystemQ[oad] Can also take an ObservabilityAnalysisData-object \
+oad as input", "synonyms" -> {}, "title" -> "ObservableSystemQ", "type" -> 
+    "Symbol", "uri" -> "IdentifiabilityAnalysis/ref/ObservableSystemQ"}, 
+  "LinkTrails" -> "", "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[13217, 405, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->445914854]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 21010, 658}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[610, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[689, 24, 233, 5, 70, "LinkTrail"],
+Cell[925, 31, 3320, 73, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[4248, 106, 60, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[CellGroupData[{
+Cell[4333, 111, 2612, 84, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[6970, 199, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->324888246],
+Cell[7553, 218, 526, 17, 70, "Notes",
+ CellID->506488610],
+Cell[8082, 237, 122, 3, 70, "Notes",
+ CellID->169015007],
+Cell[8207, 242, 209, 5, 70, "Notes",
+ CellID->57362073],
+Cell[8419, 249, 454, 17, 70, "Notes",
+ CellID->792398644],
+Cell[8876, 268, 524, 18, 70, "Notes",
+ CellID->226674743],
+Cell[9403, 288, 390, 12, 70, "Notes",
+ CellID->39874790],
+Cell[9796, 302, 71, 1, 70, "Notes",
+ CellID->84158427],
+Cell[9870, 305, 1609, 42, 70, "3ColumnTableMod",
+ CellID->287686842],
+Cell[11482, 349, 499, 13, 70, "Notes",
+ CellID->370674033],
+Cell[11984, 364, 306, 7, 70, "Notes",
+ CellID->43174760],
+Cell[12293, 373, 415, 11, 70, "Notes",
+ CellID->280793298],
+Cell[12711, 386, 457, 13, 70, "Notes",
+ CellID->299642469]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13217, 405, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->445914854],
+Cell[CellGroupData[{
+Cell[13703, 422, 148, 5, 70, "ExampleSection",
+ CellID->442792191],
+Cell[13854, 429, 153, 5, 70, "Input",
+ CellID->833327250],
+Cell[CellGroupData[{
+Cell[14032, 438, 971, 30, 70, "Input",
+ CellID->260881676],
+Cell[15006, 470, 161, 5, 36, "Output",
+ CellID->398390266]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15204, 480, 1124, 33, 70, "Input",
+ CellID->878138232],
+Cell[16331, 515, 161, 5, 36, "Output",
+ CellID->573624283]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16553, 527, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[16973, 541, 1609, 50, 70, "SeeAlso",
+ CellID->80956580]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18619, 596, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[19041, 610, 196, 5, 70, "MoreAbout",
+ CellID->224670017]
+}, Open  ]],
+Cell[19252, 618, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,1713 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     58904,       1703]
+NotebookOptionsPosition[     53203,       1524]
+NotebookOutlinePosition[     55391,       1577]
+CellTagsIndexPosition[     55305,       1572]
+WindowTitle->AffineSymmetryCoefficients - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"TranslationSymmetryCoefficients\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"], \
+"\<\"ScalingSymmetryCoefficients\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"], "\<\
+\"InfinitesimalGenerator\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/InfinitesimalGenerator"], \
+"\<\"SymmetryTransformation\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/SymmetryTransformation"], \
+"\<\"MinimalOutputSets\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/MinimalOutputSets"], \
+"\<\"FindOutputSet\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/FindOutputSet"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Identifiability Analysis Package\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients\
+\"\>":>None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients.html"], StandardForm]],
+               "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients", 
+             ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell["AffineSymmetryCoefficients", "ObjectName",
+ CellID->1224892054],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      ButtonBox["AffineSymmetryCoefficients",
+       BaseStyle->"Link",
+       ButtonData->
+        "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"]], 
+      "InlineFormula"],
+     Cell[BoxData[
+      RowBox[{"[", 
+       RowBox[{
+        StyleBox["sys", "TI"], ",", 
+        StyleBox["states", "TI"], ",", 
+        StyleBox["params", "TI"], ",", 
+        StyleBox["t", "TI"], ",", 
+        RowBox[{
+         ButtonBox["OptionsPattern",
+          BaseStyle->"Link",
+          ButtonData->"paclet:ref/OptionsPattern"], "[", "]"}]}], "]"}]], 
+      "InlineFormula"],
+     " \[LineSeparator]calculates the coefficients of a basis for the \
+infinitesimal generators of the affine symmetries of the system of ODEs ",
+     Cell[BoxData[
+      StyleBox["sys", "TI"]], "InlineFormula"],
+     ", with state variables ",
+     Cell[BoxData[
+      StyleBox["states", "TI"]], "InlineFormula"],
+     ", parameters ",
+     Cell[BoxData[
+      StyleBox["params", "TI"]], "InlineFormula"],
+     " and independent variable ",
+     Cell[BoxData[
+      StyleBox["t", "TI"]], "InlineFormula"],
+     "."
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      ButtonBox["AffineSymmetryCoefficients",
+       BaseStyle->"Link",
+       ButtonData->
+        "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"]], 
+      "InlineFormula"],
+     Cell[BoxData[
+      RowBox[{"[", 
+       RowBox[{
+       "sys", ",", "states", ",", "params", ",", "t", ",", "inputs", ",", 
+        RowBox[{"OptionsPattern", "[", "]"}]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]calculates the coefficients of a basis for the \
+infinitesimal generators of the affine symmetries of the system of ODEs ",
+     Cell[BoxData[
+      StyleBox["sys", "TI"]], "InlineFormula"],
+     ", with state variables ",
+     Cell[BoxData[
+      StyleBox["states", "TI"]], "InlineFormula"],
+     ", parameters ",
+     Cell[BoxData[
+      StyleBox["params", "TI"]], "InlineFormula"],
+     ", input variables ",
+     Cell[BoxData[
+      StyleBox["inputs", "TI"]], "InlineFormula"],
+     " and independent variable ",
+     Cell[BoxData[
+      StyleBox["t", "TI"]], "InlineFormula"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->427895801],
+
+Cell[TextData[{
+ Cell[BoxData["AffineSymmetryCoefficients"], "InlineFormula"],
+ " gives results in terms of coordinates in the canonical basis of elementary \
+derivations wrt ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ ", ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ " and ",
+ Cell[BoxData[
+  StyleBox["params", "TI"]], "InlineFormula"],
+ ". "
+}], "Notes",
+ CellID->470376954],
+
+Cell[TextData[{
+ "An uncontrolled ODE system with no initial conditions provided must be \
+stated in the form ",
+ Cell[BoxData[
+  StyleBox["sys", "TI"]], "InlineFormula"],
+ " = {x1'[t] == k2*x2[t], x2'[t] == x1[t]}, ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ StyleBox[" =",
+  FontSlant->"Italic"],
+ " {x1, x2}, ",
+ Cell[BoxData[
+  StyleBox["params", "TI"]], "InlineFormula"],
+ " = {k1, k2}  with independent variable ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ " . "
+}], "Notes",
+ CellID->781705251],
+
+Cell[TextData[{
+ "An uncontrolled ODE system with initial conditions must be stated in the \
+form ",
+ Cell[BoxData[
+  StyleBox["sys", "TI"]], "InlineFormula"],
+ " = {x1'[t] == k2*x2[t], x2'[t] == x1[t], x1[0]==p, x2[0]==1}, ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ " = {x1, x2}, ",
+ Cell[BoxData[
+  StyleBox[
+   RowBox[{"params", " "}], "TI"]], "InlineFormula"],
+ "= {k1, k2, p} with independent variable ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ ". "
+}], "Notes",
+ CellID->31772830],
+
+Cell[TextData[{
+ "A controlled ODE system must be stated in the form  ",
+ Cell[BoxData[
+  StyleBox["sys", "TI"]], "InlineFormula"],
+ " = {x1'[t] == k2*x2[t]+u1[t], x2'[t] == x1[t], x1[0]==p, x2[0]==1}  with \
+state variables ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ " = {x1, x2}, input (control) variables ",
+ Cell[BoxData[
+  StyleBox["inputs", "TI"]], "InlineFormula"],
+ "={u1[t]}, parameters ",
+ StyleBox["params =",
+  FontSlant->"Italic"],
+ " {k1, k2} with independent variable ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->97149636],
+
+Cell[TextData[{
+ "Certain choices of initial conditions give new non-generic symmetries. ",
+ Cell[BoxData["AffineSymmetryCoefficients"], "InlineFormula"],
+ "  finds generic symmetries only, i.e. symmetries that exist for all initial \
+conditions",
+ " and which keep the given initial conditions fulfilled",
+ "."
+}], "Notes",
+ CellID->366093498],
+
+Cell[TextData[{
+ Cell[BoxData["AffineSymmetryCoefficients"], "InlineFormula"],
+ " gives results in terms of generic input signals."
+}], "Notes",
+ CellID->304221783],
+
+Cell["The following options can be given:", "Notes",
+ CellID->1067943069],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["Fixed",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Fixed"], 
+    RowBox[{"{", "}"}], Cell["\<\
+the list of (functions of the ) variables/parameters that is to be kept \
+invariant for the symmetries calculated\
+\>", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["ModulusVersion",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/ModulusVersion"], 
+    ButtonBox["False",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/False"], Cell[TextData[{
+     Cell["", "TableText"],
+     "making all calculations modulo a prime number"
+    }], "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True}}}},
+ CellID->147791535]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->135975921],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->86170760],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->833327250],
+
+Cell["Define a system and look for affine symmetries:", "ExampleText",
+ CellID->343770217],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "+", 
+         RowBox[{"b", "^", "2"}]}], ")"}], " ", "/", "c"}], " ", 
+      RowBox[{"x", "[", "t", "]"}]}]}], "}"}]}], ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", "x", "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->406882504],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"A", "=", 
+  RowBox[{"AffineSymmetryCoefficients", "[", 
+   RowBox[{"sys", ",", "states", ",", "params", ",", "t"}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->831521717],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", 
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", 
+      FractionBox["b", "2"]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "a", ",", 
+     FractionBox["b", "2"], ",", "c"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "b", ",", 
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"x", "[", "t", "]"}], ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"c", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}], 
+  "}"}]], "Output",
+ ImageSize->{481, 54},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->239986933]
+}, Open  ]],
+
+Cell["\<\
+Each of the lists produced describes describes the coefficients of one of the \
+vectors in the basis of the infinitesimal generators of affine symmetries. \
+The order of the coefficients is seen in the table form below:\
+\>", "ExampleText",
+ CellID->443301027],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableView", "[", 
+  RowBox[{
+   RowBox[{"AffineSymmetryCoefficients", "[", 
+    RowBox[{"sys", ",", "states", ",", "params", ",", "t"}], "]"}], ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{",", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "states", ",", "params"}], "}"}], "]"}]}], "}"}]}], 
+   ",", 
+   RowBox[{"ItemSize", "\[Rule]", "3"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->50427710],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[
+   TagBox[
+    PanelBox[
+     PaneBox[
+      TagBox[
+       TagBox[GridBox[{
+          {
+           ItemBox[
+            ActionMenuBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "CirclePlusIcon"],
+              ImageSizeCache->{10., {3., 7.}}], {"\<\"Hide/show types\"\>":>
+             TableView`ToggleTypes["TV3502542877-4350723", 
+              ButtonNotebook[]], "\<\"Change type of selected item\"\>":>
+             TableView`ConvertType["TV3502542877-4350723", 
+              ButtonNotebook[]], "\<\"Use headings as data\"\>":>
+             TableView`HeadingsToData["TV3502542877-4350723", 
+              ButtonNotebook[]], Delimiter, "\<\"Paste data\"\>":>
+             TableView`PasteData["TV3502542877-4350723", 
+              ButtonNotebook[]]},
+             Appearance->None,
+             FieldSize->{
+               DirectedInfinity[1], {0, 1}}],
+            Alignment->Center,
+            Background->None,
+            Frame->{{False, True}, {True, False}},
+            ItemSize->Full], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["t", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 1, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 1, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 1], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 1 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 1], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 1]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["x", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 2, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 2, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 2], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 2 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 2], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 2]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["a", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 3, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 3, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 3], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 3 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 3], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 3]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["b", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 4, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 4, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 4], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 4 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 4], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 4]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["c", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 5, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 5, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 5], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 5 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "column", 5], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "column", 5]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["1", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 1, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 1, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 1], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 1 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 1], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 1]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"t"},
+             "TableViewItemExpression"],
+            BoxID -> {1, 1},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{RowBox[{"-", "a"}]},
+             "TableViewItemExpression"],
+            BoxID -> {1, 3},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{RowBox[{"-", 
+                FractionBox["b", "2"]}]},
+             "TableViewItemExpression"],
+            BoxID -> {1, 4},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 5},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["2", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 2, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 2, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 2], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 2 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 2], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 2]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"a"},
+             "TableViewItemExpression"],
+            BoxID -> {2, 3},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{FractionBox["b", "2"]},
+             "TableViewItemExpression"],
+            BoxID -> {2, 4},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"c"},
+             "TableViewItemExpression"],
+            BoxID -> {2, 5},
+            BaseStyle->"TableViewItemExpression"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["3", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 3, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 3, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 3], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 3 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 3], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 3]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"b"},
+             "TableViewItemExpression"],
+            BoxID -> {3, 3},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{RowBox[{"-", 
+                FractionBox["1", "2"]}]},
+             "TableViewItem"],
+            BoxID -> {3, 4},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 5},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["4", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 4, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 4, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 4], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 4 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 4], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 4]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{RowBox[{"x", "[", "t", "]"}]},
+             "TableViewItemExpression"],
+            BoxID -> {4, 2},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 4},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 5},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["5", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 5, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 5, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 5], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 5 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 5], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 5]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"c"},
+             "TableViewItemExpression"],
+            BoxID -> {5, 1},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {5, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {5, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {5, 4},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {5, 5},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["6", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 6, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 6, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 6], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 6 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 6], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 6]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"b"},
+             "TableViewItemExpression"],
+            BoxID -> {6, 1},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {6, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {6, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {6, 4},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {6, 5},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["7", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 7, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 7, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 7], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 7 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 7], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 7]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"a"},
+             "TableViewItemExpression"],
+            BoxID -> {7, 1},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {7, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {7, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {7, 4},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {7, 5},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["8", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 8, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 8, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 8], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 8 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502542877-4350723", 
+              ButtonNotebook[], "row", 8], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502542877-4350723", 
+              ButtonNotebook[], "row", 8]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"1"},
+             "TableViewItem"],
+            BoxID -> {8, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {8, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {8, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {8, 4},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {8, 5},
+            BaseStyle->"TableViewItem"]}
+         },
+         AutoDelete->False,
+         DefaultBaseStyle->{"TableViewGrid", Deployed -> False},
+         FrameStyle->GrayLevel[0.85],
+         GridBoxAlignment->{"Columns" -> {{Left}}},
+         GridBoxBackground->{"Columns" -> {{
+              GrayLevel[1]}}},
+         GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+         GridBoxItemSize->{"Columns" -> {{3}}},
+         GridDefaultElement->TemplateBox[{"\[Placeholder]"}, "TableViewItem"]],
+        "Grid"],
+       Identity,
+       DefaultBaseStyle->{Deployed -> False}],
+      ImageSize->Automatic,
+      ImageSizeAction->"Scrollable",
+      Scrollbars->False]],
+    EventHandlerTag[{{"MenuCommand", "NewRow"} :> 
+      TableView`NewRowColumnEvent["TV3502542877-4350723", 
+        ButtonNotebook[], "row"], {"MenuCommand", "NewColumn"} :> 
+      TableView`NewRowColumnEvent["TV3502542877-4350723", 
+        ButtonNotebook[], "column"], {"MenuCommand", "Copy"} :> 
+      TableView`CopyEvent["TV3502542877-4350723", 
+        ButtonNotebook[]], PassEventsDown -> Automatic, PassEventsUp -> 
+      True}]],
+   Deploy,
+   DefaultBaseStyle->{Deployed -> True}],
+  TableView`TableViewTag[
+  TableHeadings -> {
+    Null, {$CellContext`t, $CellContext`x, $CellContext`a, $CellContext`b, \
+$CellContext`c}}, ItemSize -> 3],
+  BoxID -> "TV3502542877-4350723",
+  DefaultBaseStyle->"TableView"]], "Output",
+ ImageSize->{276, 1850},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->213951176]
+}, Open  ]],
+
+Cell[TextData[{
+ "The infinitesimal generator corresponding to each list of symmetry \
+coefficients is obtained as a derivation by using ",
+ Cell[BoxData[
+  ButtonBox["InfinitesimalGenerator",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/InfinitesimalGenerator"]], 
+  "InlineFormula"],
+ ". Then one can apply the derivations on a given function of the variables \
+and parameters e.g. to find invariants of the symmetries. Below, ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["a", "c"], TraditionalForm]], "InlineMath"],
+ " is an invariant of all but the first and third symmetries described by the \
+above lists of coefficients: "
+}], "ExampleText",
+ CellID->185869731],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InfinitesimalGenerator", "[", 
+   RowBox[{"A", ",", "states", ",", "params", ",", "t"}], "]"}], "[", 
+  RowBox[{"a", " ", "/", "c"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->152376307],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["a", "c"]}], ",", "0", ",", 
+   FractionBox["b", "c"], ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+  "}"}]], "Output",
+ ImageSize->{168, 32},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->69597937]
+}, Open  ]],
+
+Cell[TextData[{
+ "To obtain the transformations of variables and parameters described by the \
+lists of symmetry coefficients above, one can use ",
+ Cell[BoxData[
+  ButtonBox["SymmetryTransformation",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/SymmetryTransformation"]], 
+  "InlineFormula"],
+ ":"
+}], "ExampleText",
+ CellID->785348601],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SymmetryTransformation", "[", 
+  RowBox[{"A", ",", "states", ",", "params", ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->581240121],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"t", "\[Rule]", 
+      RowBox[{"t", " ", "\[Lambda]1"}]}], ",", 
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"a", "\[Rule]", 
+      RowBox[{
+       RowBox[{"-", "a"}], " ", "\[Lambda]1"}]}], ",", 
+     RowBox[{"b", "\[Rule]", 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"b", " ", "\[Lambda]1"}], "2"]}]}], ",", 
+     RowBox[{"c", "\[Rule]", "c"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"t", "\[Rule]", "t"}], ",", 
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"a", "\[Rule]", 
+      RowBox[{"a", " ", "\[Lambda]2"}]}], ",", 
+     RowBox[{"b", "\[Rule]", 
+      FractionBox[
+       RowBox[{"b", " ", "\[Lambda]2"}], "2"]}], ",", 
+     RowBox[{"c", "\[Rule]", 
+      RowBox[{"c", " ", "\[Lambda]2"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"t", "\[Rule]", "t"}], ",", 
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"a", "\[Rule]", 
+      RowBox[{
+       FractionBox["1", "4"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"4", " ", "a"}], "+", 
+         RowBox[{"4", " ", "b", " ", "\[Lambda]3"}], "-", 
+         SuperscriptBox["\[Lambda]3", "2"]}], ")"}]}]}], ",", 
+     RowBox[{"b", "\[Rule]", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", "b"}], "-", "\[Lambda]3"}], ")"}]}]}], ",", 
+     RowBox[{"c", "\[Rule]", "c"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"t", "\[Rule]", "t"}], ",", 
+     RowBox[{"x", "\[Rule]", 
+      RowBox[{"x", " ", "\[Lambda]4"}]}], ",", 
+     RowBox[{"a", "\[Rule]", "a"}], ",", 
+     RowBox[{"b", "\[Rule]", "b"}], ",", 
+     RowBox[{"c", "\[Rule]", "c"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"c", "\[Rule]", "c"}], ",", 
+     RowBox[{"t", "\[Rule]", 
+      RowBox[{"t", "+", 
+       RowBox[{"c", " ", "\[Lambda]5"}]}]}], ",", 
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"a", "\[Rule]", "a"}], ",", 
+     RowBox[{"b", "\[Rule]", "b"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"b", "\[Rule]", "b"}], ",", 
+     RowBox[{"t", "\[Rule]", 
+      RowBox[{"t", "+", 
+       RowBox[{"b", " ", "\[Lambda]6"}]}]}], ",", 
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"a", "\[Rule]", "a"}], ",", 
+     RowBox[{"c", "\[Rule]", "c"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "\[Rule]", "a"}], ",", 
+     RowBox[{"t", "\[Rule]", 
+      RowBox[{"t", "+", 
+       RowBox[{"a", " ", "\[Lambda]7"}]}]}], ",", 
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"b", "\[Rule]", "b"}], ",", 
+     RowBox[{"c", "\[Rule]", "c"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"t", "\[Rule]", 
+      RowBox[{"t", "+", "\[Lambda]8"}]}], ",", 
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"a", "\[Rule]", "a"}], ",", 
+     RowBox[{"b", "\[Rule]", "b"}], ",", 
+     RowBox[{"c", "\[Rule]", "c"}]}], "}"}]}], "}"}]], "Output",
+ ImageSize->{582, 118},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->446245687]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->379550520],
+
+Cell["\<\
+The system may have initial conditions, and the latter may be parametrized by \
+the parameters of the differential equations, or they may have numerical \
+values:\
+\>", "ExampleText",
+ CellID->495436789],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AffineSymmetryCoefficients", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "l"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"l", ",", "a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", "t"}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->67256401],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "0", ",", "1", ",", "1", ",", "b", ",", "0", ",", "0", ",", 
+    "1"}], "}"}], "}"}]], "Output",
+ ImageSize->{165, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->113702175]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Options",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(2)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->19900825],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Fixed",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->582246958],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->134896616],
+
+Cell[TextData[{
+ "Look for affine symmetries that keep the independent variable ",
+ Cell[BoxData[
+  FormBox["t", TraditionalForm]], "InlineMath"],
+ " and the function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"a", " ", 
+     RowBox[{"x", "^", "2"}]}], "+", "c"}], TraditionalForm]], "InlineMath"],
+ ": invariant:"
+}], "ExampleText",
+ CellID->445884326],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AffineSymmetryCoefficients", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"x", "[", "t", "]"}]}]}], ")"}], 
+       RowBox[{"x", "[", "t", "]"}]}], "-", 
+      RowBox[{"c", " ", 
+       RowBox[{"x", "[", "t", "]"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", "x", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}], ",", "t", ",", 
+   RowBox[{"Fixed", "->", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", 
+      RowBox[{
+       RowBox[{"a", " ", 
+        RowBox[{"x", "^", "2"}]}], "+", "c"}]}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->95559423],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ ImageSize->{18, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->49480644]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "ModulusVersion",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->955193242],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->22148147],
+
+Cell["\<\
+Perform the symmetry calculations modulo a prime number - this is necessary \
+for calculating affine symmetries for large systems. The function prints its \
+progress to let you know it's working:\
+\>", "ExampleText",
+ CellID->9095104],
+
+Cell[BoxData[
+ RowBox[{"AffineSymmetryCoefficients", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", "t", ",", 
+   RowBox[{"Fixed", "->", 
+    RowBox[{"{", "t", "}"}]}], ",", 
+   RowBox[{"ModulusVersion", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->163726817]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["TranslationSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ScalingSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["InfinitesimalGenerator",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/InfinitesimalGenerator"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["SymmetryTransformation",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/SymmetryTransformation"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["MinimalOutputSets",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/MinimalOutputSets"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["FindOutputSet",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/FindOutputSet"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Identifiability Analysis Package",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]], \
+"MoreAbout",
+ CellID->487841381]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"AffineSymmetryCoefficients - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 1, 46.4992363}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "AffineSymmetryCoefficients[sys, states, params, t, OptionsPattern[]] \
+calculates the coefficients of a basis for the infinitesimal generators of \
+the affine symmetries of the system of ODEs sys, with state variables states, \
+parameters params and independent variable t.AffineSymmetryCoefficients[sys, \
+states, params, t, inputs, OptionsPattern[]] calculates the coefficients of a \
+basis for the infinitesimal generators of the affine symmetries of the system \
+of ODEs sys, with state variables states, parameters params, input variables \
+inputs and independent variable t.", "synonyms" -> {}, "title" -> 
+    "AffineSymmetryCoefficients", "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"}, "LinkTrails" -> 
+  "", "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[11222, 333, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->135975921]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 55161, 1565}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[619, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[698, 24, 233, 5, 70, "LinkTrail"],
+Cell[934, 31, 3489, 76, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[4426, 109, 69, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[CellGroupData[{
+Cell[4520, 114, 2413, 70, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[6958, 188, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->427895801],
+Cell[7541, 207, 414, 14, 70, "Notes",
+ CellID->470376954],
+Cell[7958, 223, 539, 18, 70, "Notes",
+ CellID->781705251],
+Cell[8500, 243, 527, 17, 70, "Notes",
+ CellID->31772830],
+Cell[9030, 262, 602, 19, 70, "Notes",
+ CellID->97149636],
+Cell[9635, 283, 344, 8, 70, "Notes",
+ CellID->366093498],
+Cell[9982, 293, 164, 4, 70, "Notes",
+ CellID->304221783],
+Cell[10149, 299, 73, 1, 70, "Notes",
+ CellID->1067943069],
+Cell[10225, 302, 948, 25, 70, "3ColumnTableMod",
+ CellID->147791535]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11222, 333, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->135975921],
+Cell[CellGroupData[{
+Cell[11708, 350, 147, 5, 70, "ExampleSection",
+ CellID->86170760],
+Cell[11858, 357, 153, 5, 70, "Input",
+ CellID->833327250],
+Cell[12014, 364, 90, 1, 70, "ExampleText",
+ CellID->343770217],
+Cell[12107, 367, 561, 19, 70, "Input",
+ CellID->406882504],
+Cell[CellGroupData[{
+Cell[12693, 390, 201, 5, 70, "Input",
+ CellID->831521717],
+Cell[12897, 397, 1067, 31, 75, "Output",
+ CellID->239986933]
+}, Open  ]],
+Cell[13979, 431, 270, 5, 70, "ExampleText",
+ CellID->443301027],
+Cell[CellGroupData[{
+Cell[14274, 440, 492, 14, 70, "Input",
+ CellID->50427710],
+Cell[14769, 456, 24656, 588, 70, "Output",
+ CellID->213951176]
+}, Open  ]],
+Cell[39440, 1047, 695, 16, 70, "ExampleText",
+ CellID->185869731],
+Cell[CellGroupData[{
+Cell[40160, 1067, 228, 6, 70, "Input",
+ CellID->152376307],
+Cell[40391, 1075, 330, 11, 53, "Output",
+ CellID->69597937]
+}, Open  ]],
+Cell[40736, 1089, 365, 10, 70, "ExampleText",
+ CellID->785348601],
+Cell[CellGroupData[{
+Cell[41126, 1103, 171, 4, 70, "Input",
+ CellID->581240121],
+Cell[41300, 1109, 3144, 93, 139, "Output",
+ CellID->446245687]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44481, 1207, 125, 3, 70, "ExampleDelimiter",
+ CellID->379550520],
+Cell[44609, 1212, 213, 5, 70, "ExampleText",
+ CellID->495436789],
+Cell[CellGroupData[{
+Cell[44847, 1221, 1126, 35, 70, "Input",
+ CellID->67256401],
+Cell[45976, 1258, 297, 10, 36, "Output",
+ CellID->113702175]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46334, 1275, 221, 7, 70, "ExampleSection",
+ CellID->19900825],
+Cell[CellGroupData[{
+Cell[46580, 1286, 226, 7, 70, "ExampleSubsection",
+ CellID->582246958],
+Cell[46809, 1295, 153, 5, 70, "Input",
+ CellID->134896616],
+Cell[46965, 1302, 363, 12, 70, "ExampleText",
+ CellID->445884326],
+Cell[CellGroupData[{
+Cell[47353, 1318, 788, 26, 70, "Input",
+ CellID->95559423],
+Cell[48144, 1346, 174, 6, 36, "Output",
+ CellID->49480644]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[48367, 1358, 235, 7, 70, "ExampleSubsection",
+ CellID->955193242],
+Cell[48605, 1367, 152, 5, 70, "Input",
+ CellID->22148147],
+Cell[48760, 1374, 244, 5, 70, "ExampleText",
+ CellID->9095104],
+Cell[49007, 1381, 1084, 33, 70, "Input",
+ CellID->163726817]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50152, 1421, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[50572, 1435, 1934, 60, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52543, 1500, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[52965, 1514, 196, 5, 70, "MoreAbout",
+ CellID->487841381]
+}, Open  ]],
+Cell[53176, 1522, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

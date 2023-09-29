@@ -1,0 +1,1517 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     52172,       1507]
+NotebookOptionsPosition[     46352,       1316]
+NotebookOutlinePosition[     48213,       1365]
+CellTagsIndexPosition[     48127,       1360]
+WindowTitle->CommutatorTable - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"InfinitesimalGenerator\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/InfinitesimalGenerator"], \
+"\<\"LieBracket\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/LieBracket"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/CommutatorTable\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/CommutatorTable"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/CommutatorTable.html"], StandardForm]], "Input", 
+              TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/CommutatorTable", ".html"]], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["CommutatorTable", "ObjectName",
+ CellID->1224892054],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["CommutatorTable",
+        BaseStyle->"Link",
+        ButtonData->"paclet:IdentifiabilityAnalysis/ref/CommutatorTable"], 
+       "[", 
+       RowBox[{"delta", ",", "states", ",", "params", ",", "t", ",", 
+        RowBox[{"opts", ":", 
+         RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]Calculates the structure constants for the Lie \
+brackets of the symmetry generators given in ",
+     StyleBox["delta",
+      FontSlant->"Italic"],
+     " and produces a commutator table. The state variables are ",
+     StyleBox["states",
+      FontSlant->"Italic"],
+     ", parameters ",
+     StyleBox["params",
+      FontSlant->"Italic"],
+     " and the independent variable ",
+     StyleBox["t",
+      FontSlant->"Italic"],
+     ".\""
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->285540945],
+
+Cell["Options", "Notes",
+ CellID->1067943069],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["ModulusVersion",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/ModulusVersion"], 
+    ButtonBox["False",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/False"], Cell[TextData[Cell["\<\
+An option for making all calculations modulo a prime number. This option must \
+be used when the symmetry coefficients in delta have been calculated by \
+AffineSymmetryCoefficients with its option ModulusVersion set to True.\
+\>", "TableText"]], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["PrettyPrint",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/PrettyPrint"], 
+    ButtonBox["False",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/False"], Cell[TextData[Cell["\<\
+When set to True, produces a commutator table in the format used in books. \
+The default value just produces a list.\
+\>", "TableText"]], "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True}}}},
+ CellID->9461183]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->904410695],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->860935977],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->90836498],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "l"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->434318459],
+
+Cell["\<\
+Define four sets of coefficients for infinitesimal generators:\
+\>", "ExampleText",
+ CellID->13320665],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta1", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{"x", "[", "t", "]"}], ",", 
+     RowBox[{"b", "-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "[", "t", "]"}], "-", "a"}], ",", "0"}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->641493376],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta2", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"2", "a"}], "-", 
+      RowBox[{"x", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", "0"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->115606660],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta3", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], "a"}], "+", 
+      RowBox[{"5", 
+       RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"4", "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "a"}], "+", 
+      RowBox[{"2", 
+       RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+     RowBox[{"3", "b"}], ",", 
+     RowBox[{"3", "l"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->109986000],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta4", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      RowBox[{"x", "[", "t", "]"}]}], ",", 
+     RowBox[{"-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "l"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->191519373],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta", "=", 
+   RowBox[{"{", 
+    RowBox[{"delta1", ",", "delta2", ",", "delta3", ",", "delta4"}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->581870487],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CommutatorTable", "[", 
+  RowBox[{"delta", ",", "states", ",", "params", ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->119584352],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], " ", "\[Delta]2"}], "+", "\[Delta]3", "+", 
+      RowBox[{"3", " ", "\[Delta]4"}]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[Delta]2"}], "-", "\[Delta]3", "-", 
+      RowBox[{"3", " ", "\[Delta]4"}]}], ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ ImageSize->{521, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->364053353]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Options",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(2)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->817593990],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "ModulusVersion",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->888023162],
+
+Cell["All calculations are done modulo the prime number 863:", "ExampleText",
+ CellID->271967037],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "+", 
+         RowBox[{"b", "^", "2"}]}], ")"}], " ", "/", "c"}], " ", 
+      RowBox[{"x", "[", "t", "]"}]}]}], "}"}]}], ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", "x", "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[55]:=",
+ CellID->104928435],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"A", "=", 
+  RowBox[{"AffineSymmetryCoefficients", "[", 
+   RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+    RowBox[{"Fixed", "->", 
+     RowBox[{"{", "t", "}"}]}], ",", 
+    RowBox[{"ModulusVersion", "\[Rule]", "True"}]}], "]"}]}]], "Input",
+ CellLabel->"In[58]:=",
+ CellID->22599541],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["16"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->33293823],
+
+Cell[BoxData["15"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->965581750],
+
+Cell[BoxData["14"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->87597344],
+
+Cell[BoxData["13"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->232017313],
+
+Cell[BoxData["12"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->51333999],
+
+Cell[BoxData["11"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->552121162],
+
+Cell[BoxData["10"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->372879350],
+
+Cell[BoxData["9"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->32848993],
+
+Cell[BoxData["8"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->47680413],
+
+Cell[BoxData["7"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->223494804],
+
+Cell[BoxData["6"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->45404396],
+
+Cell[BoxData["5"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->167755305],
+
+Cell[BoxData["4"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->57906635],
+
+Cell[BoxData["3"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->441953191],
+
+Cell[BoxData["3"], "Print",
+ CellLabel->"During evaluation of In[58]:=",
+ CellID->53848153]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], " ", "b"}], ",", "1", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"x", "[", "t", "]"}], ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "a", ",", 
+     RowBox[{"432", " ", "b"}], ",", "c"}], "}"}]}], "}"}]], "Output",
+ ImageSize->{382, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[58]=",
+ CellID->425431202]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta", "=", "A"}], ";", 
+  RowBox[{"CommutatorTable", "[", 
+   RowBox[{"delta", ",", "states", ",", "params", ",", "t", ",", 
+    RowBox[{"PrettyPrint", "\[Rule]", "True"}], ",", 
+    RowBox[{"ModulusVersion", "\[Rule]", "True"}]}], "]"}]}]], "Input",
+ CellLabel->"In[60]:=",
+ CellID->66435892],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[
+   TagBox[
+    PanelBox[
+     PaneBox[
+      TagBox[
+       TagBox[GridBox[{
+          {
+           ItemBox[
+            ActionMenuBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "CirclePlusIcon"],
+              ImageSizeCache->{10., {3., 7.}}], {"\<\"Hide/show types\"\>":>
+             TableView`ToggleTypes["TV3502623777-9930142", 
+              ButtonNotebook[]], "\<\"Change type of selected item\"\>":>
+             TableView`ConvertType["TV3502623777-9930142", 
+              ButtonNotebook[]], "\<\"Use headings as data\"\>":>
+             TableView`HeadingsToData["TV3502623777-9930142", 
+              ButtonNotebook[]], Delimiter, "\<\"Paste data\"\>":>
+             TableView`PasteData["TV3502623777-9930142", 
+              ButtonNotebook[]]},
+             Appearance->None,
+             FieldSize->{
+               DirectedInfinity[1], {0, 1}}],
+            Alignment->Center,
+            Background->None,
+            Frame->{{False, True}, {True, False}},
+            ItemSize->Full], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]1\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 1, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 1, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 1], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 1 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 1], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 1]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]2\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 2, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 2, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 2], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 2 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 2], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 2]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]3\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 3, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 3, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 3], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 3 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "column", 3], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "column", 3]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]1\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 1, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 1, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 1], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 1 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 1], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 1]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{RowBox[{"431", " ", "\[Delta]1"}]},
+             "TableViewItemExpression"],
+            BoxID -> {1, 3},
+            BaseStyle->"TableViewItemExpression"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]2\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 2, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 2, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 2], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 2 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 2], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 2]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 3},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]3\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 3, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 3, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 3], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 3 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502623777-9930142", 
+              ButtonNotebook[], "row", 3], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623777-9930142", 
+              ButtonNotebook[], "row", 3]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{RowBox[{"432", " ", "\[Delta]1"}]},
+             "TableViewItemExpression"],
+            BoxID -> {3, 1},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 3},
+            BaseStyle->"TableViewItem"]}
+         },
+         AutoDelete->False,
+         DefaultBaseStyle->{"TableViewGrid", Deployed -> False},
+         FrameStyle->GrayLevel[0.85],
+         GridBoxAlignment->{"Columns" -> {{Left}}},
+         GridBoxBackground->{"Columns" -> {{
+              GrayLevel[1]}}},
+         GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+         GridBoxItemSize->{"Columns" -> {{8}}},
+         GridDefaultElement->TemplateBox[{"\[Placeholder]"}, "TableViewItem"]],
+        "Grid"],
+       Identity,
+       DefaultBaseStyle->{Deployed -> False}],
+      ImageSize->Automatic,
+      ImageSizeAction->"Scrollable",
+      Scrollbars->False]],
+    EventHandlerTag[{{"MenuCommand", "NewRow"} :> 
+      TableView`NewRowColumnEvent["TV3502623777-9930142", 
+        ButtonNotebook[], "row"], {"MenuCommand", "NewColumn"} :> 
+      TableView`NewRowColumnEvent["TV3502623777-9930142", 
+        ButtonNotebook[], "column"], {"MenuCommand", "Copy"} :> 
+      TableView`CopyEvent["TV3502623777-9930142", 
+        ButtonNotebook[]], PassEventsDown -> Automatic, PassEventsUp -> 
+      True}]],
+   Deploy,
+   DefaultBaseStyle->{Deployed -> True}],
+  TableView`TableViewTag[
+  TableHeadings -> {{"\[Delta]1", "\[Delta]2", "\[Delta]3"}, {
+     "\[Delta]1", "\[Delta]2", "\[Delta]3"}}, ItemSize -> 8],
+  BoxID -> "TV3502623777-9930142",
+  DefaultBaseStyle->"TableView"]], "Print",
+ CellLabel->"During evaluation of In[60]:=",
+ CellID->53208472],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"431", " ", "\[Delta]1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"432", " ", "\[Delta]1"}], ",", "0", ",", "0"}], "}"}]}], 
+  "}"}]], "Output",
+ ImageSize->{273, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[60]=",
+ CellID->129223990]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "PrettyPrint",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->328221130],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->34771266],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "l"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->163936678],
+
+Cell["\<\
+Define four sets of coefficients for infinitesimal generators:\
+\>", "ExampleText",
+ CellID->154191022],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta1", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{"x", "[", "t", "]"}], ",", 
+     RowBox[{"b", "-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "[", "t", "]"}], "-", "a"}], ",", "0"}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->471973106],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta2", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"2", "a"}], "-", 
+      RowBox[{"x", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", "0"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->44980844],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta3", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "4"}], "a"}], "+", 
+      RowBox[{"5", 
+       RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"4", "b"}], "+", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "a"}], "+", 
+      RowBox[{"2", 
+       RowBox[{"x", "[", "t", "]"}]}]}], ",", 
+     RowBox[{"3", "b"}], ",", 
+     RowBox[{"3", "l"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->13547727],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta4", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      RowBox[{"x", "[", "t", "]"}]}], ",", 
+     RowBox[{"-", 
+      RowBox[{"y", "[", "t", "]"}]}], ",", 
+     RowBox[{"-", "a"}], ",", 
+     RowBox[{"-", "b"}], ",", 
+     RowBox[{"-", "l"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->196346666],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"delta", "=", 
+   RowBox[{"{", 
+    RowBox[{"delta1", ",", "delta2", ",", "delta3", ",", "delta4"}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->128442932],
+
+Cell["Print a table:", "ExampleText",
+ CellID->344012859],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CommutatorTable", "[", 
+  RowBox[{"delta", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"PrettyPrint", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->129615640],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[
+   TagBox[
+    PanelBox[
+     PaneBox[
+      TagBox[
+       TagBox[GridBox[{
+          {
+           ItemBox[
+            ActionMenuBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "CirclePlusIcon"],
+              ImageSizeCache->{10., {3., 7.}}], {"\<\"Hide/show types\"\>":>
+             TableView`ToggleTypes["TV3502623612-3698566", 
+              ButtonNotebook[]], "\<\"Change type of selected item\"\>":>
+             TableView`ConvertType["TV3502623612-3698566", 
+              ButtonNotebook[]], "\<\"Use headings as data\"\>":>
+             TableView`HeadingsToData["TV3502623612-3698566", 
+              ButtonNotebook[]], Delimiter, "\<\"Paste data\"\>":>
+             TableView`PasteData["TV3502623612-3698566", 
+              ButtonNotebook[]]},
+             Appearance->None,
+             FieldSize->{
+               DirectedInfinity[1], {0, 1}}],
+            Alignment->Center,
+            Background->None,
+            Frame->{{False, True}, {True, False}},
+            ItemSize->Full], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]1\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 1, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 1, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 1], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 1 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 1], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 1]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]2\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 2, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 2, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 2], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 2 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 2], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 2]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]3\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 3, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 3, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 3], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 3 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 3], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 3]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]4\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 4, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 4, "Reverse sort"], 
+             Delimiter, "\<\"New column before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 4], "\<\"New column after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 4 + 1], "\<\"Delete column\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "column", 4], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "column", 4]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]1\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 1, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 1, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 1], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 1 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 1], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 1]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {1, 4},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]2\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 2, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 2, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 2], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 2 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 2], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 2]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{RowBox[{
+                RowBox[{
+                  RowBox[{"-", "2"}], " ", "\[Delta]2"}], "+", "\[Delta]3", 
+                "+", 
+                RowBox[{"3", " ", "\[Delta]4"}]}]},
+             "TableViewItemExpression"],
+            BoxID -> {2, 3},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {2, 4},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]3\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 3, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 3, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 3], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 3 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 3], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 3]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{RowBox[{
+                RowBox[{"2", " ", "\[Delta]2"}], "-", "\[Delta]3", "-", 
+                RowBox[{"3", " ", "\[Delta]4"}]}]},
+             "TableViewItemExpression"],
+            BoxID -> {3, 2},
+            BaseStyle->"TableViewItemExpression"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {3, 4},
+            BaseStyle->"TableViewItem"]},
+          {
+           ItemBox[
+            ActionMenuBox[
+             StyleBox["\<\"\[Delta]4\"\>", "TableViewLabel",
+              StripOnInput->False], {"\<\"Sort\"\>":>TableView`SortData[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 4, "Sort"], "\<\"Reverse sort\"\>":>
+             TableView`SortData["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 4, "Reverse sort"], 
+             Delimiter, "\<\"New row before\"\>":>TableView`NewRowColumn[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 4], "\<\"New row after\"\>":>
+             TableView`NewRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 4 + 1], "\<\"Delete row\"\>":>
+             TableView`DeleteRowColumn["TV3502623612-3698566", 
+              ButtonNotebook[], "row", 4], 
+             Delimiter, "\<\"Use as headings\"\>":>TableView`DataToHeadings[
+             "TV3502623612-3698566", 
+              ButtonNotebook[], "row", 4]},
+             Appearance->None,
+             BaseStyle->"DialogStyle",
+             BaselinePosition->Baseline],
+            Background->None,
+            ItemSize->Full,
+            StripOnInput->False], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 1},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 2},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 3},
+            BaseStyle->"TableViewItem"], 
+           ItemBox[
+            TemplateBox[{"0"},
+             "TableViewItem"],
+            BoxID -> {4, 4},
+            BaseStyle->"TableViewItem"]}
+         },
+         AutoDelete->False,
+         DefaultBaseStyle->{"TableViewGrid", Deployed -> False},
+         FrameStyle->GrayLevel[0.85],
+         GridBoxAlignment->{"Columns" -> {{Left}}},
+         GridBoxBackground->{"Columns" -> {{
+              GrayLevel[1]}}},
+         GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+         GridBoxItemSize->{"Columns" -> {{8}}},
+         GridDefaultElement->TemplateBox[{"\[Placeholder]"}, "TableViewItem"]],
+        "Grid"],
+       Identity,
+       DefaultBaseStyle->{Deployed -> False}],
+      ImageSize->Automatic,
+      ImageSizeAction->"Scrollable",
+      Scrollbars->False]],
+    EventHandlerTag[{{"MenuCommand", "NewRow"} :> 
+      TableView`NewRowColumnEvent["TV3502623612-3698566", 
+        ButtonNotebook[], "row"], {"MenuCommand", "NewColumn"} :> 
+      TableView`NewRowColumnEvent["TV3502623612-3698566", 
+        ButtonNotebook[], "column"], {"MenuCommand", "Copy"} :> 
+      TableView`CopyEvent["TV3502623612-3698566", 
+        ButtonNotebook[]], PassEventsDown -> Automatic, PassEventsUp -> 
+      True}]],
+   Deploy,
+   DefaultBaseStyle->{Deployed -> True}],
+  TableView`TableViewTag[
+  TableHeadings -> {{"\[Delta]1", "\[Delta]2", "\[Delta]3", "\[Delta]4"}, {
+     "\[Delta]1", "\[Delta]2", "\[Delta]3", "\[Delta]4"}}, ItemSize -> 8],
+  BoxID -> "TV3502623612-3698566",
+  DefaultBaseStyle->"TableView"]], "Print",
+ CellLabel->"During evaluation of In[54]:=",
+ CellID->54920030],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], " ", "\[Delta]2"}], "+", "\[Delta]3", "+", 
+      RowBox[{"3", " ", "\[Delta]4"}]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[Delta]2"}], "-", "\[Delta]3", "-", 
+      RowBox[{"3", " ", "\[Delta]4"}]}], ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ ImageSize->{521, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->264075841]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["InfinitesimalGenerator",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/InfinitesimalGenerator"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["LieBracket",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/LieBracket"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"CommutatorTable - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 1, 57.8278843}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "CommutatorTable[delta, states, params, t, opts : OptionsPattern[]] \
+Calculates the structure constants for the Lie brackets of the symmetry \
+generators given in delta and produces a commutator table. The state \
+variables are states, parameters params and the independent variable t.\"", 
+    "synonyms" -> {}, "title" -> "CommutatorTable", "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/CommutatorTable"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[6575, 189, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->904410695]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 47984, 1353}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[608, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[687, 24, 233, 5, 70, "LinkTrail"],
+Cell[923, 31, 2593, 60, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[3519, 93, 58, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[CellGroupData[{
+Cell[3602, 98, 1052, 31, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[4679, 133, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->285540945],
+Cell[5262, 152, 45, 1, 70, "Notes",
+ CellID->1067943069],
+Cell[5310, 155, 1216, 28, 70, "3ColumnTableMod",
+ CellID->9461183]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6575, 189, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->904410695],
+Cell[CellGroupData[{
+Cell[7061, 206, 148, 5, 70, "ExampleSection",
+ CellID->860935977],
+Cell[7212, 213, 163, 6, 70, "Input",
+ CellID->90836498],
+Cell[7378, 221, 174, 6, 70, "Input",
+ CellID->434318459],
+Cell[7555, 229, 112, 3, 70, "ExampleText",
+ CellID->13320665],
+Cell[7670, 234, 407, 14, 70, "Input",
+ CellID->641493376],
+Cell[8080, 250, 490, 17, 70, "Input",
+ CellID->115606660],
+Cell[8573, 269, 555, 20, 70, "Input",
+ CellID->109986000],
+Cell[9131, 291, 373, 13, 70, "Input",
+ CellID->191519373],
+Cell[9507, 306, 206, 7, 70, "Input",
+ CellID->581870487],
+Cell[CellGroupData[{
+Cell[9738, 317, 168, 4, 70, "Input",
+ CellID->119584352],
+Cell[9909, 323, 751, 22, 36, "Output",
+ CellID->364053353]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10709, 351, 222, 7, 70, "ExampleSection",
+ CellID->817593990],
+Cell[CellGroupData[{
+Cell[10956, 362, 235, 7, 70, "ExampleSubsection",
+ CellID->888023162],
+Cell[11194, 371, 97, 1, 70, "ExampleText",
+ CellID->271967037],
+Cell[11294, 374, 562, 19, 70, "Input",
+ CellID->104928435],
+Cell[CellGroupData[{
+Cell[11881, 397, 324, 8, 70, "Input",
+ CellID->22599541],
+Cell[CellGroupData[{
+Cell[12230, 409, 92, 2, 70, "Print",
+ CellID->33293823],
+Cell[12325, 413, 93, 2, 70, "Print",
+ CellID->965581750],
+Cell[12421, 417, 92, 2, 70, "Print",
+ CellID->87597344],
+Cell[12516, 421, 93, 2, 70, "Print",
+ CellID->232017313],
+Cell[12612, 425, 92, 2, 70, "Print",
+ CellID->51333999],
+Cell[12707, 429, 93, 2, 70, "Print",
+ CellID->552121162],
+Cell[12803, 433, 93, 2, 70, "Print",
+ CellID->372879350],
+Cell[12899, 437, 91, 2, 70, "Print",
+ CellID->32848993],
+Cell[12993, 441, 91, 2, 70, "Print",
+ CellID->47680413],
+Cell[13087, 445, 92, 2, 70, "Print",
+ CellID->223494804],
+Cell[13182, 449, 91, 2, 70, "Print",
+ CellID->45404396],
+Cell[13276, 453, 92, 2, 70, "Print",
+ CellID->167755305],
+Cell[13371, 457, 91, 2, 70, "Print",
+ CellID->57906635],
+Cell[13465, 461, 92, 2, 70, "Print",
+ CellID->441953191],
+Cell[13560, 465, 91, 2, 70, "Print",
+ CellID->53848153]
+}, Open  ]],
+Cell[13666, 470, 559, 17, 36, "Output",
+ CellID->425431202]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14262, 492, 330, 8, 70, "Input",
+ CellID->66435892],
+Cell[14595, 502, 11280, 254, 70, "Print",
+ CellID->53208472],
+Cell[25878, 758, 467, 16, 36, "Output",
+ CellID->129223990]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[26394, 780, 232, 7, 70, "ExampleSubsection",
+ CellID->328221130],
+Cell[26629, 789, 163, 6, 70, "Input",
+ CellID->34771266],
+Cell[26795, 797, 174, 6, 70, "Input",
+ CellID->163936678],
+Cell[26972, 805, 113, 3, 70, "ExampleText",
+ CellID->154191022],
+Cell[27088, 810, 407, 14, 70, "Input",
+ CellID->471973106],
+Cell[27498, 826, 489, 17, 70, "Input",
+ CellID->44980844],
+Cell[27990, 845, 554, 20, 70, "Input",
+ CellID->13547727],
+Cell[28547, 867, 373, 13, 70, "Input",
+ CellID->196346666],
+Cell[28923, 882, 206, 7, 70, "Input",
+ CellID->128442932],
+Cell[29132, 891, 57, 1, 70, "ExampleText",
+ CellID->344012859],
+Cell[CellGroupData[{
+Cell[29214, 896, 221, 5, 70, "Input",
+ CellID->129615640],
+Cell[29438, 903, 15055, 344, 70, "Print",
+ CellID->54920030],
+Cell[44496, 1249, 751, 22, 36, "Output",
+ CellID->264075841]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45320, 1279, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[45740, 1293, 570, 18, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[46325, 1314, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

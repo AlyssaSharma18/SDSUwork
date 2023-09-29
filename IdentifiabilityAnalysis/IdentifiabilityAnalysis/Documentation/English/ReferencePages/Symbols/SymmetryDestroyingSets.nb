@@ -1,0 +1,841 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     25011,        831]
+NotebookOptionsPosition[     19825,        667]
+NotebookOutlinePosition[     21946,        719]
+CellTagsIndexPosition[     21861,        714]
+WindowTitle->SymmetryDestroyingSets - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AffineSymmetryCoefficients\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"], \
+"\<\"TranslationSymmetryCoefficients\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"], \
+"\<\"ScalingSymmetryCoeefficients\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoeefficients"], \
+"\<\"FindSymmetryDestroyingSet\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/FindSymmetryDestroyingSet"], \
+"\<\"MinimalOutputSets\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/MinimalOutputSets"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/SymmetryDestroyingSets\"\>\
+":>None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/SymmetryDestroyingSets"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/SymmetryDestroyingSets.html"], StandardForm]], 
+              "Input", TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/SymmetryDestroyingSets", ".html"]], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["SymmetryDestroyingSets", "ObjectName",
+ CellID->1224892054],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["SymmetryDestroyingSets",
+        BaseStyle->"Link",
+        ButtonData->
+         "paclet:IdentifiabilityAnalysis/ref/SymmetryDestroyingSets"], "[", 
+       RowBox[{"delta", ",", "states", ",", "params", ",", "t", ",", 
+        RowBox[{"OptionsPattern", "[", "]"}]}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]calculates all minimal sets with elements from ",
+     Cell[BoxData[
+      StyleBox["states", "TI"]], "InlineFormula"],
+     " and ",
+     Cell[BoxData[
+      StyleBox["params", "TI"]], "InlineFormula"],
+     " which, when set to be fixed, destroy all symmetries spanned by the \
+basis of infinitesimal generators ",
+     Cell[BoxData[
+      StyleBox["delta", "TI"]], "InlineFormula"],
+     "."
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["SymmetryDestroyingSets",
+        BaseStyle->"Link",
+        ButtonData->
+         "paclet:IdentifiabilityAnalysis/ref/SymmetryDestroyingSets"], "[", 
+       RowBox[{
+       "delta", ",", "states", ",", "params", ",", "t", ",", "inputs", ",", 
+        " ", 
+        RowBox[{"OptionsPattern", "[", "]"}]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]calculates all minimal sets with elements from ",
+     Cell[BoxData[
+      StyleBox["states", "TI"]], "InlineFormula"],
+     " and ",
+     Cell[BoxData[
+      StyleBox["params", "TI"]], "InlineFormula"],
+     " which, when set to be fixed, destroy all symmetries spanned by the \
+basis of infinitesimal generators ",
+     Cell[BoxData[
+      StyleBox["delta", "TI"]], "InlineFormula"],
+     ", with exogenous input ",
+     Cell[BoxData[
+      StyleBox["inputs", "TI"]], "InlineFormula"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->68430858],
+
+Cell[TextData[{
+ Cell[BoxData["SymmetryDestroyingSets"], "InlineFormula"],
+ " gives results in terms of sets of (functions of) variables and parameters \
+such that each set is not left invariant by any symmetry with infinitesimal \
+generator spanned by ",
+ Cell[BoxData[
+  StyleBox["delta", "TI"]], "InlineFormula"],
+ ". No subset of these sets does the same."
+}], "Notes",
+ CellID->647946270],
+
+Cell["The following options can be given:", "Notes",
+ CellID->641800364],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["ExtraVariables",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Measured"], 
+    RowBox[{"{", "}"}], Cell[TextData[Cell["\<\
+the list of extra functions of the variables and/or parameters that can be \
+used in the symmetry-destroying sets \
+\>", "TableText"]], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["ExcludedOutputs",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/NotMeasured"], 
+    RowBox[{"{", "}"}], Cell[TextData[Cell["\<\
+the list of variables and parameters that may not be used in the minimal \
+output sets\
+\>", "TableText"]], "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True}}}},
+ CellID->852383990]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->374483047],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->430808423],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->833327250],
+
+Cell["Define a system and look for affine symmetries:", "ExampleText",
+ CellID->343770217],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}]}], "}"}]}], 
+  ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->25489669],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"delta", "=", 
+  RowBox[{"AffineSymmetryCoefficients", "[", 
+   RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+    RowBox[{"Fixed", "->", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "x"}], "}"}]}]}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1019096578],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "0", ",", "1", ",", "b", ",", "0", ",", "0", ",", "1"}], 
+   "}"}], "}"}]], "Output",
+ ImageSize->{147, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->3996467]
+}, Open  ]],
+
+Cell["\<\
+Find sets that are not invariant wrt any symmetry with infinitesimal \
+generator spanned by the above basis vector:\
+\>", "ExampleText",
+ CellID->314162900],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SymmetryDestroyingSets", "[", 
+  RowBox[{"delta", ",", "states", ",", "params", ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->22279194],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"y", "[", "t", "]"}], "}"}], ",", 
+   RowBox[{"{", "a", "}"}], ",", 
+   RowBox[{"{", "d", "}"}]}], "}"}]], "Output",
+ ImageSize->{124, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->85804173]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Options",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(3)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->826158247],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "ExtraVariables",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(2)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->176718626],
+
+Cell["", "ExampleText",
+ CellID->380914483],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->345044955],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->118967595],
+
+Cell["Define a system and look for affine symmetries:", "ExampleText",
+ CellID->283227347],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}]}], "}"}]}], 
+  ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->335262352],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"delta", "=", 
+  RowBox[{"AffineSymmetryCoefficients", "[", 
+   RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+    RowBox[{"Fixed", "->", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "x"}], "}"}]}]}], "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->105422176],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "0", ",", "1", ",", "b", ",", "0", ",", "0", ",", "1"}], 
+   "}"}], "}"}]], "Output",
+ ImageSize->{147, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->292589875]
+}, Open  ]],
+
+Cell["\<\
+One can provide a list of extra functions of variables that can be used to \
+destroy all symmetries:\
+\>", "ExampleText",
+ CellID->136269917],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SymmetryDestroyingSets", "[", 
+  RowBox[{"delta", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"ExtraVariables", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"d", " ", "x"}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->517075969],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"y", "[", "t", "]"}], "}"}], ",", 
+   RowBox[{"{", "a", "}"}], ",", 
+   RowBox[{"{", "d", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"d", " ", 
+     RowBox[{"x", "[", "t", "]"}]}], "}"}]}], "}"}]], "Output",
+ ImageSize->{187, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->602047534]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "ExcludedOutputs",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->31561010],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->742439920],
+
+Cell["Define a system and look for affine symmetries:", "ExampleText",
+ CellID->534340613],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}]}], "}"}]}], 
+  ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->7383476],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"delta", "=", 
+  RowBox[{"AffineSymmetryCoefficients", "[", 
+   RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+    RowBox[{"Fixed", "->", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "x"}], "}"}]}]}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->717323119],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "0", ",", "1", ",", "b", ",", "0", ",", "0", ",", "1"}], 
+   "}"}], "}"}]], "Output",
+ ImageSize->{147, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->357271220]
+}, Open  ]],
+
+Cell["\<\
+One can provide a list of variables and/or parameters that may not used to \
+destroy the symmetries:\
+\>", "ExampleText",
+ CellID->892127433],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SymmetryDestroyingSets", "[", 
+  RowBox[{"delta", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"ExcludedOutputs", "\[Rule]", 
+    RowBox[{"{", "a", "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->586834296],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"y", "[", "t", "]"}], "}"}], ",", 
+   RowBox[{"{", "d", "}"}]}], "}"}]], "Output",
+ ImageSize->{92, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->231941220]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["AffineSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["TranslationSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ScalingSymmetryCoeefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoeefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["FindSymmetryDestroyingSet",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/FindSymmetryDestroyingSet"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["MinimalOutputSets",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/MinimalOutputSets"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"SymmetryDestroyingSets - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 3, 45.7020543}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "SymmetryDestroyingSets[delta, states, params, t, OptionsPattern[]] \
+calculates all minimal sets with elements from states and params which, when \
+set to be fixed, destroy all symmetries spanned by the basis of infinitesimal \
+generators delta.SymmetryDestroyingSets[delta, states, params, t, inputs, \
+OptionsPattern[]] calculates all minimal sets with elements from states and \
+params which, when set to be fixed, destroy all symmetries spanned by the \
+basis of infinitesimal generators delta, with exogenous input inputs.", 
+    "synonyms" -> {}, "title" -> "SymmetryDestroyingSets", "type" -> "Symbol",
+     "uri" -> "IdentifiabilityAnalysis/ref/SymmetryDestroyingSets"}, 
+  "LinkTrails" -> "", "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[8103, 223, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->374483047]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 21718, 707}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[615, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[694, 24, 233, 5, 70, "LinkTrail"],
+Cell[930, 31, 3065, 66, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[3998, 99, 65, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[CellGroupData[{
+Cell[4088, 104, 1934, 53, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[6047, 161, 579, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->68430858],
+Cell[6629, 180, 393, 9, 70, "Notes",
+ CellID->647946270],
+Cell[7025, 191, 72, 1, 70, "Notes",
+ CellID->641800364],
+Cell[7100, 194, 954, 23, 70, "3ColumnTableMod",
+ CellID->852383990]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8103, 223, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->374483047],
+Cell[CellGroupData[{
+Cell[8589, 240, 148, 5, 70, "ExampleSection",
+ CellID->430808423],
+Cell[8740, 247, 153, 5, 70, "Input",
+ CellID->833327250],
+Cell[8896, 254, 90, 1, 70, "ExampleText",
+ CellID->343770217],
+Cell[8989, 257, 999, 33, 70, "Input",
+ CellID->25489669],
+Cell[CellGroupData[{
+Cell[10013, 294, 299, 8, 70, "Input",
+ CellID->1019096578],
+Cell[10315, 304, 280, 9, 36, "Output",
+ CellID->3996467]
+}, Open  ]],
+Cell[10610, 316, 166, 4, 70, "ExampleText",
+ CellID->314162900],
+Cell[CellGroupData[{
+Cell[10801, 324, 174, 4, 70, "Input",
+ CellID->22279194],
+Cell[10978, 330, 315, 11, 36, "Output",
+ CellID->85804173]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11342, 347, 222, 7, 70, "ExampleSection",
+ CellID->826158247],
+Cell[CellGroupData[{
+Cell[11589, 358, 235, 7, 70, "ExampleSubsection",
+ CellID->176718626],
+Cell[11827, 367, 43, 1, 70, "ExampleText",
+ CellID->380914483],
+Cell[CellGroupData[{
+Cell[11895, 372, 125, 3, 70, "ExampleDelimiter",
+ CellID->345044955],
+Cell[12023, 377, 153, 5, 70, "Input",
+ CellID->118967595],
+Cell[12179, 384, 90, 1, 70, "ExampleText",
+ CellID->283227347],
+Cell[12272, 387, 1000, 33, 70, "Input",
+ CellID->335262352],
+Cell[CellGroupData[{
+Cell[13297, 424, 298, 8, 70, "Input",
+ CellID->105422176],
+Cell[13598, 434, 282, 9, 36, "Output",
+ CellID->292589875]
+}, Open  ]],
+Cell[13895, 446, 151, 4, 70, "ExampleText",
+ CellID->136269917],
+Cell[CellGroupData[{
+Cell[14071, 454, 279, 7, 70, "Input",
+ CellID->517075969],
+Cell[14353, 463, 406, 14, 36, "Output",
+ CellID->602047534]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[14820, 484, 235, 7, 70, "ExampleSubsection",
+ CellID->31561010],
+Cell[15058, 493, 153, 5, 70, "Input",
+ CellID->742439920],
+Cell[15214, 500, 90, 1, 70, "ExampleText",
+ CellID->534340613],
+Cell[15307, 503, 998, 33, 70, "Input",
+ CellID->7383476],
+Cell[CellGroupData[{
+Cell[16330, 540, 298, 8, 70, "Input",
+ CellID->717323119],
+Cell[16631, 550, 282, 9, 36, "Output",
+ CellID->357271220]
+}, Open  ]],
+Cell[16928, 562, 151, 4, 70, "ExampleText",
+ CellID->892127433],
+Cell[CellGroupData[{
+Cell[17104, 570, 254, 6, 70, "Input",
+ CellID->586834296],
+Cell[17361, 578, 281, 10, 36, "Output",
+ CellID->231941220]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17715, 596, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[18135, 610, 1648, 52, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[19798, 665, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

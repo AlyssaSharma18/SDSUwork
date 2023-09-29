@@ -1,0 +1,347 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10536,        337]
+NotebookOptionsPosition[      7973,        259]
+NotebookOutlinePosition[      9691,        306]
+CellTagsIndexPosition[      9607,        301]
+WindowTitle->LieBracket - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"InfinitesimalGenerator\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/InfinitesimalGenerator"], \
+"\<\"CommutatorTable\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/CommutatorTable"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/LieBracket\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/LieBracket"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/LieBracket.html"], StandardForm]], "Input", 
+              TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/LieBracket", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["LieBracket", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["LieBracket",
+        BaseStyle->"Link",
+        ButtonData->"paclet:IdentifiabilityAnalysis/ref/LieBracket"], "[", 
+       RowBox[{"f", ",", "g", ",", "states", ",", "params", ",", "t"}], 
+       "]"}]], "InlineFormula"],
+     " \[LineSeparator]calculates the Lie bracket of the vector fields ",
+     StyleBox["f",
+      FontSlant->"Italic"],
+     " and ",
+     StyleBox["g",
+      FontSlant->"Italic"],
+     " with state variables ",
+     StyleBox["states",
+      FontSlant->"Italic"],
+     ", ",
+     StyleBox["params",
+      FontSlant->"Italic"],
+     " params and independent variable ",
+     StyleBox["t",
+      FontSlant->"Italic"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->485298516],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->35275107],
+
+Cell[TextData[{
+ "In the following example, ",
+ Cell[BoxData[
+  FormBox["g", TraditionalForm]], "InlineMath"],
+ " is the infinitesimal generator of a symmetry of ",
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]], "InlineMath"],
+ ":"
+}], "ExampleText",
+ CellID->26139099],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"states", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], ";", 
+  RowBox[{"f", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"x", "[", "t", "]"}], "-", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+        RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+        RowBox[{"b", " ", 
+         RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}], ",", "0", ",", 
+     "0", ",", "0", ",", "0"}], "}"}]}], ";", 
+  RowBox[{"g", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1", ",", "b", ",", "0", ",", "0", ",", "1"}],
+     "}"}]}], ";"}]], "Input",
+ CellLabel->"In[24]:=",
+ CellID->434743959],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LieBracket", "[", 
+  RowBox[{"f", ",", "g", ",", "states", ",", "params", ",", "t"}], 
+  "]"}]], "Input",
+ CellLabel->"In[25]:=",
+ CellID->249216282],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+  "}"}]], "Output",
+ ImageSize->{133, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[25]=",
+ CellID->178413120]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["InfinitesimalGenerator",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/InfinitesimalGenerator"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["CommutatorTable",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/CommutatorTable"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"LieBracket - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 2, 48.8078002}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "LieBracket[f, g, states, params, t] calculates the Lie bracket of the \
+vector fields f and g with state variables states, params params and \
+independent variable t.", "synonyms" -> {}, "title" -> "LieBracket", "type" -> 
+    "Symbol", "uri" -> "IdentifiabilityAnalysis/ref/LieBracket"}, 
+  "LinkTrails" -> "", "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[4501, 130, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->485298516]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 9464, 294}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[603, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[682, 24, 233, 5, 70, "LinkTrail"],
+Cell[918, 31, 2571, 59, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[3492, 92, 53, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[3548, 95, 928, 31, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[4501, 130, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->485298516],
+Cell[CellGroupData[{
+Cell[4987, 147, 147, 5, 70, "ExampleSection",
+ CellID->35275107],
+Cell[5137, 154, 271, 9, 70, "ExampleText",
+ CellID->26139099],
+Cell[5411, 165, 1000, 31, 70, "Input",
+ CellID->434743959],
+Cell[CellGroupData[{
+Cell[6436, 200, 173, 5, 70, "Input",
+ CellID->249216282],
+Cell[6612, 207, 258, 8, 36, "Output",
+ CellID->178413120]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6931, 222, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[7351, 236, 580, 18, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[7946, 257, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

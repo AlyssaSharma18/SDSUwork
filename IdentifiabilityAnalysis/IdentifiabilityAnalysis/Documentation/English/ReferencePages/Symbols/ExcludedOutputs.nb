@@ -1,0 +1,365 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     10770,        355]
+NotebookOptionsPosition[      7889,        265]
+NotebookOutlinePosition[      9593,        312]
+CellTagsIndexPosition[      9509,        307]
+WindowTitle->ExcludedOutputs - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Identifiability Analysis Package\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/ExcludedOutputs\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/ExcludedOutputs"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/ExcludedOutputs.html"], StandardForm]], "Input", 
+              TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/ExcludedOutputs", ".html"]], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["ExcludedOutputs", "ObjectName",
+ CellID->1224892054],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["ExcludedOutputs",
+        BaseStyle->"Link",
+        ButtonData->"paclet:IdentifiabilityAnalysis/ref/ExcludedOutputs"], 
+       "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]is an option which specifies the list of states and/or \
+parameters that are excluded from the available measurements"
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->8193427],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->391911510],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->10011676],
+
+Cell["Define a system of ordinary differential equations:", "ExampleText",
+ CellID->128077436],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"x", "[", "t", "]"}]}]}], ")"}], 
+       RowBox[{"x", "[", "t", "]"}]}], "-", 
+      RowBox[{"c", " ", 
+       RowBox[{"x", "[", "t", "]"}]}]}]}], "}"}]}], ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", "x", "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->898133625],
+
+Cell[TextData[{
+ "The default result from ",
+ Cell[BoxData[
+  ButtonBox["MinimalOutputSets",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/MinimalOutputSets"]], 
+  "InlineFormula"],
+ " is:"
+}], "ExampleText",
+ CellID->129357192],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MinimalOutputSets", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->207625757],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"a", ",", 
+     RowBox[{"x", "[", "t", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"c", ",", 
+     RowBox[{"x", "[", "t", "]"}]}], "}"}]}], "}"}]], "Output",
+ ImageSize->{149, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->373778021]
+}, Open  ]],
+
+Cell[TextData[{
+ "Now exclude ",
+ Cell[BoxData[
+  FormBox["c", TraditionalForm]], "InlineMath"],
+ " from the available measurements:"
+}], "ExampleText",
+ CellID->138537123],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MinimalOutputSets", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"ExcludedOutputs", "\[Rule]", 
+    RowBox[{"{", " ", "c", "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->41542721],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", 
+    RowBox[{"x", "[", "t", "]"}]}], "}"}], "}"}]], "Output",
+ ImageSize->{78, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->96618911]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Identifiability Analysis Package",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]], \
+"MoreAbout",
+ CellID->28189181]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"ExcludedOutputs - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 2, 1.5200955}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "ExcludedOutputs[] is an option which specifies the list of states and/or \
+parameters that are excluded from the available measurements", 
+    "synonyms" -> {}, "title" -> "ExcludedOutputs", "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/ExcludedOutputs"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[4094, 114, 459, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->8193427]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 9368, 300}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[608, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[687, 24, 233, 5, 70, "LinkTrail"],
+Cell[923, 31, 2501, 58, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[3427, 91, 58, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[3488, 94, 581, 16, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[4094, 114, 459, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->8193427],
+Cell[CellGroupData[{
+Cell[4578, 131, 148, 5, 70, "ExampleSection",
+ CellID->391911510],
+Cell[4729, 138, 152, 5, 70, "Input",
+ CellID->10011676],
+Cell[4884, 145, 94, 1, 70, "ExampleText",
+ CellID->128077436],
+Cell[4981, 148, 648, 22, 70, "Input",
+ CellID->898133625],
+Cell[5632, 172, 255, 9, 70, "ExampleText",
+ CellID->129357192],
+Cell[CellGroupData[{
+Cell[5912, 185, 168, 4, 70, "Input",
+ CellID->207625757],
+Cell[6083, 191, 364, 13, 36, "Output",
+ CellID->373778021]
+}, Open  ]],
+Cell[6462, 207, 172, 6, 70, "ExampleText",
+ CellID->138537123],
+Cell[CellGroupData[{
+Cell[6659, 217, 251, 6, 70, "Input",
+ CellID->41542721],
+Cell[6913, 225, 256, 9, 36, "Output",
+ CellID->96618911]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7230, 241, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[7652, 255, 195, 5, 70, "MoreAbout",
+ CellID->28189181]
+}, Open  ]],
+Cell[7862, 263, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

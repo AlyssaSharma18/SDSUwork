@@ -1,0 +1,1591 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     47923,       1581]
+NotebookOptionsPosition[     40601,       1340]
+NotebookOutlinePosition[     42725,       1393]
+CellTagsIndexPosition[     42639,       1388]
+WindowTitle->ObservabilityAnalysis - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"IdentifiabilityAnalysis\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysis"], \
+"\<\"IdentifiableModelQ\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/IdentifiableModelQ"], \
+"\<\"ObservableSystemQ\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ObservableSystemQ"], \
+"\<\"IdentifiabilityAnalysisData\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysisData"], "\<\
+\"ObservabilityAnalysisData\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysisData"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"More About \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"Identifiability Analysis Package\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/ObservabilityAnalysis\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/ObservabilityAnalysis"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/ObservabilityAnalysis.html"], StandardForm]], 
+              "Input", TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/ObservabilityAnalysis", ".html"]], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ CellID->1],
+
+Cell["ObservabilityAnalysis", "ObjectName",
+ CellID->1224892054],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["ObservabilityAnalysis",
+        BaseStyle->"Link",
+        ButtonData->
+         "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"], "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          StyleBox["eqns", "TI"], ",", 
+          StyleBox["expr", "TI"]}], 
+         StyleBox["}", "TI"]}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["x", "TI"], 
+           StyleBox["1", "TR"]], ",", 
+          SubscriptBox[
+           StyleBox["x", "TI"], 
+           StyleBox["2", "TR"]], ",", "..."}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["\[Theta]", "TR"], 
+           StyleBox["1", "TR"]], ",", 
+          SubscriptBox[
+           StyleBox["\[Theta]", "TR"], 
+           StyleBox["2", "TR"]], ",", "..."}], "}"}], ",", 
+        StyleBox["t", "TI"], ",", 
+        StyleBox["u", "TI"]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]performs an observability/identifiability analysis of a \
+system defined by the system of ordinary differential equations ",
+     Cell[BoxData[
+      StyleBox["eqns", "TI"]], "InlineFormula"],
+     " with output given by ",
+     Cell[BoxData[
+      StyleBox["expr", "TI"]], "InlineFormula"],
+     " in the variables ",
+     Cell[BoxData[
+      SubscriptBox[
+       StyleBox["x", "TI"], 
+       StyleBox["i", "TI"]]]],
+     ", parameters ",
+     Cell[BoxData[
+      SubscriptBox[
+       StyleBox["\[Theta]", "TR"], 
+       StyleBox["j", "TI"]]]],
+     ", independent variable",
+     Cell[BoxData[
+      RowBox[{" ", 
+       StyleBox["t", "TI"]}]], "InlineFormula"],
+     ", and input ",
+     Cell[BoxData[
+      StyleBox["u", "TI"]], "InlineFormula"],
+     ", resulting in an outputobject."
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["ObservabilityAnalysis",
+        BaseStyle->"Link",
+        ButtonData->
+         "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"], "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          StyleBox["eqns", "TI"], ",", 
+          StyleBox["expr", "TI"]}], 
+         StyleBox["}", "TI"]}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["x", "TI"], 
+           StyleBox["1", "TR"]], ",", 
+          SubscriptBox[
+           StyleBox["x", "TI"], 
+           StyleBox["2", "TR"]], ",", "..."}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          SubscriptBox[
+           StyleBox["\[Theta]", "TR"], 
+           StyleBox["1", "TR"]], ",", 
+          SubscriptBox[
+           StyleBox["\[Theta]", "TR"], 
+           StyleBox["2", "TR"]], ",", "..."}], "}"}], ",", 
+        StyleBox["t", "TI"], ",", 
+        StyleBox["u", "TI"], ",", "\"\<\!\(\*
+StyleBox[\"property\", \"TI\"]\)\>\""}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]gives the desired property instead of an output object."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->414830937],
+
+Cell[TextData[{
+ "To use ",
+ Cell[BoxData[
+  ButtonBox["ObservabilityAnalysis",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"]], 
+  "InlineFormula"],
+ ", you first need to load the ",
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->"Link",
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ " using ",
+ Cell[BoxData[
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}]], 
+  "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->602301287],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ObservabilityAnalysis",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"]], 
+  "InlineFormula"],
+ " performs a local structural observability analysis based on computing the \
+generic rank of a Jacobian matrix of a vector valued function whose elements \
+consist of the output and a bounded number of output derivatives with respect \
+to the independent variable."
+}], "Notes",
+ CellID->1067943069],
+
+Cell["\<\
+The system must be written as a system of first order differential equations \
+including initial conditions.\
+\>", "Notes",
+ CellID->169015007],
+
+Cell["\<\
+The system needs to be rational, i.e. the differential equations, initial \
+conditions and outputs should only consist of rational expressions in the \
+variables, parameters and inputs.\
+\>", "Notes",
+ CellID->57362073],
+
+Cell[TextData[{
+ "The output is an ",
+ Cell[BoxData[
+  ButtonBox["ObservabilityAnalysisData",
+   BaseStyle->"Link",
+   ButtonData->
+    "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysisData"]], 
+  "InlineFormula"],
+ " output-object, ",
+ Cell[BoxData[
+  StyleBox["oad", "TI"]], "InlineFormula"],
+ ", that can be used to extract additional analysis results and properties \
+using the form ",
+ Cell[BoxData[
+  StyleBox["oad", "TI"]], "InlineFormula"],
+ "[",
+ Cell[BoxData["\"\<\!\(\*
+StyleBox[\"property\", \"TI\"]\)\>\""], "InlineFormula"],
+ "]. Properties to be extracted include:"
+}], "Notes",
+ CellID->389730401],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], Cell[TextData[Cell[BoxData[
+    "\"\<ObservableQ\>\""], "InlineFormula"]], "TableText"], Cell[
+    "True if the system is observable and False otherwise", "TableText"]},
+   {Cell["      ", "TableRowIcon"], Cell[TextData[Cell[BoxData[
+    "\"\<NonObservable\>\""], "InlineFormula"]], "TableText"], Cell[
+    "a list of the nonobservable variables and parameters", "TableText"]},
+   {Cell["      ", "TableRowIcon"], Cell[TextData[Cell[BoxData[
+    "\"\<DegreesOfFreedom\>\""], "InlineFormula"]], "TableText"], Cell["\<\
+the number of additional variables or parameters that must be known to obtain \
+an observable system.\
+\>", "TableText"]},
+   {Cell["      ", "TableRowIcon"], Cell[TextData[Cell[BoxData[
+    "\"\<ObservableVariables\>\""], "InlineFormula"]], "TableText"], Cell[
+    "a list of the observable variables", "TableText"]},
+   {Cell["      ", "TableRowIcon"], Cell[TextData[Cell[BoxData[
+    "\"\<IdentifiableParameters\>\""], "InlineFormula"]], "TableText"], Cell[
+    "a list of the identifiable parameters", "TableText"]}
+  }]], "2ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True, True, True}}}},
+ CellID->227862010],
+
+Cell[TextData[{
+ "The ",
+ Cell[BoxData["\"\<DegreesOfFreedom\>\""], "InlineFormula"],
+ " corresponds to the number of symmetries of the system, which equals the \
+transcendence degree of a particular field extension in the theory of local \
+algebraic observability."
+}], "Notes",
+ CellID->576061309],
+
+Cell[TextData[{
+ "For multi-output systems ",
+ Cell[BoxData[
+  StyleBox["expr", "TI"]], "InlineFormula"],
+ " is replaced by a list of expressions ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    SubscriptBox[
+     StyleBox["expr", "TI"], 
+     StyleBox["1", "TR"]], ",", 
+    SubscriptBox[
+     StyleBox["expr", "TI"], 
+     StyleBox["2", "TR"]], ",", 
+    StyleBox["\[Ellipsis]", "TR"]}], "}"}]], "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->792398644],
+
+Cell[TextData[{
+ "For autonomous systems the last argument denoting the input can be dropped. \
+For multi-input systems ",
+ Cell[BoxData[
+  StyleBox["u", "TI"]], "InlineFormula"],
+ " is replaced by a list of input symbols ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    SubscriptBox[
+     StyleBox["u", "TI"], 
+     StyleBox["1", "TR"]], ",", 
+    SubscriptBox[
+     StyleBox["u", "TI"], 
+     StyleBox["2", "TR"]], ",", 
+    StyleBox["\[Ellipsis]", "TR"]}], "}"}]], "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->226674743],
+
+Cell["The following options can be given:", "Notes",
+ CellID->84158427],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["MaxOrder",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/MaxOrder"], 
+    ButtonBox["Automatic",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Automatic"], Cell[
+    TextData[{
+     Cell["A", "TableText"],
+     " list of the maximum order of derivatives of the outputs."
+    }], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["Modulus",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Modulus"], 
+    ButtonBox["Automatic",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Automatic"], Cell["\<\
+Selects what number to use for modulus and for specialisation.\
+\>", "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["OptimizationLevel",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/OptimizationLevel"], "0",
+     Cell[TextData[{
+     Cell["Takes", "TableText"],
+     " value 0, 1 or 2."
+    }], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["Verbose",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Verbose"], "0", Cell["\<\
+Regulates the level of printing while running. The larger the value, the more \
+printing.\
+\>", "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True, True}}}},
+ CellID->287686842],
+
+Cell[TextData[{
+ "The option ",
+ Cell[BoxData[
+  ButtonBox["OptimizationLevel",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/OptimizationLevel"]], 
+  "InlineFormula"],
+ " takes ",
+ Cell["", "TableText"],
+ "value 0, 1 or 2. Program runs fastest with this set to 2 but also demands \
+the most memory. Setting this to 0 is slowest but demands the least memory. ",
+ "This is because with 1 and 2 different levels of parallelization is \
+utilized."
+}], "Notes",
+ CellID->370674033],
+
+Cell[TextData[{
+ "The option ",
+ Cell[BoxData["Verbose"], "InlineFormula"],
+ " regulates the level of printing while running. Value should be an integer \
+no less than 0 and no greater than 7. The larger the value, the more \
+printing. At the default 0, nothing is printed."
+}], "Notes",
+ CellID->43174760],
+
+Cell[TextData[{
+ "The internal algorithms of ",
+ Cell[BoxData[
+  ButtonBox["ObservabilityAnalysis",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysis"]], 
+  "InlineFormula"],
+ " certifies that a parameter or variable is identifiable or observable while \
+the answer for a nonidentifiable parameter or nonobservable variable is \
+probabilistic with high probability of success."
+}], "Notes",
+ CellID->280793298],
+
+Cell[TextData[{
+ "The implementation of the ",
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->"Link",
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ " is based on [",
+ ButtonBox["S02",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:IdentifiabilityAnalysis/ReferencePages/Symbols/\
+IdentifiabilityAnalysis#166984532"],
+ "] but extended to handle parametrized initial conditions."
+}], "Notes",
+ CellID->299642469]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->435397629],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(4)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->486772693],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->833327250],
+
+Cell["First two trivial examples, one observable and one not:", "ExampleText",
+ CellID->12251897],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"oad", "=", 
+   RowBox[{"ObservabilityAnalysis", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"x1", "[", "t", "]"}]}], "*", "k1"}]}], ",", 
+       RowBox[{"x1", "[", "t", "]"}]}], "}"}], ",", " ", "x1", ",", " ", "k1",
+      ",", " ", "t"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"oad", "[", "\"\<ObservableQ\>\"", "]"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->260881676],
+
+Cell[BoxData["True"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->48341433]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"oad", "=", 
+   RowBox[{"ObservabilityAnalysis", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"x1", "[", "t", "]"}]}], "*", "k1", "*", "k2"}]}], ",", 
+       RowBox[{"x1", "[", "t", "]"}]}], "}"}], ",", " ", "x1", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"k1", ",", "k2"}], "}"}], ",", " ", "t"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"oad", "[", "\"\<ObservableQ\>\"", "]"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->550684797],
+
+Cell[BoxData["False"], "Output",
+ ImageSize->{39, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->112513882]
+}, Open  ]],
+
+Cell["What was not observable?:", "ExampleText",
+ CellID->48087303],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"oad", "[", "\"\<NonObservable\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->372788984],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"k1", ",", "k2"}], "}"}]], "Output",
+ ImageSize->{57, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->102801028]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->249452927],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->621427113],
+
+Cell["An example with inputs:", "ExampleText",
+ CellID->6683783],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deq", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"(", 
+          RowBox[{"kp", "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"F01", "/", "V1"}], ")"}], "/", 
+            RowBox[{"g", "[", "t", "]"}]}], "+", "k21"}], ")"}]}], "*", 
+        RowBox[{"x1", "[", "t", "]"}]}], "+", 
+       RowBox[{"k12", "*", 
+        RowBox[{"x2", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x2", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"k21", "*", 
+        RowBox[{"x1", "[", "t", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"k02", "+", 
+          RowBox[{"x3", "[", "t", "]"}], "+", "k12"}], ")"}], "*", 
+        RowBox[{"x2", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x3", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "kb"}], "*", 
+        RowBox[{"x3", "[", "t", "]"}]}], "+", 
+       RowBox[{"ka", "*", 
+        RowBox[{"u", "[", "t", "]"}]}]}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oad", "=", 
+   RowBox[{"ObservabilityAnalysis", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"deq", ",", 
+       RowBox[{
+        RowBox[{"x1", "[", "t", "]"}], "/", "V1"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "kp", ",", "F01", ",", "V1", ",", "k21", ",", "k12", ",", "k02", ",", 
+       "kb", ",", "ka"}], "}"}], ",", "t", ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "u"}], "}"}], ",", " ", 
+     RowBox[{"OptimizationLevel", "->", "2"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"oad", "[", "\"\<ObservableQ\>\"", "]"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->15926093],
+
+Cell[BoxData["False"], "Output",
+ ImageSize->{39, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->600607920]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"oad", "[", "\"\<NonObservable\>\"", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->127644261],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "kp", ",", "F01", ",", "V1", ",", "k21", ",", "k12", ",", "k02", ",", "x1", 
+   ",", "x2"}], "}"}]], "Output",
+ ImageSize->{236, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->278532735]
+}, Open  ]],
+
+Cell["\<\
+What is the transcendence-degree, i.e. how many symmetries do we have?:\
+\>", "ExampleText",
+ CellID->430357891],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"oad", "[", "\"\<DegreesOfFreedom\>\"", "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->477009830],
+
+Cell[BoxData["2"], "Output",
+ ImageSize->{11, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->301262026]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->458873587],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->79436299],
+
+Cell["Add more outputs:", "ExampleText",
+ CellID->579813166],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deq", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"(", 
+          RowBox[{"kp", "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"F01", "/", "V1"}], ")"}], "/", 
+            RowBox[{"g", "[", "t", "]"}]}], "+", "k21"}], ")"}]}], "*", 
+        RowBox[{"x1", "[", "t", "]"}]}], "+", 
+       RowBox[{"k12", "*", 
+        RowBox[{"x2", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x2", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"k21", "*", 
+        RowBox[{"x1", "[", "t", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"k02", "+", 
+          RowBox[{"x3", "[", "t", "]"}], "+", "k12"}], ")"}], "*", 
+        RowBox[{"x2", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x3", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "kb"}], "*", 
+        RowBox[{"x3", "[", "t", "]"}]}], "+", 
+       RowBox[{"ka", "*", 
+        RowBox[{"u", "[", "t", "]"}]}]}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oad", "=", 
+   RowBox[{"ObservabilityAnalysis", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"deq", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"x1", "[", "t", "]"}], "/", "V1"}], ",", 
+         RowBox[{"x2", "[", "t", "]"}], ",", "kp"}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "kp", ",", "F01", ",", "V1", ",", "k21", ",", "k12", ",", "k02", ",", 
+       "kb", ",", "ka"}], "}"}], ",", " ", "t", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "u"}], "}"}], ",", " ", 
+     RowBox[{"OptimizationLevel", "->", "2"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"oad", "[", "\"\<ObservableQ\>\"", "]"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->191826777],
+
+Cell[BoxData["True"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->70920146]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->523069795],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->327799927],
+
+Cell[TextData[{
+ "Model for circadian oscillations in the Drosophilia period protein [",
+ ButtonBox["G95",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:IdentifiabilityAnalysis/ReferencePages/Symbols/\
+ObservabilityAnalysis#166984532"],
+ "]:"
+}], "ExampleText",
+ CellID->59815681],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sys", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"M", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"vs", "*", 
+        RowBox[{
+         RowBox[{"KI", "^", "4"}], "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"KI", "^", "4"}], "+", 
+           RowBox[{
+            RowBox[{"PN", "[", "t", "]"}], "^", "4"}]}], ")"}]}]}], "-", 
+       RowBox[{"vm", "*", 
+        RowBox[{
+         RowBox[{"M", "[", "t", "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"Km", "+", 
+           RowBox[{"M", "[", "t", "]"}]}], ")"}]}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"P0", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"ks", "*", 
+        RowBox[{"M", "[", "t", "]"}]}], "-", 
+       RowBox[{"V1", "*", 
+        RowBox[{
+         RowBox[{"P0", "[", "t", "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"K1", "+", 
+           RowBox[{"P0", "[", "t", "]"}]}], ")"}]}]}], "+", 
+       RowBox[{"V2", "*", 
+        RowBox[{
+         RowBox[{"P1", "[", "t", "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"K2", "+", 
+           RowBox[{"P1", "[", "t", "]"}]}], ")"}]}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"P1", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"V1", "*", 
+        RowBox[{
+         RowBox[{"P0", "[", "t", "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"K1", "+", 
+           RowBox[{"P0", "[", "t", "]"}]}], ")"}]}]}], "+", 
+       RowBox[{"V4", "*", 
+        RowBox[{
+         RowBox[{"P2", "[", "t", "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"K4", "+", 
+           RowBox[{"P2", "[", "t", "]"}]}], ")"}]}]}], "-", 
+       RowBox[{
+        RowBox[{"P1", "[", "t", "]"}], "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"V2", "/", 
+           RowBox[{"(", 
+            RowBox[{"K2", "+", 
+             RowBox[{"P1", "[", "t", "]"}]}], ")"}]}], "+", 
+          RowBox[{"V3", "/", 
+           RowBox[{"(", 
+            RowBox[{"K3", "+", 
+             RowBox[{"P1", "[", "t", "]"}]}], ")"}]}]}], ")"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"P2", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"V3", "*", 
+        RowBox[{
+         RowBox[{"P1", "[", "t", "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"K3", "+", 
+           RowBox[{"P1", "[", "t", "]"}]}], ")"}]}]}], "-", 
+       RowBox[{
+        RowBox[{"P2", "[", "t", "]"}], "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"V4", "/", 
+           RowBox[{"(", 
+            RowBox[{"K4", "+", 
+             RowBox[{"P2", "[", "t", "]"}]}], ")"}]}], "+", "k1", "+", 
+          RowBox[{
+           RowBox[{"vd", "[", "t", "]"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"Kd", "+", 
+             RowBox[{"P2", "[", "t", "]"}]}], ")"}]}]}], ")"}]}], "+", 
+       RowBox[{"k2", "*", 
+        RowBox[{"PN", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"PN", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"k1", "*", 
+        RowBox[{"P2", "[", "t", "]"}]}], "-", 
+       RowBox[{"k2", "*", 
+        RowBox[{"PN", "[", "t", "]"}]}]}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"par", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "vs", ",", "vm", ",", "ks", ",", "k1", ",", "k2", ",", "Kd", ",", "KI", 
+     ",", "Km", ",", "V1", ",", "V2", ",", "V3", ",", "V4", ",", "K1", ",", 
+     "K2", ",", "K3", ",", "K4"}], "}"}]}], ";"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->703374288],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"oad", "=", 
+  RowBox[{"ObservabilityAnalysis", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"sys", ",", 
+      RowBox[{"PN", "[", "t", "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"M", ",", "P0", ",", "P1", ",", "P2", ",", "PN"}], "}"}], ",", 
+    "par", ",", " ", "t", ",", "vd"}], "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->116115066],
+
+Cell[BoxData["\<\"ObservabilityAnalysisData[False, <>]\"\>"], "Output",
+ ImageSize->{256, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->153072227]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Options",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(2)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell["\<\
+A more interesting example where we also opt for faster computation using \
+parallell processing and calculate the minimum numbers of measurement points \
+assumed for each outputsignal:\
+\>", "ExampleText",
+ CellID->559116870],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[21]:=",
+ CellID->79751678],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deq", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"x1", "[", "t", "]"}]}], "*", 
+        RowBox[{"(", 
+         RowBox[{"k1", "+", 
+          RowBox[{"k2", "*", 
+           RowBox[{"x4", "[", "t", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"k5", "*", 
+        RowBox[{"x3", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x2", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"k2", "*", 
+        RowBox[{"x1", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"k3", "+", "k4"}], ")"}], "*", 
+        RowBox[{"x2", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x3", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"k4", "*", 
+        RowBox[{"x2", "[", "t", "]"}]}], "-", 
+       RowBox[{"k5", "*", 
+        RowBox[{"x3", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x4", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x1", "[", "t", "]"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"k1", "+", 
+          RowBox[{"k2", "*", 
+           RowBox[{"x4", "[", "t", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"2", "*", "k3", "*", 
+        RowBox[{"x2", "[", "t", "]"}]}], "-", 
+       RowBox[{"k5", "*", 
+        RowBox[{"x3", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}]}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oad", "=", 
+   RowBox[{"ObservabilityAnalysis", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"deq", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x1", "[", "t", "]"}], ",", 
+         RowBox[{"x2", "[", "t", "]"}]}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"k1", ",", "k2", ",", "k3", ",", "k4", ",", "k5"}], "}"}], ",", 
+     " ", "t", ",", 
+     RowBox[{"OptimizationLevel", "->", "2"}], ",", " ", 
+     RowBox[{"MinMeasurements", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"oad", "[", "\"\<ObservableQ\>\"", "]"}]}], "Input",
+ CellLabel->"In[28]:=",
+ CellID->253361584],
+
+Cell[BoxData["True"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[30]=",
+ CellID->325753952]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"oad", "[", "\"\<MinNrMeasurements\>\"", "]"}]], "Input",
+ CellLabel->"In[31]:=",
+ CellID->385106570],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"5", ",", "5"}], "}"}]], "Output",
+ ImageSize->{43, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[31]=",
+ CellID->654869211]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->10790824],
+
+Cell["\<\
+What if we can alllow only one derivative (two timepoints minimum) of the \
+first variable but 10 of the second?:\
+\>", "ExampleText",
+ CellID->411167954],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->441928804],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deq", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x1", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"x1", "[", "t", "]"}]}], "*", 
+        RowBox[{"(", 
+         RowBox[{"k1", "+", 
+          RowBox[{"k2", "*", 
+           RowBox[{"x4", "[", "t", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"k5", "*", 
+        RowBox[{"x3", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x2", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"k2", "*", 
+        RowBox[{"x1", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"k3", "+", "k4"}], ")"}], "*", 
+        RowBox[{"x2", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x3", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"k4", "*", 
+        RowBox[{"x2", "[", "t", "]"}]}], "-", 
+       RowBox[{"k5", "*", 
+        RowBox[{"x3", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x4", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"x1", "[", "t", "]"}], "*", 
+        RowBox[{"(", 
+         RowBox[{"k1", "+", 
+          RowBox[{"k2", "*", 
+           RowBox[{"x4", "[", "t", "]"}]}]}], ")"}]}], "+", 
+       RowBox[{"2", "*", "k3", "*", 
+        RowBox[{"x2", "[", "t", "]"}]}], "-", 
+       RowBox[{"k5", "*", 
+        RowBox[{"x3", "[", "t", "]"}], "*", 
+        RowBox[{"x4", "[", "t", "]"}]}]}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oad", "=", 
+   RowBox[{"ObservabilityAnalysis", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"deq", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"x1", "[", "t", "]"}], ",", 
+         RowBox[{"x2", "[", "t", "]"}]}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"k1", ",", "k2", ",", "k3", ",", "k4", ",", "k5"}], "}"}], ",", 
+     " ", "t", ",", 
+     RowBox[{"OptimizationLevel", "->", "2"}], ",", " ", 
+     RowBox[{"MinMeasurements", "\[Rule]", "True"}], ",", 
+     RowBox[{"MaxOrder", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "10"}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"oad", "[", "\"\<ObservableQ\>\"", "]"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->125015909],
+
+Cell[BoxData["True"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->519382631]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "References",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->166984532],
+
+Cell["\<\
+[G95] Goldbeter A, \"A model for circadian oscillations in the Drosophila \
+period protein\", Proceedings of the Royal Society London, B(261):319-324, \
+1995\
+\>", "ExampleText",
+ CellID->67058843],
+
+Cell["\<\
+[S02] Sedoglavic, \"A probabilistic algorithm to test local algebraic \
+observability in polynomial time\", Journal of Symbolic Computation 33, 5 \
+(May 2002), 735-755\
+\>", "ExampleText",
+ CellID->209320137]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["IdentifiabilityAnalysis",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysis"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["IdentifiableModelQ",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/IdentifiableModelQ"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ObservableSystemQ",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/ObservableSystemQ"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["IdentifiabilityAnalysisData",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/IdentifiabilityAnalysisData"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ObservabilityAnalysisData",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/ObservabilityAnalysisData"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->259207131]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["MORE ABOUT",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "MoreAboutSection",
+ CellID->38303248],
+
+Cell[TextData[ButtonBox["Identifiability Analysis Package",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"]], \
+"MoreAbout",
+ CellID->57973600]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"ObservabilityAnalysis - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 3, 22.8077448}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "ObservabilityAnalysis[{eqns, expr}, {x_1, x_2, ...}, {\\[Theta]_1, \
+\\[Theta]_2, ...}, t, u] performs an observability/identifiability analysis \
+of a system defined by the system of ordinary differential equations eqns \
+with output given by expr in the variables x_i, parameters \\[Theta]_j, \
+independent variable t, and input u, resulting in an \
+outputobject.ObservabilityAnalysis[{eqns, expr}, {x_1, x_2, ...}, \
+{\\[Theta]_1, \\[Theta]_2, ...}, t, u, \" property\"] gives the desired \
+property instead of an output object.", "synonyms" -> {}, "title" -> 
+    "ObservabilityAnalysis", "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/ObservabilityAnalysis"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[16307, 476, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->435397629]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 42495, 1381}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[614, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[693, 24, 233, 5, 70, "LinkTrail"],
+Cell[929, 31, 3328, 73, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[4260, 106, 64, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[CellGroupData[{
+Cell[4349, 111, 3181, 97, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[7555, 212, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->414830937],
+Cell[8138, 231, 534, 17, 70, "Notes",
+ CellID->602301287],
+Cell[8675, 250, 489, 11, 70, "Notes",
+ CellID->1067943069],
+Cell[9167, 263, 153, 4, 70, "Notes",
+ CellID->169015007],
+Cell[9323, 269, 229, 5, 70, "Notes",
+ CellID->57362073],
+Cell[9555, 276, 621, 20, 70, "Notes",
+ CellID->389730401],
+Cell[10179, 298, 1373, 24, 70, "2ColumnTableMod",
+ CellID->227862010],
+Cell[11555, 324, 299, 7, 70, "Notes",
+ CellID->576061309],
+Cell[11857, 333, 454, 17, 70, "Notes",
+ CellID->792398644],
+Cell[12314, 352, 524, 18, 70, "Notes",
+ CellID->226674743],
+Cell[12841, 372, 71, 1, 70, "Notes",
+ CellID->84158427],
+Cell[12915, 375, 1609, 42, 70, "3ColumnTableMod",
+ CellID->287686842],
+Cell[14527, 419, 504, 14, 70, "Notes",
+ CellID->370674033],
+Cell[15034, 435, 306, 7, 70, "Notes",
+ CellID->43174760],
+Cell[15343, 444, 455, 11, 70, "Notes",
+ CellID->280793298],
+Cell[15801, 457, 457, 13, 70, "Notes",
+ CellID->299642469]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16307, 476, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->435397629],
+Cell[CellGroupData[{
+Cell[16793, 493, 148, 5, 70, "ExampleSection",
+ CellID->486772693],
+Cell[16944, 500, 153, 5, 70, "Input",
+ CellID->833327250],
+Cell[17100, 507, 97, 1, 70, "ExampleText",
+ CellID->12251897],
+Cell[CellGroupData[{
+Cell[17222, 512, 574, 17, 70, "Input",
+ CellID->260881676],
+Cell[17799, 531, 160, 5, 36, "Output",
+ CellID->48341433]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17996, 541, 636, 19, 70, "Input",
+ CellID->550684797],
+Cell[18635, 562, 162, 5, 36, "Output",
+ CellID->112513882]
+}, Open  ]],
+Cell[18812, 570, 67, 1, 70, "ExampleText",
+ CellID->48087303],
+Cell[CellGroupData[{
+Cell[18904, 575, 119, 3, 70, "Input",
+ CellID->372788984],
+Cell[19026, 580, 205, 7, 36, "Output",
+ CellID->102801028]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19268, 592, 125, 3, 70, "ExampleDelimiter",
+ CellID->249452927],
+Cell[19396, 597, 153, 5, 70, "Input",
+ CellID->621427113],
+Cell[19552, 604, 64, 1, 70, "ExampleText",
+ CellID->6683783],
+Cell[CellGroupData[{
+Cell[19641, 609, 1953, 61, 70, "Input",
+ CellID->15926093],
+Cell[21597, 672, 162, 5, 36, "Output",
+ CellID->600607920]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21796, 682, 119, 3, 70, "Input",
+ CellID->127644261],
+Cell[21918, 687, 283, 9, 36, "Output",
+ CellID->278532735]
+}, Open  ]],
+Cell[22216, 699, 122, 3, 70, "ExampleText",
+ CellID->430357891],
+Cell[CellGroupData[{
+Cell[22363, 706, 122, 3, 70, "Input",
+ CellID->477009830],
+Cell[22488, 711, 158, 5, 36, "Output",
+ CellID->301262026]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22695, 722, 125, 3, 70, "ExampleDelimiter",
+ CellID->458873587],
+Cell[22823, 727, 152, 5, 70, "Input",
+ CellID->79436299],
+Cell[22978, 734, 60, 1, 70, "ExampleText",
+ CellID->579813166],
+Cell[CellGroupData[{
+Cell[23063, 739, 2077, 64, 70, "Input",
+ CellID->191826777],
+Cell[25143, 805, 160, 5, 36, "Output",
+ CellID->70920146]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25352, 816, 125, 3, 70, "ExampleDelimiter",
+ CellID->523069795],
+Cell[25480, 821, 153, 5, 70, "Input",
+ CellID->327799927],
+Cell[25636, 828, 281, 9, 70, "ExampleText",
+ CellID->59815681],
+Cell[25920, 839, 3623, 111, 70, "Input",
+ CellID->703374288],
+Cell[CellGroupData[{
+Cell[29568, 954, 380, 11, 70, "Input",
+ CellID->116115066],
+Cell[29951, 967, 202, 5, 36, "Output",
+ CellID->153072227]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30214, 979, 223, 7, 70, "ExampleSection",
+ CellID->2061341341],
+Cell[30440, 988, 236, 5, 70, "ExampleText",
+ CellID->559116870],
+Cell[30679, 995, 153, 5, 70, "Input",
+ CellID->79751678],
+Cell[CellGroupData[{
+Cell[30857, 1004, 2475, 75, 70, "Input",
+ CellID->253361584],
+Cell[33335, 1081, 162, 5, 36, "Output",
+ CellID->325753952]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33534, 1091, 124, 3, 70, "Input",
+ CellID->385106570],
+Cell[33661, 1096, 204, 7, 36, "Output",
+ CellID->654869211]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33902, 1108, 124, 3, 70, "ExampleDelimiter",
+ CellID->10790824],
+Cell[34029, 1113, 164, 4, 70, "ExampleText",
+ CellID->411167954],
+Cell[34196, 1119, 153, 5, 70, "Input",
+ CellID->441928804],
+Cell[CellGroupData[{
+Cell[34374, 1128, 2579, 78, 70, "Input",
+ CellID->125015909],
+Cell[36956, 1208, 161, 5, 36, "Output",
+ CellID->519382631]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[37178, 1220, 225, 7, 70, "ExampleSection",
+ CellID->166984532],
+Cell[37406, 1229, 207, 5, 70, "ExampleText",
+ CellID->67058843],
+Cell[37616, 1236, 218, 5, 70, "ExampleText",
+ CellID->209320137]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37883, 1247, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[38303, 1261, 1602, 50, 70, "SeeAlso",
+ CellID->259207131]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39942, 1316, 419, 12, 70, "MoreAboutSection",
+ CellID->38303248],
+Cell[40364, 1330, 195, 5, 70, "MoreAbout",
+ CellID->57973600]
+}, Open  ]],
+Cell[40574, 1338, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

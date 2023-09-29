@@ -1,0 +1,1222 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     35458,       1212]
+NotebookOptionsPosition[     28564,        987]
+NotebookOutlinePosition[     30708,       1040]
+CellTagsIndexPosition[     30622,       1035]
+WindowTitle->FindOutputSet - Wolfram Mathematica
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[" ", "SymbolColorBar",
+ CellMargins->{{Inherited, Inherited}, {-5, 0}}],
+
+Cell[TextData[{
+ ButtonBox["Identifiability Analysis Package",
+  BaseStyle->{"Link", "LinkTrail"},
+  ButtonData->"paclet:IdentifiabilityAnalysis/guide/IdentifiabilityAnalysis"],
+ StyleBox[" > ", "LinkTrailSeparator"]
+}], "LinkTrail"],
+
+Cell[BoxData[GridBox[{
+   {Cell["IDENTIFIABILITYANALYSIS PACLET SYMBOL", "PacletNameCell"], Cell[
+    TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"See Also \[RightGuillemet]\"\>",
+        StripOnInput->False], {"\<\"AffineSymmetryCoefficients\"\>":>
+       Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"], \
+"\<\"TranslationSymmetryCoefficients\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"], \
+"\<\"ScalingSymmetryCoefficients\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"], "\<\
+\"StateConnectedOutputs\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/StateConnectedOutputs"], \
+"\<\"SymmetryDestroyingSets\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/SymmetryDestroyingSets"], \
+"\<\"FindOutputSet\"\>":>Documentation`HelpLookup[
+       "paclet:IdentifiabilityAnalysis/ref/MinimalOutputSets"]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox["\<\"URL \[RightGuillemet]\"\>",
+        StripOnInput->
+         False], {"\<\"IdentifiabilityAnalysis/ref/FindOutputSet\"\>":>
+       None, "\<\"Copy Mathematica url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["IdentifiabilityAnalysis/ref/FindOutputSet"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web url\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/mathematica/\
+IdentifiabilityAnalysis/ref/FindOutputSet.html"], StandardForm]], "Input", 
+              TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web url\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+            "http://reference.wolfram.com/mathematica/", 
+             "IdentifiabilityAnalysis/ref/FindOutputSet", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell["FindOutputSet", "ObjectName",
+ CellID->1224892054],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["FindOutputSet",
+        BaseStyle->"Link",
+        ButtonData->"paclet:IdentifiabilityAnalysis/ref/FindOutputSet"], "[", 
+       RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+        RowBox[{"OptionsPattern", "[", "]"}]}], "]"}]], "InlineFormula"],
+     " \[LineSeparator]calculates a minimal set of elements that, when \
+included among the measured outputs, make the system sys with state variables \
+",
+     Cell[BoxData[
+      StyleBox["states", "TI"]], "InlineFormula"],
+     ", parameters ",
+     Cell[BoxData[
+      StyleBox["params", "TI"]], "InlineFormula"],
+     " and independent variable ",
+     Cell[BoxData[
+      StyleBox["t", "TI"]], "InlineFormula"],
+     " structurally identifiable."
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       ButtonBox["FindOutputSet",
+        BaseStyle->"Link",
+        ButtonData->"paclet:IdentifiabilityAnalysis/ref/FindOutputSet"], "[", 
+       RowBox[{
+       "sys", ",", "states", ",", "params", ",", "t", ",", "inputs", ",", 
+        RowBox[{"opts", ":", 
+         RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]calculates a minimal set of elements that, when \
+included among the measured outputs, make the system sys with state variables \
+",
+     Cell[BoxData[
+      StyleBox["states", "TI"]], "InlineFormula"],
+     ", parameters ",
+     Cell[BoxData[
+      StyleBox["params", "TI"]], "InlineFormula"],
+     ", independent variable ",
+     Cell[BoxData[
+      StyleBox["t", "TI"]], "InlineFormula"],
+     " and input variables ",
+     Cell[BoxData[
+      StyleBox["inputs", "TI"]], "InlineFormula"],
+     " structurally identifiable. "
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[
+  FrameBox[
+   StyleBox[
+    RowBox[{"MORE", " ", "INFORMATION"}], "NotesFrameText"],
+   StripOnInput->False],
+  Appearance->{Automatic, None},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->"Preemptive"]]]], "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->460469485],
+
+Cell[TextData[{
+ Cell[BoxData["FindOutputSet"], "InlineFormula"],
+ " gives results in terms of a minimal output set such that the system ",
+ Cell[BoxData[
+  StyleBox["sys", "TI"]], "InlineFormula"],
+ " is identifiable with this set of outputs but not with any subset of it."
+}], "Notes",
+ CellID->468092156],
+
+Cell[TextData[{
+ "An uncontrolled ODE system with no initial conditions provided must be \
+stated in the form ",
+ Cell[BoxData[
+  StyleBox["sys", "TI"]], "InlineFormula"],
+ " = {x1'[t] == k2*x2[t],x2'[t] == x1[t]}, ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ StyleBox[" =",
+  FontSlant->"Italic"],
+ " {x1,x2}, ",
+ Cell[BoxData[
+  StyleBox["params", "TI"]], "InlineFormula"],
+ " = {k1,k2}  with independent variable ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ ", or in the form of a DynamicModelObject. "
+}], "Notes",
+ CellID->781705251],
+
+Cell[TextData[{
+ "An uncontrolled ODE system with initial conditions must be stated in the \
+form ",
+ Cell[BoxData[
+  StyleBox["sys", "TI"]], "InlineFormula"],
+ " = {x1'[t] == k2*x2[t],x2'[t] == x1[t],x1[0]==p,x2[0]==1}, ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ " = {x1,x2}, ",
+ Cell[BoxData[
+  StyleBox[
+   RowBox[{"params", " "}], "TI"]], "InlineFormula"],
+ "= {k1,k2,p} with independent variable ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ ", or in the form of a DynamicModelObject. "
+}], "Notes",
+ CellID->31772830],
+
+Cell[TextData[{
+ "A controlled ODE system must be stated in the form  ",
+ Cell[BoxData[
+  StyleBox["sys", "TI"]], "InlineFormula"],
+ " = {x1'[t] == k2*x2[t]+u1[t],x2'[t] == x1[t],x1[0]==p,x2[0]==1}  with state \
+variables ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ " = {x1,x2}, input (control) variables ",
+ Cell[BoxData[
+  StyleBox["inputs", "TI"]], "InlineFormula"],
+ "={u1[t]}, parameters ",
+ StyleBox["params =",
+  FontSlant->"Italic"],
+ " {k1,k2} with independent variable ",
+ Cell[BoxData[
+  StyleBox["t", "TI"]], "InlineFormula"],
+ ", or in the form of a ",
+ Cell[BoxData[
+  ButtonBox["DynamicModelObject",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/DynamicModelObject"]], 
+  "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->97149636],
+
+Cell[TextData[{
+ Cell[BoxData["FindOutputSet"], "InlineFormula"],
+ " gives results in terms of generic input signals."
+}], "Notes",
+ CellID->42243570],
+
+Cell[TextData[{
+ "By default, the elements of the output set are chosen from ",
+ Cell[BoxData[
+  StyleBox["states", "TI"]], "InlineFormula"],
+ " and ",
+ Cell[BoxData[
+  StyleBox["params", "TI"]], "InlineFormula"],
+ " One can also set functions of these to be measured or available for \
+measurements by using the options ",
+ Cell[BoxData[
+  ButtonBox["MeasuredOutputs",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/MeasuredOutputs"]], 
+  "InlineFormula"],
+ ", resp. ",
+ Cell[BoxData[
+  ButtonBox["AvailableOutputs",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/AvailableOutputs"]], 
+  "InlineFormula"],
+ ". "
+}], "Notes",
+ CellID->205491204],
+
+Cell[TextData[{
+ "One can exclude certain state variables or parameters from the elements \
+available for use in the output set by using the option ",
+ Cell[BoxData[
+  ButtonBox["ExcludedOutputs",
+   BaseStyle->"Link",
+   ButtonData->"paclet:IdentifiabilityAnalysis/ref/ExcludedOutputs"]], 
+  "InlineFormula"],
+ "."
+}], "Notes",
+ CellID->401245302],
+
+Cell["The following options can be given:", "Notes",
+ CellID->84158427],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["MeasuredOutputs",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Measured"], 
+    RowBox[{"{", "}"}], Cell[TextData[Cell["\<\
+the list of (functions of the) variables and/or parameters that must be among \
+the measured outputs (or are priori known/fixed parameters)\
+\>", "TableText"]], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["ExcludedOutputs",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/NotMeasured"], 
+    RowBox[{"{", "}"}], Cell[TextData[Cell["\<\
+the list of variables and parameters that may not be used in the minimal \
+output sets\
+\>", "TableText"]], "TableText"]},
+   {Cell["      ", "TableRowIcon"], 
+    ButtonBox["AvailableOutputs",
+     BaseStyle->"Link",
+     ButtonData->"paclet:IdentifiabilityAnalysis/ref/Available"], 
+    RowBox[{"{", "}"}], Cell[TextData[Cell["\<\
+the list of functions of the states and parameters that are available for \
+measurements or known a priori\
+\>", "TableText"]], "TableText"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, {None}}, "RowsIndexed" -> {}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True}}}},
+ CellID->69478301]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["EXAMPLES",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->828279509],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount"]
+}], "ExampleSection",
+ CellID->489164379],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->833327250],
+
+Cell["Define a system of ordinary differential equations:", "ExampleText",
+ CellID->12251897],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"x", "[", "t", "]"}]}]}], ")"}], 
+       RowBox[{"x", "[", "t", "]"}]}], "-", 
+      RowBox[{"c", " ", 
+       RowBox[{"x", "[", "t", "]"}]}]}]}], "}"}]}], ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", "x", "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->19763197],
+
+Cell["\<\
+Find a minimal output set that give structural identifiability :\
+\>", "ExampleText",
+ CellID->236439379],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1038249647],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x", "[", "t", "]"}], ",", "a"}], "}"}]], "Output",
+ ImageSize->{64, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->8207087]
+}, Open  ]],
+
+Cell["\<\
+The system is observable/identifiable with the above output set:\
+\>", "ExampleText",
+ CellID->43793459],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ObservableSystemQ", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"sys", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "[", "t", "]"}], ",", "a"}], "}"}]}], "}"}], ",", 
+   "states", ",", "params", ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1007048258],
+
+Cell[BoxData["True"], "Output",
+ ImageSize->{32, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->333544091]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->22750109],
+
+Cell["\<\
+The function can be used with or without initial conditions for the ODE \
+system:\
+\>", "ExampleText",
+ CellID->120693715],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", "t"}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->293952211],
+
+Cell[BoxData["False"], "Print",
+ CellLabel->"During evaluation of In[21]:=",
+ CellID->291429365],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"y", "[", "t", "]"}], "}"}]], "Output",
+ ImageSize->{46, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->352966235]
+}, Open  ]],
+
+Cell["The initial conditions can be parameters:", "ExampleText",
+ CellID->158048990],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "k"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "l"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "l", ",", "a", ",", "b", ",", "c", ",", "d"}], "}"}], 
+   ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->23610038],
+
+Cell[BoxData["False"], "Print",
+ CellLabel->"During evaluation of In[22]:=",
+ CellID->8209833],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"y", "[", "t", "]"}], "}"}]], "Output",
+ ImageSize->{46, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->295648898]
+}, Open  ]],
+
+Cell["The initial conditions can have numerical values:", "ExampleText",
+ CellID->51283857],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "-", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"x", "[", "t", "]"}], "^", "3"}], "/", "3"}], "-", 
+         RowBox[{"y", "[", "t", "]"}], "+", "d"}], ")"}], "c"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"x", "[", "t", "]"}], "+", "a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"y", "[", "t", "]"}]}]}], ")"}], "/", "c"}]}], ",", 
+     RowBox[{
+      RowBox[{"x", "[", "0", "]"}], "\[Equal]", "k"}], ",", 
+     RowBox[{
+      RowBox[{"y", "[", "0", "]"}], "\[Equal]", "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", "t"}], 
+  "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->205534503],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"x", "[", "t", "]"}], "}"}]], "Output",
+ ImageSize->{46, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->136206690]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "Options",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(3)", "ExampleCount"]
+  }], "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "AvailableOutputs",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->642897546],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->10011676],
+
+Cell["Define a system of ordinary differential equations:", "ExampleText",
+ CellID->128077436],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"x", "[", "t", "]"}]}]}], ")"}], 
+       RowBox[{"x", "[", "t", "]"}]}], "-", 
+      RowBox[{"c", " ", 
+       RowBox[{"x", "[", "t", "]"}]}]}]}], "}"}]}], ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", "x", "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->898133625],
+
+Cell["\<\
+More alternative output sets are produced when allowing the function to use \
+other outputs than just the state variables and parameters:\
+\>", "ExampleText",
+ CellID->138537123],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"MeasuredOutputs", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"a", " ", "x"}], " ", "+", " ", "c"}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->41542721],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"c", "+", 
+   RowBox[{"a", " ", 
+    RowBox[{"x", "[", "t", "]"}]}]}], "}"}]], "Output",
+ ImageSize->{76, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->47337891]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "MeasuredOutputs",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->103219954],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->320879692],
+
+Cell["Define a system of ordinary differential equations:", "ExampleText",
+ CellID->694095132],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"x", "[", "t", "]"}]}]}], ")"}], 
+       RowBox[{"x", "[", "t", "]"}]}], "-", 
+      RowBox[{"c", " ", 
+       RowBox[{"x", "[", "t", "]"}]}]}]}], "}"}]}], ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", "x", "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->412522795],
+
+Cell["\<\
+The elements of MeasuredOutputs are forced to be among the produced outputs. \
+Use AvailableOutputs if you only want to give them as alternatives to the \
+function:\
+\>", "ExampleText",
+ CellID->12226894],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"MeasuredOutputs", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"a", " ", "c"}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->296361],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"a", " ", "c"}], ",", 
+   RowBox[{"x", "[", "t", "]"}]}], "}"}]], "Output",
+ ImageSize->{74, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->108767283]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"AvailableOutputs", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"a", " ", "c"}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->377414355],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x", "[", "t", "]"}], ",", 
+   RowBox[{"a", " ", "c"}]}], "}"}]], "Output",
+ ImageSize->{74, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->286737565]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[TextData[{
+   "ExcludedOutputs",
+   "\[NonBreakingSpace]\[NonBreakingSpace]",
+   Cell["(1)", "ExampleCount"]
+  }], "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->14871280],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<IdentifiabilityAnalysis`\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->419368041],
+
+Cell["Define a system of ordinary differential equations:", "ExampleText",
+ CellID->39257111],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sys", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", " ", 
+          RowBox[{"x", "[", "t", "]"}]}]}], ")"}], 
+       RowBox[{"x", "[", "t", "]"}]}], "-", 
+      RowBox[{"c", " ", 
+       RowBox[{"x", "[", "t", "]"}]}]}]}], "}"}]}], ";", 
+  RowBox[{"states", "=", 
+   RowBox[{"{", "x", "}"}]}], ";", 
+  RowBox[{"params", "=", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->218115396],
+
+Cell["This is the default result:", "ExampleText",
+ CellID->212409048],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->457760543],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x", "[", "t", "]"}], ",", "a"}], "}"}]], "Output",
+ ImageSize->{64, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->244833951]
+}, Open  ]],
+
+Cell[TextData[{
+ "Now exclude ",
+ Cell[BoxData[
+  StyleBox["a", "TI"]], "InlineFormula"],
+ " from the parameters available from e.g. literature:"
+}], "ExampleText",
+ CellID->631308993],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindOutputSet", "[", 
+  RowBox[{"sys", ",", "states", ",", "params", ",", "t", ",", 
+   RowBox[{"ExcludedOutputs", "\[Rule]", 
+    RowBox[{"{", "a", "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->375451945],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x", "[", "t", "]"}], ",", "c"}], "}"}]], "Output",
+ ImageSize->{64, 15},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->482911528]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["SEE ALSO",
+ BaseStyle->None,
+ Appearance->{Automatic, None},
+ Evaluator->None,
+ Method->"Preemptive",
+ ButtonFunction:>(FrontEndExecute[{
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], All, ButtonCell], 
+    FrontEndToken["OpenCloseGroup"], 
+    FrontEnd`SelectionMove[
+     FrontEnd`SelectedNotebook[], After, 
+     CellContents]}]& )]], "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["AffineSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/AffineSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["TranslationSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/TranslationSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["ScalingSymmetryCoefficients",
+    BaseStyle->"Link",
+    ButtonData->
+     "paclet:IdentifiabilityAnalysis/ref/ScalingSymmetryCoefficients"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["StateConnectedOutputs",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/StateConnectedOutputs"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["SymmetryDestroyingSets",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/SymmetryDestroyingSets"],
+   FontFamily->"Verdana"]], "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  StyleBox[
+   ButtonBox["FindOutputSet",
+    BaseStyle->"Link",
+    ButtonData->"paclet:IdentifiabilityAnalysis/ref/MinimalOutputSets"],
+   FontFamily->"Verdana"]], "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"FindOutputSet - Wolfram Mathematica",
+TaggingRules->{
+ "ModificationHighlight" -> False, 
+  "Metadata" -> {
+   "built" -> "{2013, 9, 11, 15, 2, 7.9304621}", "context" -> 
+    "IdentifiabilityAnalysis`", "keywords" -> {}, "index" -> True, "label" -> 
+    "IdentifiabilityAnalysis Paclet Symbol", "language" -> "en", "paclet" -> 
+    "IdentifiabilityAnalysis", "status" -> "None", "summary" -> 
+    "FindOutputSet[sys, states, params, t, OptionsPattern[]] calculates a \
+minimal set of elements that, when included among the measured outputs, make \
+the system sys with state variables states, parameters params and independent \
+variable t structurally identifiable.FindOutputSet[sys, states, params, t, \
+inputs, opts : OptionsPattern[]] calculates a minimal set of elements that, \
+when included among the measured outputs, make the system sys with state \
+variables states, parameters params, independent variable t and input \
+variables inputs structurally identifiable. ", "synonyms" -> {}, "title" -> 
+    "FindOutputSet", "type" -> "Symbol", "uri" -> 
+    "IdentifiabilityAnalysis/ref/FindOutputSet"}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "9.0 for Microsoft Windows (64-bit) (November 20, 2012)",
+   StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[11629, 338, 461, 13, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->828279509]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 30478, 1028}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[606, 21, 76, 1, 70, "SymbolColorBar"],
+Cell[685, 24, 233, 5, 70, "LinkTrail"],
+Cell[921, 31, 3141, 67, 70, "AnchorBarGrid",
+ CellID->1],
+Cell[4065, 100, 56, 1, 70, "ObjectName",
+ CellID->1224892054],
+Cell[CellGroupData[{
+Cell[4146, 105, 1959, 53, 70, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[6130, 162, 580, 17, 70, "NotesSection",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->460469485],
+Cell[6713, 181, 307, 7, 70, "Notes",
+ CellID->468092156],
+Cell[7023, 190, 575, 18, 70, "Notes",
+ CellID->781705251],
+Cell[7601, 210, 561, 17, 70, "Notes",
+ CellID->31772830],
+Cell[8165, 229, 790, 25, 70, "Notes",
+ CellID->97149636],
+Cell[8958, 256, 150, 4, 70, "Notes",
+ CellID->42243570],
+Cell[9111, 262, 697, 22, 70, "Notes",
+ CellID->205491204],
+Cell[9811, 286, 348, 10, 70, "Notes",
+ CellID->401245302],
+Cell[10162, 298, 71, 1, 70, "Notes",
+ CellID->84158427],
+Cell[10236, 301, 1344, 31, 70, "3ColumnTableMod",
+ CellID->69478301]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11629, 338, 461, 13, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->828279509],
+Cell[CellGroupData[{
+Cell[12115, 355, 148, 5, 70, "ExampleSection",
+ CellID->489164379],
+Cell[12266, 362, 153, 5, 70, "Input",
+ CellID->833327250],
+Cell[12422, 369, 93, 1, 70, "ExampleText",
+ CellID->12251897],
+Cell[12518, 372, 647, 22, 70, "Input",
+ CellID->19763197],
+Cell[13168, 396, 115, 3, 70, "ExampleText",
+ CellID->236439379],
+Cell[CellGroupData[{
+Cell[13308, 403, 165, 4, 70, "Input",
+ CellID->1038249647],
+Cell[13476, 409, 230, 8, 36, "Output",
+ CellID->8207087]
+}, Open  ]],
+Cell[13721, 420, 114, 3, 70, "ExampleText",
+ CellID->43793459],
+Cell[CellGroupData[{
+Cell[13860, 427, 308, 10, 70, "Input",
+ CellID->1007048258],
+Cell[14171, 439, 161, 5, 36, "Output",
+ CellID->333544091]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14369, 449, 124, 3, 70, "ExampleDelimiter",
+ CellID->22750109],
+Cell[14496, 454, 132, 4, 70, "ExampleText",
+ CellID->120693715],
+Cell[CellGroupData[{
+Cell[14653, 462, 954, 31, 70, "Input",
+ CellID->293952211],
+Cell[15610, 495, 96, 2, 70, "Print",
+ CellID->291429365],
+Cell[15709, 499, 208, 7, 36, "Output",
+ CellID->352966235]
+}, Open  ]],
+Cell[15932, 509, 84, 1, 70, "ExampleText",
+ CellID->158048990],
+Cell[CellGroupData[{
+Cell[16041, 514, 1124, 35, 70, "Input",
+ CellID->23610038],
+Cell[17168, 551, 94, 2, 70, "Print",
+ CellID->8209833],
+Cell[17265, 555, 208, 7, 36, "Output",
+ CellID->295648898]
+}, Open  ]],
+Cell[17488, 565, 91, 1, 70, "ExampleText",
+ CellID->51283857],
+Cell[CellGroupData[{
+Cell[17604, 570, 1114, 35, 70, "Input",
+ CellID->205534503],
+Cell[18721, 607, 208, 7, 36, "Output",
+ CellID->136206690]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18990, 621, 223, 7, 70, "ExampleSection",
+ CellID->2061341341],
+Cell[CellGroupData[{
+Cell[19238, 632, 237, 7, 70, "ExampleSubsection",
+ CellID->642897546],
+Cell[19478, 641, 152, 5, 70, "Input",
+ CellID->10011676],
+Cell[19633, 648, 94, 1, 70, "ExampleText",
+ CellID->128077436],
+Cell[19730, 651, 648, 22, 70, "Input",
+ CellID->898133625],
+Cell[20381, 675, 188, 4, 70, "ExampleText",
+ CellID->138537123],
+Cell[CellGroupData[{
+Cell[20594, 683, 308, 9, 70, "Input",
+ CellID->41542721],
+Cell[20905, 694, 256, 9, 36, "Output",
+ CellID->47337891]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[21210, 709, 236, 7, 70, "ExampleSubsection",
+ CellID->103219954],
+Cell[21449, 718, 153, 5, 70, "Input",
+ CellID->320879692],
+Cell[21605, 725, 94, 1, 70, "ExampleText",
+ CellID->694095132],
+Cell[21702, 728, 648, 22, 70, "Input",
+ CellID->412522795],
+Cell[22353, 752, 214, 5, 70, "ExampleText",
+ CellID->12226894],
+Cell[CellGroupData[{
+Cell[22592, 761, 266, 7, 70, "Input",
+ CellID->296361],
+Cell[22861, 770, 256, 9, 36, "Output",
+ CellID->108767283]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23154, 784, 270, 7, 70, "Input",
+ CellID->377414355],
+Cell[23427, 793, 256, 9, 36, "Output",
+ CellID->286737565]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[23732, 808, 235, 7, 70, "ExampleSubsection",
+ CellID->14871280],
+Cell[23970, 817, 153, 5, 70, "Input",
+ CellID->419368041],
+Cell[24126, 824, 93, 1, 70, "ExampleText",
+ CellID->39257111],
+Cell[24222, 827, 648, 22, 70, "Input",
+ CellID->218115396],
+Cell[24873, 851, 70, 1, 70, "ExampleText",
+ CellID->212409048],
+Cell[CellGroupData[{
+Cell[24968, 856, 164, 4, 70, "Input",
+ CellID->457760543],
+Cell[25135, 862, 232, 8, 36, "Output",
+ CellID->244833951]
+}, Open  ]],
+Cell[25382, 873, 184, 6, 70, "ExampleText",
+ CellID->631308993],
+Cell[CellGroupData[{
+Cell[25591, 883, 243, 6, 70, "Input",
+ CellID->375451945],
+Cell[25837, 891, 232, 8, 36, "Output",
+ CellID->482911528]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26142, 907, 417, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[26562, 921, 1960, 61, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[28537, 985, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
